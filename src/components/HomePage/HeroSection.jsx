@@ -44,9 +44,9 @@ const HeroSection = () => {
 					ref={imageRef}
 					className="col-span-1 md:col-span-12 md:row-start-1 md:col-start-1 object-cover w-full h-auto md:max-h-[80vh]"
 				/>
-				<div className="md:col-start-9 md:row-start-1 md:col-span-4 w-full bg-white md:bg-white/75">
-					<div className=" flex flex-col justify-center items-center  w-10/12 md:pb-[33%] mx-auto mb-12">
-						<h1 className="px-8 md:px-0 lg:py-12 pt-8 pb-4  text-center md:text-3xl text-4xl lg:text-5xl font-Cinzel font-bold">
+				<div className="md:col-start-9 md:row-start-1 md:col-span-4 lg:col-span-5 lg:col-start-8 xl:col-start-9 xl:col-span-4 w-full bg-white md:bg-white/75">
+					<div className=" flex flex-col justify-center items-center  w-10/12 md:pt-[33%]  mx-auto ">
+						<h1 className="px-8 md:px-0 lg:py-12 pt-8 pb-4  text-center md:text-3xl text-4xl lg:text-4xl font-Cinzel font-bold">
 							{currentTitle}
 						</h1>
 						<h2
@@ -55,11 +55,11 @@ const HeroSection = () => {
 								__html: currentSubtitle,
 							}}
 						>
-							
+
 						</h2>
 						<a
 							href="/store"
-							className="text-sc-off-white bg-sc-red hover:bg-sc-red-dark hover:text-sc-gold text-center w-full text-2xl md:text-xl lg:text-4xl py-5 px-12 rounded font-Cinzel font-bold cursor-pointer"
+							className="text-sc-off-white bg-sc-red hover:bg-sc-red-dark hover:text-sc-gold text-center w-full text-2xl mt-4 md:text-xl lg:text-4xl py-5 px-12 rounded font-Cinzel font-bold cursor-pointer"
 						>
 							Order Now
 						</a>

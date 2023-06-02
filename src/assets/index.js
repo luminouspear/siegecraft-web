@@ -24,14 +24,34 @@ import iconLightWhite from "./icon_light_80_white.svg";
 import iconShadowWhite from "./icon_shadow_80_white.svg";
 import iconCaret from "./icon_caret.svg";
 import cardBack from "./card_back.jpg";
-import prime_earth_sample from "./prime_earth_001_flickering_melai.jpg"
-import prime_air_sample from "./prime_air_065_lightning_storm.jpg"
-import prime_fire_sample from "./prime_fire_084_magma_serpent.jpg"
-import prime_water_sample from "./prime_water_112_repulsor_mage.jpg"
-import prime_light_sample from "./prime_light_159_sanctuary.jpg"
-import prime_shadow_sample from "./prime_shadow_178_undercity_mortician.jpg"
-
-
+import prime_earth_sample from "./prime_earth_001_flickering_melai.jpg";
+import prime_air_sample from "./prime_air_065_lightning_storm.jpg";
+import prime_fire_sample from "./prime_fire_084_magma_serpent.jpg";
+import prime_water_sample from "./prime_water_112_repulsor_mage.jpg";
+import prime_light_sample from "./prime_light_159_sanctuary.jpg";
+import prime_shadow_sample from "./prime_shadow_178_undercity_mortician.jpg";
+import video_attack_4g_mp4 from "./video/attack_example_4g.mp4";
+import video_attack_4g_webm from "./video/attack_example_4g.webm";
+import video_attack_mp4 from "./video/attack_example.mp4";
+import video_attack_webm from "./video/attack_example.webm";
+import video_charge_4g_mp4 from "./video/charge_example_4g.mp4";
+import video_charge_4g_webm from "./video/charge_example_4g.webm";
+import video_charge_mp4 from "./video/charge_example.mp4";
+import video_charge_webm from "./video/charge_example.webm";
+import video_siege_4g_mp4 from "./video/siege_example_4g.mp4";
+import video_siege_4g_webm from "./video/siege_example_4g.webm";
+import video_siege_mp4 from "./video/siege_example.mp4";
+import video_siege_webm from "./video/siege_example.webm";
+import card_array from "./image_prime_card_array.jpg";
+import gallery_1 from "./gallery_1.jpg";
+import gallery_2 from "./gallery_2.jpg";
+import gallery_3 from "./gallery_3.jpg";
+import gallery_4 from "./gallery_4.jpg";
+import gallery_5 from "./gallery_5.jpg";
+import gallery_6 from "./gallery_6.jpg";
+import gallery_7 from "./gallery_7.jpg";
+import gallery_8 from "./gallery_8.jpg";
+import gallery_9 from "./gallery_9.jpg";
 
 export {
 	siegecraftLogo,
@@ -66,4 +86,26 @@ export {
 	prime_water_sample,
 	prime_light_sample,
 	prime_shadow_sample,
+	video_attack_4g_mp4,
+	video_attack_4g_webm,
+	video_attack_mp4,
+	video_attack_webm,
+	video_charge_4g_mp4,
+	video_charge_4g_webm,
+	video_charge_mp4,
+	video_charge_webm,
+	video_siege_4g_mp4,
+	video_siege_4g_webm,
+	video_siege_mp4,
+	video_siege_webm,
+	card_array,
+	gallery_1,
+	gallery_2,
+	gallery_3,
+	gallery_4,
+	gallery_5,
+	gallery_6,
+	gallery_7,
+	gallery_8,
+	gallery_9,
 };

@@ -1,6 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { Link } from 'react-router-dom'
 import { siegecraftLogo, menu, close } from "../assets";
 import styles from "../styles"
+import { navLinks } from "../constants";
 
 const NavBar = () => {
 
@@ -13,12 +15,18 @@ const NavBar = () => {
 		<nav className="sticky top-0 z-10 bg-sc-dark-black container min-w-full py-0 font-Catamaran">
 			<div className="flex justify-between items-center px-8 py-8">
 				<img src={siegecraftLogo} className="h-16" />
-				<div className="hidden md:inline">
-					<ul className="flex flex-row gap-4 lg:gap-10 items-center">
-						<li className={`${navLinkStyle}`}>Store</li>
-						<li className={`${navLinkStyle}`}>Elements</li>
-						<li className={`${navLinkStyle}`}>Cards</li>
-						<li className={`${navLinkStyle}`}>Blog</li>
+				<div className="hidden lg:inline">
+					<ul className="flex flex-row space-x-4 items-center">
+						{navLinks.map((link) => (
+							<li key={link.index} >
+								<Link
+									to={link.url}
+									className={`${navLinkStyle}`}
+								>{link.title}</Link>
+							</li>
+						))}
+
+
 						<li
 							className={`text-sc-off-white bg-sc-red hover:bg-sc-red-dark hover:text-sc-gold text-center text-xl py-4 px-6 rounded font-Cinzel font-bold cursor-pointer`}
 						>
@@ -26,7 +34,7 @@ const NavBar = () => {
 						</li>
 					</ul>
 				</div>
-				<div className="md:hidden">
+				<div className="lg:hidden">
 					<img
 						src={mobileNavOpen ? close : menu}
 						onClick={() => setMobileNavOpen(!mobileNavOpen)}

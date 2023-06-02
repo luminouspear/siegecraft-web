@@ -26,6 +26,28 @@ import {
 	prime_water_sample,
 	prime_light_sample,
 	prime_shadow_sample,
+	video_attack_4g_mp4,
+	video_attack_4g_webm,
+	video_attack_mp4,
+	video_attack_webm,
+	video_charge_4g_mp4,
+	video_charge_4g_webm,
+	video_charge_mp4,
+	video_charge_webm,
+	video_siege_4g_mp4,
+	video_siege_4g_webm,
+	video_siege_mp4,
+	video_siege_webm,
+	card_array,
+	gallery_1,
+	gallery_2,
+	gallery_3,
+	gallery_4,
+	gallery_5,
+	gallery_6,
+	gallery_7,
+	gallery_8,
+	gallery_9,
 } from "../assets";
 
 const heroSection = [
@@ -52,8 +74,9 @@ const heroSection = [
 		index: 2,
 		alt: "A playtest of Third Dawn: Siegecraft",
 		src: heroPlaytest,
-		title: "Hero Section Title3",
-		subTitle: "Hero section subtitle 3",
+		title: "A New Way to Play",
+		subTitle:
+			"Drive your armies across the battlefield. Invade your opponents. Test your luck. Sharpen your skills.",
 	},
 ];
 
@@ -67,6 +90,29 @@ const homePageSectionTitles = [
 		title: "<strong>Master the Elements</strong>",
 		subTitle:
 			"The 6 Elements of <strong><em>Third Dawn: Siegecraft</em></strong> allow you to play in any way you want. Which will you master first?",
+	},
+	{
+		title: "<strong>Will you Conquer or be Conquered?</strong>",
+		subTitle:
+			"Summon powerful units. Cast powerful spells. Defend your territories.",
+		closingTitle: "Take Your Shot",
+		closingSubTitle:
+			"Your road to mastery begins in as little as 15 minutes. Check out our easy-play guide and take your first turn today.",
+		closingCTA: "Learn to Play",
+	},
+	{
+		title: "Get <strong><em>Third Dawn: Siegecraft</em></strong> Prime",
+		image: card_array,
+		alt: "An array of cards showing all 6 elements and neutral cards, led by Stormwing, Mother of Tempests.",
+		subTitle:
+			"Prime is the debut <strong><em>Third Dawn: Siegecraft</em></strong> set. Featuring over 200 cards spread across the 6 elements, unique mechanics for each element that will shake up gameplay and give you the feel of each element.<br /><br />Plus, each copy of <strong><em>Third Dawn: Siegecraft</em></strong> Prime comes with preconstructed decks that you can use to get started, or tear apart and begin customizing immediately. ",
+		CTA: "Visit the Store",
+	},
+	{
+		title: "Sign Up Now To Learn More",
+		subTitle:
+			"Join our mailing list to learn more about <strong><em>Third Dawn: Siegecraft</em></strong>, including when it will release.",
+		CTA: "Sign Up",
 	},
 ];
 
@@ -113,6 +159,98 @@ const playIconsContent = [
 		title: "Ages 12+",
 		icon: iconAgesFor,
 		alt: "Ages 12+",
+	},
+];
+
+const videoSectionContent = [
+	{
+		index: 0,
+		title: "Charge into Battle",
+		subTitle:
+			"Using dice, position and timing, Third Dawn: Siegecraft expands on the standard collectible card game, by giving you more options in the game and when building your custom decks.",
+		videoUrls: [
+			{
+				mobile_mp4: [
+					{ index: 0, url: video_attack_4g_mp4, type: "video/mp4" },
+				],
+				mobile_webm: [
+					{ index: 1, url: video_attack_4g_webm, type: "video/webm" },
+				],
+				desktop_mp4: [
+					{ index: 2, url: video_attack_mp4, type: "video/mp4" },
+				],
+				desktop_webm: [
+					{ index: 3, url: video_attack_webm, type: "video/webm" },
+				],
+			},
+		],
+	},
+	{
+		index: 1,
+		title: "Control Your Fortune",
+		subTitle:
+			"Cast powerful spells that will help you control the flow of combat, using the 6 distinct elements of Third Dawn: Siegecraft . Learn to master unique combinations of spells and abilities to express yourself and take out your opponents.",
+		videoUrls: [
+			{
+				mobile_mp4: [
+					{ index: 0, url: video_charge_4g_mp4, type: "video/mp4" },
+				],
+				mobile_webm: [
+					{ index: 1, url: video_charge_4g_webm, type: "video/webm" },
+				],
+				desktop_mp4: [
+					{ index: 2, url: video_charge_mp4, type: "video/mp4" },
+				],
+				desktop_webm: [
+					{ index: 3, url: video_charge_webm, type: "video/webm" },
+				],
+			},
+		],
+	},
+	{
+		index: 2,
+		title: "Conquer Three Territories to Win",
+		subTitle:
+			"March your units onto your opponent's territories and lay siege. With the territory undefended, your forces are free to pillage.",
+		videoUrls: [
+			{
+				mobile_mp4: [
+					{ index: 0, url: video_siege_4g_mp4, type: "video/mp4" },
+				],
+				mobile_webm: [
+					{ index: 1, url: video_siege_4g_webm, type: "video/webm" },
+				],
+				desktop_mp4: [
+					{ index: 2, url: video_siege_mp4, type: "video/mp4" },
+				],
+				desktop_webm: [
+					{ index: 3, url: video_siege_webm, type: "video/webm" },
+				],
+			},
+		],
+	},
+];
+
+const navLinks = [
+	{
+		index: 0,
+		title: "store",
+		url: "/store",
+	},
+	{
+		index: 1,
+		title: "elements",
+		url: "/elements",
+	},
+	{
+		index: 2,
+		title: "cards",
+		url: "/cards",
+	},
+	{
+		index: 3,
+		title: "blog",
+		url: "/blog",
 	},
 ];
 
@@ -170,7 +308,7 @@ const elementsCarouselContent = [
 		name: "Light",
 		contentTitle: "Illuminate Your Path to Victory",
 		contentSubtitle:
-			"Let fury be tempered by faith.",
+			"The world is dangerous, but Light magic offers shelter from the storm. Through devotion and planning, coordination and brilliance, your fury will be tempered by faith.",
 		image: prime_light_sample,
 		imageAlt:
 			"A female mage receives a blessing in the form of a prayer that wraps around her in magical, holy energy.",
@@ -188,10 +326,57 @@ const elementsCarouselContent = [
 	},
 ];
 
+const homePageGallery = [
+	{
+		original: gallery_1,
+		originalAlt:
+			"A water mage strides confidently through a flooded desert, behind her soldiers are stuck, confused.",
+	},
+	{
+		original: gallery_2,
+		originalAlt:
+			"A wide vista with a massive fortress in the far distance.",
+	},
+	{
+		original: gallery_3,
+		originalAlt:
+			"A gigantic mouse leaps toward a herd of stampeding elephants in a verdant valley.",
+	},
+	{
+		original: gallery_4,
+		originalAlt: "A kid prepares his next move at Strategicon.",
+	},
+	{
+		original: gallery_5,
+		originalAlt: "A man at Strategicon playing.",
+	},
+	{
+		original: gallery_6,
+		originalAlt: "A view of the battlefield with both playmats.",
+	},
+	{
+		original: gallery_7,
+		originalAlt:
+			"A golden winged spirit walks between a destroyed cityscape and a sacred monument she is protecting.",
+	},
+	{
+		original: gallery_8,
+		originalAlt:
+			"A giant snake-like wyrm with giant fangs slithers through a vast painted desert.",
+	},
+	{
+		original: gallery_9,
+		originalAlt: "A kid holding cards in his hand ponders his next move.",
+	},
+];
+
 export {
 	heroSection,
 	homePageSectionTitles,
 	mainPointsContent,
 	playIconsContent,
 	elementsCarouselContent,
+	navLinks,
+	videoSectionContent,
+	homePageGallery,
 };
