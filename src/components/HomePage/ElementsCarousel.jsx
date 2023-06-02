@@ -25,7 +25,6 @@ const ElementsCarousel = () => {
 
 
 	useEffect(() => {
-		console.log(currentTab);
 		setCurrentSectionTitle(
 			elementsCarouselContent[currentTab].contentTitle
 		);
@@ -34,7 +33,6 @@ const ElementsCarousel = () => {
 		);
 		setCurrentSectionImage(elementsCarouselContent[currentTab].image);
 		setCurrentSectionImageAlt(elementsCarouselContent[currentTab].imageAlt);
-		console.log(currentSectionTitle, currentSectionSubTitle);
 	}, [currentTab]);
 
 	const handleSwipe = (direction) => {

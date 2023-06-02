@@ -105,7 +105,7 @@ const homePageSectionTitles = [
 		image: card_array,
 		alt: "An array of cards showing all 6 elements and neutral cards, led by Stormwing, Mother of Tempests.",
 		subTitle:
-			"Prime is the debut <strong><em>Third Dawn: Siegecraft</em></strong> set. Featuring over 200 cards spread across the 6 elements, unique mechanics for each element that will shake up gameplay and give you the feel of each element.<br /><br />Plus, each copy of <strong><em>Third Dawn: Siegecraft</em></strong> Prime comes with preconstructed decks that you can use to get started, or tear apart and begin customizing immediately. ",
+			"Prime is the debut <strong><em>Third Dawn: Siegecraft</em></strong> set. Featuring over 200 fully-illustrated cards spread across the 6 elements, unique mechanics for each element that will shake up gameplay and give you the feel of each element.<br /><br />Plus, each copy of <strong><em>Third Dawn: Siegecraft</em></strong> Prime comes with preconstructed decks that you can use to get started, or tear apart and begin customizing immediately. ",
 		CTA: "Visit the Store",
 	},
 	{
@@ -370,6 +370,108 @@ const homePageGallery = [
 	},
 ];
 
+const footerContent = [
+	{
+		index: 0,
+		sectionTitle: "Store",
+		sectionLinks: [
+			{
+				locationName: "Subscribe",
+				locationUrl: "/#",
+				index: 0,
+			},
+			{
+				locationName: "Buy Now",
+				locationUrl: "/#",
+				index: 1,
+			},
+			{
+				locationName: "Specials",
+				locationUrl: "/#",
+				index: 2,
+			},
+			{
+				locationName: "Last Chance",
+				locationUrl: "/#",
+				index: 3,
+			},
+		],
+	},
+	{
+		index: 1,
+		sectionTitle: "Elements",
+		sectionLinks: [
+			{
+				locationName: "Earth",
+				locationUrl: "/elements/earth",
+				index: 0,
+			},
+			{
+				locationName: "Air",
+				locationUrl: "/elements/air",
+				index: 1,
+			},
+			{
+				locationName: "Fire",
+				locationUrl: "/elements/fire",
+				index: 2,
+			},
+			{
+				locationName: "Water",
+				locationUrl: "/elements/water",
+				index: 3,
+			},
+			{
+				locationName: "Light",
+				locationUrl: "/elements/light",
+				index: 4,
+			},
+			{
+				locationName: "Shadow",
+				locationUrl: "/elements/shadow",
+				index: 5,
+			},
+		],
+	},
+	{
+		index: 2,
+		sectionTitle: "Cards",
+		sectionLinks: [
+			{
+				locationName: "Prime",
+				locationUrl: "/cards",
+				index: 0,
+			},
+			{
+				locationName: "Future Sets",
+				index: 1,
+				locationUrl: "/#",
+			},
+			{
+				locationName: "Learn More",
+				locationUrl: "/#",
+				index: 2,
+			},
+		],
+	},
+	{
+		index: 3,
+		sectionTitle: "Blog",
+		sectionLinks: [
+			{
+				locationName: "Featured Articles",
+				locationUrl: "/blog/featured",
+				index: 0,
+			},
+			{
+				locationName: "All Articles",
+				locationUrl: "/blog",
+				index: 1,
+			},
+		],
+	},
+];
+
 export {
 	heroSection,
 	homePageSectionTitles,
@@ -379,4 +481,5 @@ export {
 	navLinks,
 	videoSectionContent,
 	homePageGallery,
+	footerContent,
 };
