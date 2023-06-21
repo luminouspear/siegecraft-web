@@ -479,7 +479,7 @@ const footerContent = [
 ];
 
 const elementPageSectionContent = {
-	title: "The Elements of <strong>Third Dawn: Siegecraft</strong>",
+	title: "The Elements of<br/> <strong>Third Dawn: Siegecraft</strong>",
 	subTitle:
 		"Explore and master the 6 elements of <strong>Third Dawn: Siegecraft</strong>, each with their own unique styles, units, spells and territories.<br/><br/>Combine them all however you wish to create a powerful deck and conquer your foes.",
 	icons: [
