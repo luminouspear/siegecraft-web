@@ -8,7 +8,6 @@ const FooterSection = () => {
     function getFooterSection(section) {
         const sectionTitle = section.sectionTitle;
         const sectionLinks = section.sectionLinks;
-        console.log(sectionLinks)
         return (<div key={section.index}>
             <h3 className='uppercase mt-4 mb-6'>{sectionTitle}</h3>
             <ul>

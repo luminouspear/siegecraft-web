@@ -52,6 +52,14 @@ import gallery_6 from "./gallery_6.jpg";
 import gallery_7 from "./gallery_7.jpg";
 import gallery_8 from "./gallery_8.jpg";
 import gallery_9 from "./gallery_9.jpg";
+import bg_elements_earth from "./bg_elements_earth.jpg";
+import bg_elements_air from "./bg_elements_air.jpg";
+import bg_elements_fire from "./bg_elements_fire.jpg";
+import bg_elements_water from "./bg_elements_water.jpg";
+import bg_elements_light from "./bg_elements_light.jpg";
+import bg_elements_shadow from "./bg_elements_shadow.jpg";
+import bg_texture_dark from "./bg_texture_dark.jpg";
+import bg_texture_light from "./bg_texture_light.jpg";
 
 export {
 	siegecraftLogo,
@@ -108,4 +116,12 @@ export {
 	gallery_7,
 	gallery_8,
 	gallery_9,
+	bg_elements_earth,
+	bg_elements_air,
+	bg_elements_fire,
+	bg_elements_water,
+	bg_elements_light,
+	bg_elements_shadow,
+	bg_texture_light,
+	bg_texture_dark,
 };

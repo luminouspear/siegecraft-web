@@ -131,3 +131,10 @@ dist
 
 # assets/video
 src/assets/video
+
+/api/node_modules
+/api/.env*
+
+/api/data/*
+
+/public/assets/images/prime/*
