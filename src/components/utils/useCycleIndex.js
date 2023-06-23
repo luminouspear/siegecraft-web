@@ -24,5 +24,5 @@ export function useCycleIndex(
 		};
 	}, [shouldCycle, arrayLength, interval]);
 
-	return currentIndex;
+	return [currentIndex, setCurrentIndex];
 }
