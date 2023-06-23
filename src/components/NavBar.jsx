@@ -19,7 +19,7 @@ const NavBar = () => {
 
 	return (
 		<nav className="sticky top-0 z-10 bg-sc-dark-black container min-w-full py-0 font-Catamaran">
-			<div className="flex justify-between items-center px-8 py-8">
+			<div className="flex justify-between items-center px-8 py-8 lg:py-4">
 				<Link
 					to="/"
 					className="cursor-pointer"

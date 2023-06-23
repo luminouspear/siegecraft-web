@@ -15,7 +15,7 @@ const FooterSection = () => {
                     (
                     <li key={key} className="mb-4 lg:mb-2 hover:text-sc-gold">
                         <Link
-                            to={value.locationUrl}
+                            to={{ pathname: value.locationUrl, hash: `${value.hash ? value.hash : undefined}`}}
                             onClick={()=>(window.scrollTo(0,0))}
                         >{value.locationName }</Link>
                     </li>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import FullWidthWrapper from "../hoc/FullWidthWrapper";
 import { heroSection } from "../../constants";
+import { useCycleIndex } from "../utils/useCycleIndex";
 
 const HeroSection = () => {
 	const [currentImage, setCurrentImage] = useState(heroSection[0].src);
@@ -9,31 +10,21 @@ const HeroSection = () => {
 	const [currentSubtitle, setCurrentSubtitle] = useState(
 		heroSection[0].subTitle
 	);
-	const [currentImageIndex, setCurrentImageIndex] = useState(0);
-	const [userInteraction, setUserInteraction] = useState(false);
+	const userInteraction = false;
+	const currentImageIndex = useCycleIndex(heroSection.length, 9000, !userInteraction)
+
 	const imageRef = useRef(null);
-	const intervalIdRef = useRef(null);
 
 	useEffect(() => {
-		const changeImage = () => {
-			setCurrentImageIndex((prevIndex) => {
-				const newIndex = (prevIndex + 1) % heroSection.length;
-				setCurrentImage(heroSection[newIndex].src);
-				setCurrentImageAlt(heroSection[currentImageIndex].alt);
-				setCurrentTitle(heroSection[newIndex].title);
-				setCurrentSubtitle(heroSection[newIndex].subTitle);
-				return newIndex;
-			});
-		};
+		setCurrentImage(heroSection[currentImageIndex].src)
+		setCurrentImageAlt(heroSection[currentImageIndex].alt)
+		setCurrentTitle(heroSection[currentImageIndex].title)
+		setCurrentSubtitle(heroSection[currentImageIndex].subTitle)
 
-		if (!userInteraction) {
-			intervalIdRef.current = setInterval(changeImage, 9000);
-		}
+	}, [currentImageIndex])
 
-		return () => {
-			clearInterval(intervalIdRef.current);
-		};
-	}, [userInteraction]);
+
+
 
 	return (
 		<div className="w-full px-0 mx-0 text-sc-dark-black ">

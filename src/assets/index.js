@@ -22,6 +22,13 @@ import iconFireWhite from "./icon_fire_80_white.svg";
 import iconWaterWhite from "./icon_water_80_white.svg";
 import iconLightWhite from "./icon_light_80_white.svg";
 import iconShadowWhite from "./icon_shadow_80_white.svg";
+import IconEarth from "../components/global/svgs/IconEarth";
+import IconAir from "../components/global/svgs/IconAir";
+import IconFire from "../components/global/svgs/IconFire";
+import IconWater from "../components/global/svgs/IconWater";
+import IconLight from "../components/global/svgs/IconLight";
+import IconShadow from "../components/global/svgs/IconShadow";
+import IconCaret from "../components/global/svgs/IconCaret";
 import iconCaret from "./icon_caret.svg";
 import cardBack from "./card_back.jpg";
 import prime_earth_sample from "./prime_earth_001_flickering_melai.jpg";
@@ -124,4 +131,11 @@ export {
 	bg_elements_shadow,
 	bg_texture_light,
 	bg_texture_dark,
+	IconEarth,
+	IconAir,
+	IconFire,
+	IconWater,
+	IconLight,
+	IconShadow,
+	IconCaret,
 };

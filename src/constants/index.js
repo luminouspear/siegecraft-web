@@ -14,6 +14,12 @@ import {
 	iconWater,
 	iconLight,
 	iconShadow,
+	IconEarth,
+	IconAir,
+	IconFire,
+	IconWater,
+	IconLight,
+	IconShadow,
 	iconEarthWhite,
 	iconAirWhite,
 	iconFireWhite,
@@ -195,7 +201,7 @@ const videoSectionContent = [
 		index: 1,
 		title: "Control Your Fortune",
 		subTitle:
-			"Cast powerful spells that will help you control the flow of combat, using the 6 distinct elements of Third Dawn: Siegecraft . Learn to master unique combinations of spells and abilities to express yourself and take out your opponents.",
+			"Cast powerful spells that will help you control the flow of combat, using the 6 distinct elements of Third Dawn: Siegecraft. Learn to master unique combinations of spells and abilities to express yourself and take out your opponents.",
 		videoUrls: [
 			{
 				mobile_mp4: [
@@ -383,22 +389,22 @@ const footerContent = [
 		sectionLinks: [
 			{
 				locationName: "Subscribe",
-				locationUrl: "/#",
+				locationUrl: "/",
 				index: 0,
 			},
 			{
 				locationName: "Buy Now",
-				locationUrl: "/#",
+				locationUrl: "/",
 				index: 1,
 			},
 			{
 				locationName: "Specials",
-				locationUrl: "/#",
+				locationUrl: "/",
 				index: 2,
 			},
 			{
 				locationName: "Last Chance",
-				locationUrl: "/#",
+				locationUrl: "/",
 				index: 3,
 			},
 		],
@@ -409,32 +415,38 @@ const footerContent = [
 		sectionLinks: [
 			{
 				locationName: "Earth",
-				locationUrl: "/elements/earth",
+				locationUrl: "/elements",
+				hash: "#earth",
 				index: 0,
 			},
 			{
 				locationName: "Air",
-				locationUrl: "/elements/air",
+				locationUrl: "/elements",
+				hash: "#air",
 				index: 1,
 			},
 			{
 				locationName: "Fire",
-				locationUrl: "/elements/fire",
+				locationUrl: "/elements",
+				hash: "#fire",
 				index: 2,
 			},
 			{
 				locationName: "Water",
-				locationUrl: "/elements/water",
+				locationUrl: "/elements",
+				hash: "#water",
 				index: 3,
 			},
 			{
 				locationName: "Light",
-				locationUrl: "/elements/light",
+				locationUrl: "/elements",
+				hash: "#light",
 				index: 4,
 			},
 			{
 				locationName: "Shadow",
-				locationUrl: "/elements/shadow",
+				locationUrl: "/elements",
+				hash: "#shadow",
 				index: 5,
 			},
 		],
@@ -451,11 +463,11 @@ const footerContent = [
 			{
 				locationName: "Future Sets",
 				index: 1,
-				locationUrl: "/#",
+				locationUrl: "/",
 			},
 			{
 				locationName: "Learn More",
-				locationUrl: "/#",
+				locationUrl: "/",
 				index: 2,
 			},
 		],
@@ -483,12 +495,42 @@ const elementPageSectionContent = {
 	subTitle:
 		"Explore and master the 6 elements of <strong>Third Dawn: Siegecraft</strong>, each with their own unique styles, units, spells and territories.<br/><br/>Combine them all however you wish to create a powerful deck and conquer your foes.",
 	icons: [
-		{ id: 1, elementName: "Earth", elementIcon: iconEarthWhite },
-		{ id: 2, elementName: "Air", elementIcon: iconAirWhite },
-		{ id: 3, elementName: "Fire", elementIcon: iconFireWhite },
-		{ id: 4, elementName: "Water", elementIcon: iconWaterWhite },
-		{ id: 5, elementName: "Light", elementIcon: iconLightWhite },
-		{ id: 6, elementName: "Shadow", elementIcon: iconShadowWhite },
+		{
+			id: 1,
+			elementName: "Earth",
+			elementIcon: IconEarth,
+			elementFill: "sc-element-earth",
+		},
+		{
+			id: 2,
+			elementName: "Air",
+			elementIcon: IconAir,
+			elementFill: "sc-element-air",
+		},
+		{
+			id: 3,
+			elementName: "Fire",
+			elementIcon: IconFire,
+			elementFill: "sc-element-fire",
+		},
+		{
+			id: 4,
+			elementName: "Water",
+			elementIcon: IconWater,
+			elementFill: "sc-element-water",
+		},
+		{
+			id: 5,
+			elementName: "Light",
+			elementIcon: IconLight,
+			elementFill: "sc-element-light",
+		},
+		{
+			id: 6,
+			elementName: "Shadow",
+			elementIcon: IconShadow,
+			elementFill: "sc-element-shadow",
+		},
 	],
 };
 
@@ -499,11 +541,11 @@ const elementPageInfo = [
 		sectionBg: bg_elements_earth,
 		sectionTitle: "Welcome to the Wilderness",
 		sectionSubtitle:
-			"Buried deep within the heart of the mystical Inzaru wilds, an ancient temple rests - a hallowed sanctum steeped in enigmas and cloaked in lore. Once a revered hub of arcane knowledge and cultured wisdom, this venerated temple now stands as an impregnable fortress in the maelstrom of conflict.",
-		featuredCardId: "E023",
-		featuredSectionHeader: "This Land is Yours to Rule",
+			"Buried deep within the heart of the Inzaru wilds is the ancient temple of your ancestors - a hallowed sanctum steeped in enigmas and cloaked in lore. It now stands as an impregnable fortress in the maelstrom of conflict.",
+		featuredCardId: ["E008",  "E015", "E024", "E022",],
+		featuredSectionHeader: "This Land Belongs to its Protectors",
 		featuredSectionText:
-			"When you tap into Earth magic, you're forging a deep connection with the core of all life, drawing strength from the unyielding resilience that Mother Earth herself offers. This elemental force grants you and your units a toughness that embodies the spirit of the wild - raw, relentless, and full of tenacity.<br /><br />Your units, moulded by the grit and mettle of Earth, stand unflinching on the battlefield, displaying an unbroken spirit as solid as the ground they hold. They are your stalwart defenders, your formidable vanguard, ready to assert their might across every corner of the land that the sun touches.<br /><br />Step into this strategic contest with Earth magic as your ally. Command a powerful force that resists and endures, turning the battlefield into your domain. With Earth magic, you don't just stand on the battlefield - you become a part of it, claiming a domain that is as expansive as your will to dominate. Harness the spirit of the earth, and let your rule extend to the farthest horizons.",
+			"With your deep connection to <strong>Earth</strong> magic, you've tapped into the very essence of the natural world. Drawing from nature's endless resilience, you embody the vitality of the wild, and resonate with the rhythm of life pulsating beneath your feet. You're not just filled with raw energy - you channel the enduring force of the mountains, the forests, the deep-rooted trees.<br/><br/> You are not simply present in the battlefield - you are intertwined with it. The more you claim, the more you can hear the land cry out for renewal. Feel the world echo with your might.",
 	},
 	{
 		id: 2,
@@ -511,23 +553,23 @@ const elementPageInfo = [
 		sectionBg: bg_elements_air,
 		sectionTitle: "Explore the High Desert",
 		sectionSubtitle:
-			"With Air magic, the sky is the limit. In this boundless expanse, no adversary stands a chance. Unleash the gales to thwart your foes, scatter their strategies to the four winds and infiltrate their fortresses with the swiftness of a gale and the unpredictability of a whirlwind.",
-		featuredCardId: "A061",
-		featuredSectionHeader: "Control the Skies",
+			"With each new relic discovered on the cloud plains of Zederi, the influx of northern invaders intensifies. They don't know the storm they are calling down.",
+		featuredCardId: ["A048", "A043", "A056", "A057"],
+		featuredSectionHeader: "You Control the Skies",
 		featuredSectionText:
-			"As the commander of Air magic, fortune wings its way to your side, ensuring that the battle always sways in your favor. Become a wraith in the battlefield, flowing seamlessly like the breeze, weaving between foes with grace and precision while robbing them of their arcane prowess.<br /><br />Your Air units, embodiments of force and agility, strike with the tempest's fury and then fade away like whispers on the wind. A ghostly legion, they're a whirlwind of power, an unstoppable force one moment, an insubstantial mirage the next.<br /><br />Revel in this gusty game of wit and strategy, where your warriors strike like thunderclaps, their force resonating long after they've vanished. These elements of strength and stealth imbue your game with an intoxicating blend of power and mystery. So prepare, strategists, to command your spectral legion and redefine the realms of the battlefield. Luck isn't just on your side—it's in your hands, as volatile and powerful as a swirling tempest.",
+			"As an <strong>Air</strong> mage, speed is your ally. You are a zephyr on the battlefield, nimbly threading through enemies, and countering plans before they even happen. You command an elusive army blessed with speed, agility and a tempest's fury, and you turn the winds of fortune to your favor. <br /><br />You delight in the tactical game, moving more swiftly than your opponents and securing a quick victory. You strike like lightning, then vanish just as quickly. You embrace a dynamic blend of power and stealth to protect and expand your homeland, knowing the difference between life and death can hinge on the roll of a die at the right time.",
 	},
 	{
 		id: 3,
 		sectionElement: "Fire",
 		sectionBg: bg_elements_fire,
-		sectionTitle: "Rule the Burning Wastelands",
+		sectionTitle: "You Rule the Burning Wastelands",
 		sectionSubtitle:
-			"You are the warlord of Kartha. In your hands, aggression becomes an art, each strike a masterstroke, each tactic a testament to your dominance. As the ashes of your adversaries mount, so too does your command over the battleground, an untamed force, scattering the armies of your foes in your aftermath. ",
-		featuredCardId: "F077",
+			"You are the warlord of Kartha, to whom the oracle once proclaimed: In your hands, aggression will become an artform. In your wake, empires will turn to ashes.",
+		featuredCardId: ["F073", "F076", "F099", "F086"],
 		featuredSectionHeader: "Your Star is Burning Brightly",
 		featuredSectionText:
-			"With the blistering might of Fire magic at your command, embody the unquenchable spirit of a true conqueror. Let your inner flame roar into a blazing inferno, consuming all obstacles and turning them into mere cinders. Fire magic is not just about the power to destroy - it's about rebirth, passion, and a commanding presence that lights up the battlefield.<br /><br />Your units, forged in this relentless heat, are the embodiment of raw power and unrestrained force. Each spell you cast ignites the very air, leaving opponents reeling in the face of your fiery onslaught. With the searing might of Fire magic, no stronghold is impregnable, no fortress unassailable.<br /><br />Take hold of your destiny, and with fire in your veins, blaze a trail of conquest across the world. In the merciless dance of war, the flame that burns the brightest commands respect and fear alike. And with Fire magic, you are not just a mere participant - you are the inferno, the embodiment of destruction and rebirth. Seize your destiny, let your ambition set the world alight, and rise as the ultimate warlord from the ashes.",
+			"With the might of <strong>Fire</strong> magic at your command, you embody the spirit of a true conqueror. In the merciless dance of war, the flame that burns the brightest commands respect and fear alike. Let your inner flame roar into a blazing inferno, consuming all obstacles and breaking all who stand in your way. <br /><br />You were forged in the relentless heat of the Karthan wastes. Your soldiers are the embodiment of raw power and unrestrained force. Each spell you cast ignites the  air, your opponents reeling in the face of your onslaught. <br /><br />Take hold of your destiny, and blaze a trail of conquest across the world.",
 	},
 	{
 		id: 4,
@@ -535,23 +577,23 @@ const elementPageInfo = [
 		sectionBg: bg_elements_water,
 		sectionTitle: "All Rivers Flow Toward You",
 		sectionSubtitle:
-			"From your throne at the strategic harbor of Ferria, the world's trade and commerce revolves around you. The Water magic you command ensures no vessel may pass without your expressed permission.",
-		featuredCardId: "W130",
-		featuredSectionHeader: "The Advantage of Control",
+			"From your throne at the strategic harbor of Ferria, the world's knowledge, trade and commerce revolves around you. The Water magic you command ensures no vessel may pass without your  permission.",
+		featuredCardId: ["W132", "W120", "W131", "W118"],
+		featuredSectionHeader: "The Key to Control is Within",
 		featuredSectionText:
-			"Master the pulse of battle with the fluid might of Water magic at your command. You leave the unpredictability of luck to the unseasoned, the unprepared. You, on the other hand, are a seasoned conqueror, adept in the art of seizing what you require.<br /><br />Your strategy hinges on deflection, turning the raging currents of your adversaries' attacks back upon themselves. It is through this clever counter-manoeuvring and calculated advancement that you gain control, marking your territory with each strategic step.",
+			"You aren't a ruler because of luck. You have studied the art of <strong>Water</strong> magic since you were a child, from every corner of the realm. You are a seasoned conqueror because you are a strategist. You know that winning requires controlling the flow of battle and knowing more than your opponent. So whether by trade or by piracy, it's going to wash up on your shores.<br /><br />Your strategy hinges on deflection, turning the  currents of your adversaries' attacks back upon them. It is through this clever counter-maneuvring and calculated advancement that you gain control, rushing forward like the tide.",
 	},
 	{
 		id: 5,
 		sectionElement: "Light",
 		sectionBg: bg_elements_light,
-		sectionTitle: "Your Achievements are Monumental",
+		sectionTitle: "They Will Erect Monuments to Your Glory",
 		sectionSubtitle:
-			"As the Captain of the Merenthian Guard, you are the last bulwark between the holy power of Light and the forces that would push the world into darkness forever. Are you ready to take command?",
-		featuredCardId: "L147",
+			"As the Captain of the Merenthian Guard, you are the last champion who stands for the righteous power of Light against the forces that would push the world into darkness forever. What is your command?",
+		featuredCardId: ["L147", "L159", "L161", "L141"],
 		featuredSectionHeader: "Only You Can Guide the Way Forward",
 		featuredSectionText:
-			"As a revered practitioner of Light magic, your role extends beyond mere conjurations and spells. Your very essence is a beacon of hope, a safe harbor for those beleaguered by illness and weakness. However, your purpose does not lie in merely healing. With each soothing incantation, with each flicker of restorative magic, you are nurturing the seeds of resilience within the vulnerable, transforming those once defenseless into stalwart defenders of their own fate.<br /><br />Light magic is not merely about preservation but progression. It involves the cultivation of an indomitable spirit, turning those who were once prey into potent protectors. It's about raising an army, not of mindless drones, but of individuals strengthened by their trials and emboldened by their victories. Your hands guide the flow of magic, weaving protective enchantments and bolstering your forces against the threats that loom.",
+			"As a revered practitioner of <strong>Light</strong> magic, your role extends beyond mere conjurations and spells. Your very essence is a beacon of hope, a safe harbor for those beleaguered by illness and weakness. However, your purpose does not lie in merely healing. With each soothing incantation, with each flicker of restorative magic, you are nurturing the seeds of resistance within the vulnerable, transforming those once defenseless into stalwart defenders of their own fate.<br /><br />Light magic is not merely about preservation but progression. It involves the cultivation of an indomitable spirit, turning those who were once preyed upon into potent protectors. It's about raising an army, not of mindless drones, but of individuals strengthened by their trials and emboldened by their victories. Your hands guide the flow of magic, weaving protective enchantments and bolstering your forces against the threats that loom.",
 	},
 	{
 		id: 6,
@@ -560,10 +602,10 @@ const elementPageInfo = [
 		sectionTitle: "There's Some Power Yet in These Old Ruins",
 		sectionSubtitle:
 			"In the darkest corners of the ancient city of Ghis, power accumulates. The power to uplift the forgotten, to revive those who are lost and to avenge lost wars. All it requires is just a small tribute to the demon Ix. Will you join?",
-		featuredCardId: "S200",
+		featuredCardId: ["S200", "S183", "S201", "S193"],
 		featuredSectionHeader: "What Price Will You Pay for Glory?",
 		featuredSectionText:
-			"You've always heard them, the hushed tales of the occult – of demons, of spectral presences, of arcane rituals too potent to fathom – these are the tales of the legendary power of Shadow. But for those who dare to probe deeper, who dare to venture beyond the veil of apprehension, this daunting power presents an opportunity, not a threat - an unlikely ally that holds the potential to alter your fate<br /><br />Maybe these mysteries are too much for you. Or maybe you have started to recognize the whispers of amibition that can be heard in the dark. Calling the bold, the daring, the relentless. Are you ready to take the reins of your destiny?",
+			"You've always heard them, the hushed tales of the forbidden – of demons, of spectral presences, of arcane rituals too profane to mention – these are the tales of the legendary power of <strong>Shadow</strong> magic. But for those who dare to probe deeper, who dare to venture beyond the veil of apprehension, this daunting power presents an opportunity, not a threat - an unlikely ally that holds the potential to alter your fate.<br /><br />Maybe these mysteries are too much for you. Or maybe you have started to like the whispers of amibition that can be heard in the dark. Calling the bold, the daring, the relentless. Are you ready to take the reins of your destiny?",
 	},
 ];
 
