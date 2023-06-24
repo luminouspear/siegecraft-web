@@ -7,6 +7,15 @@ export default {
 				Cinzel: ["Cinzel", "serif"],
 				Catamaran: ["Catamaran", "sans-serif"],
 			},
+			aspectRatio: {
+				'5/7': [5, 7],
+				'7/5': [7, 5],
+				'16/9': [16, 9],
+				'9/16': [9, 16]
+			},
+			screens: {
+				'hover': {'raw': '(hover: hover)'}
+			},
 			colors: {
 				transparent: "transparent",
 				current: "currentColor",
@@ -28,5 +37,10 @@ export default {
 			},
 		},
 	},
-	plugins: [],
+	variants: {
+		scale: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+	},
+	plugins: [
+		require('@tailwindcss/aspect-ratio'),
+	],
 };

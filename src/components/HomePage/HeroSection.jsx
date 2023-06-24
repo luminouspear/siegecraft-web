@@ -16,10 +16,11 @@ const HeroSection = () => {
 	const imageRef = useRef(null);
 
 	useEffect(() => {
-		setCurrentImage(heroSection[currentImageIndex].src)
-		setCurrentImageAlt(heroSection[currentImageIndex].alt)
-		setCurrentTitle(heroSection[currentImageIndex].title)
-		setCurrentSubtitle(heroSection[currentImageIndex].subTitle)
+		console.log(currentImageIndex[0])
+		setCurrentImage(heroSection[currentImageIndex[0]].src)
+		setCurrentImageAlt(heroSection[currentImageIndex[0]].alt)
+		setCurrentTitle(heroSection[currentImageIndex[0]].title)
+		setCurrentSubtitle(heroSection[currentImageIndex[0]].subTitle)
 
 	}, [currentImageIndex])
 

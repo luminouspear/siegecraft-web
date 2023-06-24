@@ -542,7 +542,7 @@ const elementPageInfo = [
 		sectionTitle: "Welcome to the Wilderness",
 		sectionSubtitle:
 			"Buried deep within the heart of the Inzaru wilds is the ancient temple of your ancestors - a hallowed sanctum steeped in enigmas and cloaked in lore. It now stands as an impregnable fortress in the maelstrom of conflict.",
-		featuredCardId: ["E008",  "E015", "E024", "E022",],
+		featuredCardId: ["E008", "E015", "E024", "E022"],
 		featuredSectionHeader: "This Land Belongs to its Protectors",
 		featuredSectionText:
 			"With your deep connection to <strong>Earth</strong> magic, you've tapped into the very essence of the natural world. Drawing from nature's endless resilience, you embody the vitality of the wild, and resonate with the rhythm of life pulsating beneath your feet. You're not just filled with raw energy - you channel the enduring force of the mountains, the forests, the deep-rooted trees.<br/><br/> You are not simply present in the battlefield - you are intertwined with it. The more you claim, the more you can hear the land cry out for renewal. Feel the world echo with your might.",
@@ -566,7 +566,7 @@ const elementPageInfo = [
 		sectionTitle: "You Rule the Burning Wastelands",
 		sectionSubtitle:
 			"You are the warlord of Kartha, to whom the oracle once proclaimed: In your hands, aggression will become an artform. In your wake, empires will turn to ashes.",
-		featuredCardId: ["F073", "F076", "F099", "F086"],
+		featuredCardId: ["F076", "F073", "F099", "F086"],
 		featuredSectionHeader: "Your Star is Burning Brightly",
 		featuredSectionText:
 			"With the might of <strong>Fire</strong> magic at your command, you embody the spirit of a true conqueror. In the merciless dance of war, the flame that burns the brightest commands respect and fear alike. Let your inner flame roar into a blazing inferno, consuming all obstacles and breaking all who stand in your way. <br /><br />You were forged in the relentless heat of the Karthan wastes. Your soldiers are the embodiment of raw power and unrestrained force. Each spell you cast ignites the  air, your opponents reeling in the face of your onslaught. <br /><br />Take hold of your destiny, and blaze a trail of conquest across the world.",
@@ -578,7 +578,7 @@ const elementPageInfo = [
 		sectionTitle: "All Rivers Flow Toward You",
 		sectionSubtitle:
 			"From your throne at the strategic harbor of Ferria, the world's knowledge, trade and commerce revolves around you. The Water magic you command ensures no vessel may pass without your  permission.",
-		featuredCardId: ["W132", "W120", "W131", "W118"],
+		featuredCardId: ["W120", "W132", "W131", "W118"],
 		featuredSectionHeader: "The Key to Control is Within",
 		featuredSectionText:
 			"You aren't a ruler because of luck. You have studied the art of <strong>Water</strong> magic since you were a child, from every corner of the realm. You are a seasoned conqueror because you are a strategist. You know that winning requires controlling the flow of battle and knowing more than your opponent. So whether by trade or by piracy, it's going to wash up on your shores.<br /><br />Your strategy hinges on deflection, turning the  currents of your adversaries' attacks back upon them. It is through this clever counter-maneuvring and calculated advancement that you gain control, rushing forward like the tide.",
