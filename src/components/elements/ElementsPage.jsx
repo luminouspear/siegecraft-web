@@ -61,6 +61,8 @@ const ElementsPage = () => {
 		if (location.hash) {
 			const id = location.hash.replace("#", "");
 			scrollToElement(id);
+		} else if (location.pathname === "/elements") {
+			window.scrollTo(0, 0);
 		}
 	}, [location]);
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
 import SectionWrapper from "../hoc/SectionWrapper";
 import {
 	homePageSectionTitles,
@@ -21,6 +22,7 @@ const ElementsCarousel = () => {
 	const [currentSectionImageAlt, setCurrentSectionImageAlt] = useState(
 		elementsCarouselContent[0].imageAlt
 	);
+	const [currentElement, setCurrentElement] = useState(elementsCarouselContent[0].name.toLowerCase())
 
 
 
@@ -33,6 +35,7 @@ const ElementsCarousel = () => {
 		);
 		setCurrentSectionImage(elementsCarouselContent[currentTab].image);
 		setCurrentSectionImageAlt(elementsCarouselContent[currentTab].imageAlt);
+		setCurrentElement(elementsCarouselContent[currentTab].name.toLowerCase())
 	}, [currentTab]);
 
 	const handleSwipe = (direction) => {
@@ -140,12 +143,12 @@ const ElementsCarousel = () => {
 									</span>
 								))}
 						</p>
-						<a
-							href="#"
+						<Link
+							to={`/elements#${currentElement}`}
 							className="font-Cinzel text-lg md:text-2xl font-medium hover:text-sc-gold text-sc-off-white px-8 py-4 rounded border-2 hover:border-sc-gold border-sc-off-white"
 						>
 							Learn More
-						</a>
+						</Link>
 					</div>
 				</div>
 				<div
