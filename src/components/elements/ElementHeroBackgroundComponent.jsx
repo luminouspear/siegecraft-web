@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Reveal } from "../utils/Reveal";
+import React, { useState, useEffect, useRef } from "react";
+import { Reveal } from "../global/utils/Reveal";
 
 export function ElementHeroBackgroundComponent({
 	element,
@@ -7,15 +7,17 @@ export function ElementHeroBackgroundComponent({
 }) {
 	const elementName = element.sectionElement.toLowerCase();
 	const sectionId = elementName + "-section";
+	const backgroundImageRef = useRef(null);
 
 	const [isInView, setIsInView] = useState(false);
 
+	//intersection observer for the text box
 	useEffect(() => {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
-						console.log(elementName)
+						console.log(elementName);
 						setCurrentElementInView(elementName);
 					}
 				});
@@ -23,19 +25,37 @@ export function ElementHeroBackgroundComponent({
 			{
 				root: null,
 				rootMargin: "0px",
-				threshold: 0.1,
+				threshold: 0.8,
 			}
 		);
 
-		const elementToObserve = document.getElementById(sectionId)
+		const elementToObserve = document.getElementById(sectionId);
 		if (elementToObserve) {
-			observer.observe(elementToObserve)
+			observer.observe(elementToObserve);
 		}
 
 		return () => {
-			observer.unobserve(elementToObserve)
+			observer.unobserve(elementToObserve);
 		};
 	}, [elementName, setCurrentElementInView, sectionId]);
+
+	useEffect(() => {
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					console.log(elementName.toUpperCase());
+					// setCurrentElementInView(element.id);
+				}
+			});
+		});
+
+		if (backgroundImageRef.current) {
+			observer.observe(backgroundImageRef.current);
+		}
+		return () => {
+			observer.disconnect();
+		};
+	}, []);
 
 	return (
 		<>
@@ -48,6 +68,9 @@ export function ElementHeroBackgroundComponent({
 				style={{
 					backgroundImage: `url(${element.sectionBg})`,
 				}}
+				role="img"
+				ref={backgroundImageRef}
+				id={elementName}
 			>
 				<Reveal
 					className={`row-start-4 md:row-start-2 col-span-10 md:col-span-5  lg:col-span-3 ${

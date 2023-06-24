@@ -25,19 +25,19 @@ const ElementPageIconComponent = ({ element,  isScrolled, currentGlobalElementIn
 				hash: `#${element.elementName.toLowerCase()}`,
 			}}
 		>
-			<ElementIcon
-				className={`${
-					!isCurrentElementInView && isScrolled
-						? "h-5 md:h-8 scale-85 mb-2 opacity-90 group-hover:scale-100"
-						: `h-8 md:h-12 scale-110 text-${element.elementFill}`
-				}   group-hover:opacity-100
-				 transition-all duration-500 ease-in-out text-sc-off-white ${elementHover}`}
+		  <ElementIcon
+			  className={`${!isCurrentElementInView && isScrolled
+					  ? "h-5 md:h-8 scale-85 mb-2 opacity-90 group-hover:scale-100 text-sc-off-white"
+					  : `h-8 md:h-12 scale-110 ${!isScrolled ? "text-sc-off-white" : `${element.elementFill} `}`
+				}  ${!isScrolled ?? ""} group-hover:opacity-100
+				 transition-all duration-500 ease-in-out ${elementHover}`}
+
 			/>
 			<h3
 				className={`${
 					!isCurrentElementInView && isScrolled
-						? "invisible group-hover:visible"
-						: "visible"
+						? "invisible group-hover:visible group-hover:font-medium"
+						: `visible  font-bold`
 				} font-Cinzel text-sm sm:text-base text-sc-off-white pt-2 ${elementHover} `}
 			>
 				{element.elementName}

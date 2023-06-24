@@ -1,4 +1,4 @@
-export default function IconAir({className}) {
+export default function IconAir({ className, style }) {
 	return (
 		<svg
 			className={className}
@@ -8,13 +8,15 @@ export default function IconAir({className}) {
 			version="1.1"
 			xmlns="http://www.w3.org/2000/svg"
 			style={{
+				...style,
 				fillRule: "evenodd",
 				clipRule: "evenodd",
 				strokeLinejoin: "round",
 				strokeMiterlimit: "2",
+				fill: "currentColor",
 			}}
 		>
-			<g fill="currentColor">
+			<g>
 				<rect
 					x="0"
 					y="0"

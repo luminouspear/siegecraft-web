@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useCycleIndex } from "../utils/useCycleIndex";
+import { useCycleIndex } from "../global/utils/useCycleIndex";
 import { CardContext } from "../../context/CardContext";
 import IconCaret from "../global/svgs/IconCaret";
 import { cardBack } from "../../assets";
 import { Transition } from "react-transition-group";
 import { useSwipeable } from "react-swipeable";
+import styles from "../../styles";
+import getIndicatorColor from "../global/utils/getIndicatorColor";
 
 const ElementsImageGallery = ({ element, isElementInView, isEven }) => {
 	const [userInteraction, setUserInteraction] = useState(false);
@@ -23,17 +25,9 @@ const ElementsImageGallery = ({ element, isElementInView, isEven }) => {
 	const [nextImage, setNextImage] = useState(null);
 	const [prevImage, setPrevImage] = useState(null);
 
-	const defaultStyle = {
-		transition: "opacity 500ms ease-in-out",
-		opacity: 0,
-	};
+	const defaultStyle = styles.defaultStyle;
 
-	const transitionStyles = {
-		entering: { opacity: 1 },
-		entered: { opacity: 1 },
-		exiting: { opacity: 0 },
-		exited: { opacity: 0 },
-	};
+	const transitionStyles = styles.transitionStyles;
 
 	useEffect(() => {
 		const fetchFeaturedCards = async () => {
@@ -108,22 +102,6 @@ const ElementsImageGallery = ({ element, isElementInView, isEven }) => {
 		trackMouse: true,
 	});
 
-	function getIndicatorColor(index) {
-		if (index === currentImageIndex) {
-			if (isEven === 0) {
-				return "bg-white";
-			} else {
-				return "bg-black";
-			}
-		} else {
-			if (isEven === 0) {
-				return "bg-slate-600";
-			} else {
-				return "bg-gray-400 ";
-			}
-		}
-		return "bg-white";
-	}
 
 	return (
 		<div {...handlers} className="flex flex-col ">
@@ -144,8 +122,8 @@ const ElementsImageGallery = ({ element, isElementInView, isEven }) => {
 									className="rounded-lg w-full h-full object-cover z-1 relative"
 									src={currentImage}
 									style={{
-										...defaultStyle,
-										...transitionStyles[state],
+										...styles.defaultStyle,
+										...styles.transitionStyles[state],
 									}}
 								/>
 							)}
@@ -172,7 +150,7 @@ const ElementsImageGallery = ({ element, isElementInView, isEven }) => {
 						<li
 							key={index}
 							className={`${getIndicatorColor(
-								index
+								index, currentImageIndex, isEven
 							)}  h-1 w-full rounded-md cursor-pointer`}
 							onClick={() => handleChangeIndex(index)}
 						>

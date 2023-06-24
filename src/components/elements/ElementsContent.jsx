@@ -1,22 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import { elementPageInfo } from "../../constants";
-import { useCycleIndex } from "../utils/useCycleIndex";
+import { useCycleIndex } from "../global/utils/useCycleIndex";
 import { ElementHeroBackgroundComponent } from "./ElementHeroBackgroundComponent";
 import { ElementDetailContentComponent } from "./ElementDetailContentComponent";
 
-export function ElementsContent(props
-) {
-
+export function ElementsContent(props) {
 	const {
 		featuredCardImages,
 		currentGlobalElementInView,
 		setCurrentElementInView,
-		isScrolled } = props
+		isScrolled,
+	} = props;
 	const cardRef = useRef();
-
-
-
-
 
 	return (
 		<div className="inline-block w-full min-h-screen">

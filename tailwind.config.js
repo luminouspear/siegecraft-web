@@ -8,13 +8,13 @@ export default {
 				Catamaran: ["Catamaran", "sans-serif"],
 			},
 			aspectRatio: {
-				'5/7': [5, 7],
-				'7/5': [7, 5],
-				'16/9': [16, 9],
-				'9/16': [9, 16]
+				"5/7": [5, 7],
+				"7/5": [7, 5],
+				"16/9": [16, 9],
+				"9/16": [9, 16],
 			},
 			screens: {
-				'hover': {'raw': '(hover: hover)'}
+				// hover: { raw: "(hover: hover)" },
 			},
 			colors: {
 				transparent: "transparent",
@@ -33,14 +33,12 @@ export default {
 				"sc-element-fire": "#A93128",
 				"sc-element-water": "#0274AF",
 				"sc-element-light": "#C1AC45",
-				"sc-element-shadow": "#3A3F6B",
+				"sc-element-shadow": "#6A75C4",
 			},
 		},
 	},
 	variants: {
-		scale: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+		scale: ["responsive", "hover", "focus", "active", "group-hover"],
 	},
-	plugins: [
-		require('@tailwindcss/aspect-ratio'),
-	],
+	plugins: [require("@tailwindcss/aspect-ratio")],
 };

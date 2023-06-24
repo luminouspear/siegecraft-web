@@ -8,6 +8,7 @@ import GallerySection from "./GallerySection";
 import ContactSection from "../global/ContactSection";
 import FooterSection from "../global/FooterSection";
 
+
 const HomePage = () => {
 	return (
 		<>

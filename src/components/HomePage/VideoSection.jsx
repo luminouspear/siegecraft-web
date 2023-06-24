@@ -19,10 +19,11 @@ const VideoSection = () => {
 					}}
 				></p>
 			</div>
-			<div className="w-full lg:w-10/12 mx-auto my-8">
+			<div className="w-full  lg:w-10/12 mx-auto my-8">
 				{videoSectionContent.map((video) => (
-					<div key={video.index}
-						className={`flex flex-col  lg:space-y-8 space-y-4 px-4 lg:px-8 mb-8 lg:mb-4 ${
+					<div
+						key={video.index}
+						className={`flex flex-col lg:space-y-8 space-y-4 lg:px-8 mb-8 lg:mb-4 ${
 							video.index % 2 === 1
 								? "lg:flex-row-reverse ml-0"
 								: "lg:flex-row lg:space-x-8"
@@ -32,7 +33,7 @@ const VideoSection = () => {
 							key={video.index}
 							className="lg:w-1/2 lg:flex-1 lg:p-2 w-full lg:mb-12 mb-4"
 						>
-							<video controls className="rounded-xl">
+							<video controls className="lg:rounded-xl">
 								{Object.entries(video.videoUrls[0]).map(
 									([key, value]) => (
 										<source
@@ -51,12 +52,12 @@ const VideoSection = () => {
 							}`}
 						>
 							<h3
-								className={`text-sc-off-white font-Catamaran font-bold mb-4 text-2xl`}
+								className={`text-sc-off-white font-Catamaran font-bold mb-4 mx-auto w-10/12 md:w-8/12 lg:w-10/12 text-2xl`}
 							>
 								{video.title}
 							</h3>
 							<p
-								className={`text-sc-off-white font-Catamaran text-lg`}
+								className={`text-sc-off-white font-Catamaran mx-auto w-10/12 md:w-8/12 lg:w-10/12 text-lg`}
 							>
 								{video.subTitle}
 							</p>

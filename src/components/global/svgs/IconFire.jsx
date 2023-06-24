@@ -12,9 +12,10 @@ export default function IconFire({className}) {
 				clipRule: "evenodd",
 				strokeLinejoin: "round",
 				strokeMiterlimit: "2",
+				fill: "currentColor"
 			}}
 		>
-			<g fill="currentColor">
+			<g>
 				<rect
 					x="0"
 					y="0"

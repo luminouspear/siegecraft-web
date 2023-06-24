@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { bg_texture_light, bg_texture_dark } from "../../assets";
-import { Reveal } from "../utils/Reveal";
-import { useCycleIndex } from "../utils/useCycleIndex";
+import { Reveal } from "../global/utils/Reveal";
+import { useCycleIndex } from "../global/utils/useCycleIndex";
 import ElementsImageGallery from "./ElementsImageGallery";
 
 export function ElementDetailContentComponent(props) {

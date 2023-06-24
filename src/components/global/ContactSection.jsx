@@ -59,7 +59,7 @@ const ContactSection = () => {
 
 	return (
 		<div className="">
-			<div className="lg:mt-36 2xl:mt-0 mt-0 flex  flex-col-reverse lg:flex-row justify-center items-center w-full  lg:min-h-fit">
+			<div className=" 2xl:mt-0 mt-0 flex  flex-col-reverse lg:flex-row justify-center items-center w-full  lg:min-h-fit">
 				<div className="lg:w-1/2 w-full p-8 ">
 					<h2
 						className={`text-sc-off-white font-Cinzel text-3xl text-center pb-4`}

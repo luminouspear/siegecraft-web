@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import FullWidthWrapper from "../hoc/FullWidthWrapper";
 import { heroSection } from "../../constants";
-import { useCycleIndex } from "../utils/useCycleIndex";
+import { useCycleIndex } from "../global/utils/useCycleIndex";
+import { Reveal } from "../global/utils/Reveal";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
 	const [currentImage, setCurrentImage] = useState(heroSection[0].src);
@@ -11,50 +13,52 @@ const HeroSection = () => {
 		heroSection[0].subTitle
 	);
 	const userInteraction = false;
-	const currentImageIndex = useCycleIndex(heroSection.length, 9000, !userInteraction)
+	const currentImageIndex = useCycleIndex(
+		heroSection.length,
+		9000,
+		!userInteraction
+	);
 
 	const imageRef = useRef(null);
 
 	useEffect(() => {
-		console.log(currentImageIndex[0])
-		setCurrentImage(heroSection[currentImageIndex[0]].src)
-		setCurrentImageAlt(heroSection[currentImageIndex[0]].alt)
-		setCurrentTitle(heroSection[currentImageIndex[0]].title)
-		setCurrentSubtitle(heroSection[currentImageIndex[0]].subTitle)
-
-	}, [currentImageIndex])
-
-
-
+		setCurrentImage(heroSection[currentImageIndex[0]].src);
+		setCurrentImageAlt(heroSection[currentImageIndex[0]].alt);
+		setCurrentTitle(heroSection[currentImageIndex[0]].title);
+		setCurrentSubtitle(heroSection[currentImageIndex[0]].subTitle);
+	}, [currentImageIndex]);
 
 	return (
-		<div className="w-full px-0 mx-0 text-sc-dark-black ">
-			<div className="flex flex-col gap-6 md:grid md:grid-cols-12 md:grid-rows-1 md:grid-rows-12 min-w-full min-h-fit">
-				<img
-					src={currentImage}
-					alt={currentImageAlt}
-					ref={imageRef}
-					className="col-span-1 md:col-span-12 md:row-start-1 md:col-start-1 object-cover w-full h-auto md:max-h-[80vh]"
-				/>
-				<div className="md:col-start-9 md:row-start-1 md:col-span-4 lg:col-span-5 lg:col-start-8 xl:col-start-9 xl:col-span-4 w-full bg-white md:bg-white/75">
-					<div className=" flex flex-col  items-center  w-10/12 md:pt-[10%] lg:pt-0 lg:pb-[10%]  mx-auto xl:pt-[33%] xl:pb-0 ">
-						<h1 className="px-8 md:px-0 lg:py-12 pt-8 pb-4  text-center md:text-3xl text-4xl lg:text-4xl font-Cinzel font-bold">
-							{currentTitle}
-						</h1>
-						<h2
-							className="text-center text-xl md:text-base lg:text-lg font-medium xl:text-2xl font-Catamaran pt-8 md:pt-4"
-							dangerouslySetInnerHTML={{
-								__html: currentSubtitle,
-							}}
+		<div className="inline-block w-full">
+			<div className="inline-block w-full min-h-screen">
+				<div className="h-full flex flex-col">
+					<div
+						className="h-screen bg-no-repeat bg-cover bg-[center_center] w-full col-start-1 col-span-8 grid grid-flow-col grid-cols-12 md:grid-cols-10 grid-rows-8 lg:grid-rows-6 pb-12 md:pb-0 "
+						role="img"
+						aria-label={currentImageAlt}
+						style={{ backgroundImage: `url(${currentImage})` }}
+					>
+						<Reveal
+							className={`row-start-4 md:row-start-3 col-span-10 md:col-span-5 lg:col-span-5 xl:col-span-4 xl:col-start-6 2xl:col-span-3 2xl:col-start-7 lg:row-start-3  col-start-2 md:col-start-5 lg:col-start-5 md:mr-8 lg:mr-0 bg-sc-off-white  min-w-full opacity-80 p-8 shadow-2xl rounded h-fit backdrop-blur-sm`}
 						>
-
-						</h2>
-						<a
-							href="/store"
-							className="text-sc-off-white bg-sc-red hover:bg-sc-red-dark hover:text-sc-gold text-center w-full text-2xl mt-4 md:text-xl lg:text-4xl py-5 px-12 rounded font-Cinzel font-bold cursor-pointer"
-						>
-							Order Now
-						</a>
+							<div className={`flex flex-col space-y-6`}>
+								<h1
+									className={`text-3xl 2xl:text-4xl font-Cinzel font-bold mb-4`}
+									dangerouslySetInnerHTML={{
+										__html: currentTitle,
+									}}
+								/>
+								<h2
+									className={`font-Catamaran sm:text-lg 2xl:text-xl font-semibold`}
+									dangerouslySetInnerHTML={{
+										__html: currentSubtitle,
+									}}
+								/>
+								<button className="text-sc-off-white bg-sc-red hover:bg-sc-red-dark hover:text-sc-gold text-center w-full text-xl md:text-2xl mt-4 md:text-xl lg:text-4xl py-5 px-12 rounded font-Cinzel font-bold cursor-pointer">
+									<Link to="/elements">Learn More</Link>
+								</button>
+							</div>
+						</Reveal>
 					</div>
 				</div>
 			</div>

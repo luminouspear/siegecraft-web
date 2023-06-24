@@ -5,6 +5,16 @@ const styles = {
 		"text-sc-off-white hover:text-sc-gold cursor-pointer text-xl font-Cinzel font-medium",
 	fullWidthComponentStyle: "w-full mx-auto",
 	standardWidthComponentStyle: "container max-w-7xl mx-auto",
+	defaultStyle: {
+		transition: "opacity 500ms ease-in-out",
+		opacity: 0,
+	},
+	transitionStyles: {
+		entering: { opacity: 1 },
+		entered: { opacity: 1 },
+		exiting: { opacity: 0 },
+		exited: { opacity: 0 },
+	},
 };
 
 export default styles;

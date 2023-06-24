@@ -16,8 +16,8 @@ import { Link, useLocation } from "react-router-dom";
 
 const ElementsPage = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
-	const containerRef = useRef(null);
-	const scrollRef = useRef(null);
+	const introContainerRef = useRef(null);
+	const elementsBannerRef = useRef(null);
 	const originalTop = useRef(0);
 	const originalBottom = useRef(0);
 	const [featuredCardImages, setFeaturedCardImages] = useState({});
@@ -27,8 +27,8 @@ const ElementsPage = () => {
 	const location = useLocation();
 
 	const checkScrollTop = () => {
-		const containerRect = containerRef.current.getBoundingClientRect();
-		const stickyRect = scrollRef.current.getBoundingClientRect();
+		const containerRect = introContainerRef.current.getBoundingClientRect();
+		const stickyRect = elementsBannerRef.current.getBoundingClientRect();
 
 		if (!originalTop.current) {
 			originalTop.current = stickyRect.top;
@@ -38,9 +38,9 @@ const ElementsPage = () => {
 			originalBottom.current = containerRect.bottom;
 		}
 
-		if (!isScrolled && stickyRect.top <= 96) {
+		if (!isScrolled && stickyRect.top < 96) {
 			setIsScrolled(true);
-		} else if (isScrolled && containerRect.bottom > 96) {
+		} else if (isScrolled && containerRect.bottom >= 96) {
 			setIsScrolled(false);
 		}
 	};
@@ -53,7 +53,42 @@ const ElementsPage = () => {
 	function scrollToElement(id) {
 		const element = document.getElementById(id);
 		if (element) {
-			element.scrollIntoView({ behavior: "smooth" });
+			console.log(element.id);
+			const elementsBanner = elementsBannerRef.current;
+			const elementsBannerRect = elementsBanner.getBoundingClientRect();
+			const targetRect = element.getBoundingClientRect();
+
+			const scrollTop =
+				window.scrollY ||
+				document.documentElement.scrollTop ||
+				document.body.scrollTop ||
+				0;
+
+			console.log(
+				scrollTop,
+				elementsBannerRect.top,
+				targetRect.top,
+				window.scrollY
+			);
+
+			let targetScrollTop;
+
+			if (element.id === "earth") {
+				// Directly use the targetRect top position without any offsets
+				targetScrollTop = scrollTop + targetRect.top + targetRect.height
+			} else {
+				// For other elements, subtract the elementsBanner's bottom position
+				targetScrollTop =
+					scrollTop + targetRect.top - elementsBannerRect.bottom;
+			}
+
+			window.scrollTo({
+				top: targetScrollTop,
+				behavior: "smooth",
+			});
+
+			setIsScrolled(true);
+			// element.scrollIntoView({ behavior: "smooth", top: targetScrollTop });
 		}
 	}
 
@@ -70,8 +105,10 @@ const ElementsPage = () => {
 		<>
 			<div className="inline-block w-full">
 				<div
-					ref={containerRef}
-					className="mx-auto pt-12 pb-4 bg-sc-dark-black flex justify-center flex-col align-middle items-center "
+					ref={introContainerRef}
+					className={`mx-auto pt-12 pb-4 bg-sc-dark-black  justify-center flex-col align-middle items-center ${
+						isScrolled ? "invisible" : "flex"
+					}`}
 				>
 					<h1
 						className="text-center text-2xl md:text-4xl font-Cinzel text-sc-off-white"
@@ -87,10 +124,10 @@ const ElementsPage = () => {
 					/>
 				</div>
 				<div
-					ref={scrollRef}
+					ref={elementsBannerRef}
 					className={`${
 						isScrolled ? "fixed top-24" : "block"
-					} z-10 w-full bg-sc-dark-black flex justify-center pb-4`}
+					} z-10 w-full bg-sc-dark-black  flex justify-center pb-4`}
 				>
 					<div
 						className={`${
