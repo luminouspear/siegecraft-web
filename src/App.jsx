@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import HomePage from "./components/homepage/HomePage";
 import CardsPage from "./components/cards/CardsPage";
 import ElementsPage from "./components/elements/ElementsPage";
+import HowToPlayPage from "./components/howtoplay/HowToPlayPage";
 import { showTailwindDebug } from "./showTailwindDebug";
 import { CardProvider } from "./context/CardContext";
 
@@ -21,6 +22,7 @@ function App() {
 						<Route path="/" element={<HomePage />} />
 						<Route path="/cards" element={<CardsPage />} />
 						<Route path="/elements" element={<ElementsPage />} />
+						<Route path="/howtoplay" element={<HowToPlayPage />}></Route>
 					</Routes>
 				</BrowserRouter>
 			</CardProvider>

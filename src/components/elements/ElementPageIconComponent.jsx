@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 
-const ElementPageIconComponent = ({ element,  isScrolled, currentGlobalElementInView }) => {
+const ElementPageIconComponent = ({ element,  isScrolled, currentGlobalElementInView, setCurrentElementInView }) => {
 
     const [isCurrentElementInView, setIsCurrentElementInView] = useState(null)
 
@@ -12,9 +12,15 @@ const ElementPageIconComponent = ({ element,  isScrolled, currentGlobalElementIn
 
     useEffect(() => {
 
-          setIsCurrentElementInView(getIsCurrentElementInView(element, currentGlobalElementInView,isScrolled))
+          setIsCurrentElementInView(isScrolled && currentGlobalElementInView === element.elementName.toLowerCase())
 
-    }, [currentGlobalElementInView, isScrolled])
+	}, [currentGlobalElementInView, isScrolled])
+
+
+	const handleClick = () => {
+		setCurrentElementInView(element.elementName.toLowerCase())
+	}
+
 
 
   return (
@@ -24,12 +30,13 @@ const ElementPageIconComponent = ({ element,  isScrolled, currentGlobalElementIn
 			to={{
 				hash: `#${element.elementName.toLowerCase()}`,
 			}}
+		  onClick={handleClick}
 		>
 		  <ElementIcon
-			  className={`${!isCurrentElementInView && isScrolled
+			  className={`${!isCurrentElementInView
 					  ? "h-5 md:h-8 scale-85 mb-2 opacity-90 group-hover:scale-100 text-sc-off-white"
 					  : `h-8 md:h-12 scale-110 ${!isScrolled ? "text-sc-off-white" : `${element.elementFill} `}`
-				}  ${!isScrolled ?? ""} group-hover:opacity-100
+				}  group-hover:opacity-100
 				 transition-all duration-500 ease-in-out ${elementHover}`}
 
 			/>
@@ -47,7 +54,3 @@ const ElementPageIconComponent = ({ element,  isScrolled, currentGlobalElementIn
 }
 
 export default ElementPageIconComponent
-
-function getIsCurrentElementInView(element, currentGlobalElementInView, isScrolled) {
-    return isScrolled && element.elementName.toLowerCase() === currentGlobalElementInView ? true : false
-}

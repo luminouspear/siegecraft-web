@@ -25,7 +25,7 @@ const NavBar = () => {
 					className="cursor-pointer"
 					onClick={() => window.scrollTo(0, 0)}
 				>
-					<img src={siegecraftLogo} className="h-16" />
+					<img src={siegecraftLogo} className="h-16 object-cover max-w-full" />
 				</Link>
 				<div className="hidden lg:inline">
 					<ul className="flex flex-row space-x-4 items-center">

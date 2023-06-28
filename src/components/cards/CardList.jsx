@@ -14,7 +14,6 @@ import LazyLoad from 'react-lazy-load'
 
 export default function CardList() {
 	const { cards } = useContext(CardContext);
-	// console.log('cards: ', cards);
 
 	//adding a modal window to show a card when clicked on.
 	const [isModalOpen, setIsModalOpen] = useState(false);

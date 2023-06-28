@@ -74,6 +74,9 @@ const cardSchema = new mongoose.Schema({
 	cardImage: {
 		type: String,
 	},
+	srcSet: {
+		type: String,
+	},
 	set: {
 		type: String,
 	},

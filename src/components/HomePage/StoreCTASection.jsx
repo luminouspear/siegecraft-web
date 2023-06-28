@@ -17,7 +17,7 @@ const StoreCTASection = () => {
 				className="lg:w-10/12 mx-auto lg:rounded-xl pb-8 object-cover"
 			/>
 			<p
-				className="lg:w-1/2 mx-auto px-6"
+				className="lg:w-1/2 mx-auto  text-xl px-6"
 				dangerouslySetInnerHTML={{
 					__html: homePageSectionTitles[3].subTitle,
 				}}

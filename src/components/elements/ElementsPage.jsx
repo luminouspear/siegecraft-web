@@ -18,10 +18,11 @@ const ElementsPage = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const introContainerRef = useRef(null);
 	const elementsBannerRef = useRef(null);
+	const [loading, setLoading] = useState(true);
 	const originalTop = useRef(0);
 	const originalBottom = useRef(0);
 	const [featuredCardImages, setFeaturedCardImages] = useState({});
-	const [currentElementInView, setCurrentElementInView] = useState(null);
+	const [currentElementInView, setCurrentElementInView] = useState("earth");
 	const [hovered, setHovered] = useState(false);
 
 	const location = useLocation();
@@ -46,6 +47,11 @@ const ElementsPage = () => {
 	};
 
 	useEffect(() => {
+		setLoading(false);
+	}, []);
+
+
+	useEffect(() => {
 		window.addEventListener("scroll", checkScrollTop);
 		return () => window.removeEventListener("scroll", checkScrollTop);
 	}, [isScrolled]);
@@ -53,7 +59,6 @@ const ElementsPage = () => {
 	function scrollToElement(id) {
 		const element = document.getElementById(id);
 		if (element) {
-			console.log(element.id);
 			const elementsBanner = elementsBannerRef.current;
 			const elementsBannerRect = elementsBanner.getBoundingClientRect();
 			const targetRect = element.getBoundingClientRect();
@@ -75,7 +80,8 @@ const ElementsPage = () => {
 
 			if (element.id === "earth") {
 				// Directly use the targetRect top position without any offsets
-				targetScrollTop = scrollTop + targetRect.top + targetRect.height
+				targetScrollTop =
+					scrollTop + targetRect.top + targetRect.height;
 			} else {
 				// For other elements, subtract the elementsBanner's bottom position
 				targetScrollTop =
@@ -101,9 +107,11 @@ const ElementsPage = () => {
 		}
 	}, [location]);
 
-	return (
-		<>
-			<div className="inline-block w-full">
+	return loading ? (
+		<div>Loading...</div>
+	) : (
+		<div className="">
+			<div className="inline-block w-full bg-sc-dark-black ">
 				<div
 					ref={introContainerRef}
 					className={`mx-auto pt-12 pb-4 bg-sc-dark-black  justify-center flex-col align-middle items-center ${
@@ -127,7 +135,7 @@ const ElementsPage = () => {
 					ref={elementsBannerRef}
 					className={`${
 						isScrolled ? "fixed top-24" : "block"
-					} z-10 w-full bg-sc-dark-black  flex justify-center pb-4`}
+					} z-[1] w-full bg-sc-dark-black isolate flex justify-center pb-4`}
 				>
 					<div
 						className={`${
@@ -144,22 +152,23 @@ const ElementsPage = () => {
 								currentGlobalElementInView={
 									currentElementInView
 								}
+								setCurrentElementInView={setCurrentElementInView}
 							/>
 						))}
 					</div>
 				</div>
 			</div>
 
-			<ElementsContent
+			{!loading && <ElementsContent
 				featuredCardImages={featuredCardImages}
 				currentGlobalElementInView={currentElementInView}
 				setCurrentElementInView={setCurrentElementInView}
 				isScrolled={isScrolled}
-			/>
+			/>}
 
 			<ContactSection />
 			<FooterSection />
-		</>
+		</div>
 	);
 };
 

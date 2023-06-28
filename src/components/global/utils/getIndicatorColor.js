@@ -1,15 +1,15 @@
-export default function getIndicatorColor(index, currentImageIndex, isEven=false) {
+export default function getIndicatorColor(index, currentImageIndex, isEven=true) {
 	if (index === currentImageIndex) {
-		if (isEven === 0) {
-			return "bg-white";
+		if (isEven) {
+			return "bg-white opacity-90";
 		} else {
-			return "bg-black";
+			return "bg-black opacity-90";
 		}
 	} else {
-		if (isEven === 0) {
-			return "bg-slate-600";
+		if (isEven) {
+			return "bg-slate-600 opacity-80";
 		} else {
-			return "bg-gray-400 ";
+			return "bg-gray-400 opacity-80";
 		}
 	}
 	return "bg-white";

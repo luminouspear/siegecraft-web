@@ -7,8 +7,15 @@ import { Transition } from "react-transition-group";
 import { useSwipeable } from "react-swipeable";
 import styles from "../../styles";
 import getIndicatorColor from "../global/utils/getIndicatorColor";
+import LazyLoad from "react-lazy-load";
 
-const ElementsImageGallery = ({ element, isElementInView, isEven }) => {
+const ElementsImageGallery = ({
+	element,
+	isElementInView,
+	isEven,
+	hasElementLoaded,
+	setCurrentElementInView,
+}) => {
 	const [userInteraction, setUserInteraction] = useState(false);
 	const [galleryLength, setGalleryLength] = useState(4);
 	const { getCardById } = useContext(CardContext);
@@ -22,6 +29,8 @@ const ElementsImageGallery = ({ element, isElementInView, isEven }) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [cardImages, setCardImages] = useState(null);
 	const [currentImage, setCurrentImage] = useState(null);
+	const [currentImageAlt, setCurrentImageAlt] = useState(null);
+	const [currentImageSrcset, setCurrentImageSrcset] = useState(null);
 	const [nextImage, setNextImage] = useState(null);
 	const [prevImage, setPrevImage] = useState(null);
 
@@ -40,15 +49,22 @@ const ElementsImageGallery = ({ element, isElementInView, isEven }) => {
 					const card = await getCardById(cardId);
 
 					if (card && card.imageUrl) {
-						newFeaturedCardImages[cardId] = card.imageUrl;
+						newFeaturedCardImages[cardId] = {
+							imageUrl: card.imageUrl,
+							imageAlt: card.imageAltText,
+							srcSet: card.srcSet,
+						};
 					}
 				}
 			} else {
 				const card = await getCardById(element.featuredCardId);
 
 				if (card && card.imageUrl) {
-					newFeaturedCardImages[element.featuredCardId] =
-						card.imageUrl;
+					newFeaturedCardImages[element.featuredCardId] = {
+						imageUrl: card.imageUrl,
+						imageAlt: card.imageAltText,
+						srcSet: card.srcSet,
+					};
 				}
 			}
 
@@ -65,20 +81,22 @@ const ElementsImageGallery = ({ element, isElementInView, isEven }) => {
 
 	useEffect(() => {
 		if (cardImages) {
-			setCurrentImage(cardImages[currentImageIndex]);
+			setCurrentImage(cardImages[currentImageIndex].imageUrl);
+			setCurrentImageAlt(cardImages[currentImageIndex].imageAlt);
+			setCurrentImageSrcset(cardImages[currentImageIndex].srcSet);
 
 			const nextImageIndex = (currentImageIndex + 1) % galleryLength;
 			const imgNext = new Image();
-			imgNext.src = cardImages[nextImageIndex];
+			imgNext.src = cardImages[nextImageIndex].imageUrl;
 			imgNext.onload = () => setNextImage(imgNext.src);
 
 			const previousImageIndex =
 				(currentImageIndex - 1 + galleryLength) % galleryLength;
 			const imgPrev = new Image();
-			imgPrev.src = cardImages[previousImageIndex];
+			imgPrev.src = cardImages[previousImageIndex].imageUrl;
 			imgPrev.onload = () => setPrevImage(imgPrev.src);
 		}
-	}, [cardImages, currentImageIndex, galleryLength]);
+	}, [cardImages, currentImageIndex, galleryLength, isElementInView]);
 
 	const showNextImage = () => {
 		handleChangeIndex((prevIndex) => (prevIndex + 1) % galleryLength);
@@ -92,6 +110,7 @@ const ElementsImageGallery = ({ element, isElementInView, isEven }) => {
 
 	const handleChangeIndex = (index) => {
 		setUserInteraction(true);
+		setCurrentElementInView(element.sectionElement.toLowerCase())
 		setCurrentImageIndex(index);
 	};
 
@@ -101,7 +120,6 @@ const ElementsImageGallery = ({ element, isElementInView, isEven }) => {
 		preventDefaultTouchmoveEvent: true,
 		trackMouse: true,
 	});
-
 
 	return (
 		<div {...handlers} className="flex flex-col ">
@@ -115,12 +133,15 @@ const ElementsImageGallery = ({ element, isElementInView, isEven }) => {
 				</button>
 
 				<div className="w-9/12 h-full rounded-lg shadow-xl relative aspect-[5/7] overflow-hidden">
-					{currentImage ? (
+					{currentImage && hasElementLoaded ? (
 						<Transition in timeout={500}>
 							{(state) => (
 								<img
 									className="rounded-lg w-full h-full object-cover z-1 relative"
 									src={currentImage}
+									srcSet={currentImageSrcset}
+									alt={currentImageAlt}
+									loading="lazy"
 									style={{
 										...styles.defaultStyle,
 										...styles.transitionStyles[state],
@@ -132,6 +153,7 @@ const ElementsImageGallery = ({ element, isElementInView, isEven }) => {
 						<img
 							src={cardBack}
 							className="rounded-lg w-full h-full object-cover z-1 relative"
+							loading="lazy"
 						/>
 					)}
 				</div>
@@ -150,7 +172,9 @@ const ElementsImageGallery = ({ element, isElementInView, isEven }) => {
 						<li
 							key={index}
 							className={`${getIndicatorColor(
-								index, currentImageIndex, isEven
+								index,
+								currentImageIndex,
+								isEven
 							)}  h-1 w-full rounded-md cursor-pointer`}
 							onClick={() => handleChangeIndex(index)}
 						>

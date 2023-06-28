@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { elementPageInfo } from "../../constants";
-import { useCycleIndex } from "../global/utils/useCycleIndex";
 import { ElementHeroBackgroundComponent } from "./ElementHeroBackgroundComponent";
 import { ElementDetailContentComponent } from "./ElementDetailContentComponent";
 
@@ -9,9 +8,7 @@ export function ElementsContent(props) {
 		featuredCardImages,
 		currentGlobalElementInView,
 		setCurrentElementInView,
-		isScrolled,
 	} = props;
-	const cardRef = useRef();
 
 	return (
 		<div className="inline-block w-full min-h-screen">
@@ -20,14 +17,17 @@ export function ElementsContent(props) {
 					<div key={element.id} className="h-full flex flex-col ">
 						<ElementHeroBackgroundComponent
 							element={element}
+							currentGlobalElementInView={
+								currentGlobalElementInView
+							}
 							setCurrentElementInView={setCurrentElementInView}
 						/>
 						<ElementDetailContentComponent
 							element={element}
-							cardRef={cardRef}
 							currentGlobalElementInView={
 								currentGlobalElementInView
 							}
+							setCurrentElementInView={setCurrentElementInView}
 						/>
 					</div>
 				))}

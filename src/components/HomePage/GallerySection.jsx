@@ -9,6 +9,8 @@ import getIndicatorColor from "../global/utils/getIndicatorColor";
 import { IconCaret } from "../../assets";
 import { Transition } from "react-transition-group";
 const GallerySection = () => {
+
+
 	const [userInteraction, setUserInteraction] = useState(false);
 	const galleryLength = gallery.length;
 	const [shouldCycle, setShouldCycle] = useState(true);
@@ -79,7 +81,7 @@ const GallerySection = () => {
 						onClick={showPrevImage}
 					>
 						<IconCaret
-							className={`w-full rotate-180 px-6 md:px-12 xl:px-10 lg:px-8 2xl:px-14 text-sc-off-white opacity-80
+							className={`w-full rotate-180 px-6 sm:p-10 md:px-12 xl:px-10 lg:px-8 2xl:px-14 text-sc-off-white opacity-80
              drop-shadow-lg `}
 						/>
 					</button>
@@ -88,8 +90,8 @@ const GallerySection = () => {
 							{(state) => (
 								<img
 									className="min-w-full h-[40vh] md:h-[50vh] lg:h-[80vh] 2xl:h-[90vh] object-cover "
-                  src={currentImage}
-                  alt={currentImageAlt}
+									src={currentImage}
+									alt={currentImageAlt}
 									style={{
 										...styles.defaultStyle,
 										...styles.transitionStyles[state],
@@ -103,9 +105,28 @@ const GallerySection = () => {
 						onClick={showNextImage}
 					>
 						<IconCaret
-							className={`w-full px-6 md:px-12 lg:px-8 xl:px-10 2xl:px-14 text-sc-off-white opacity-80 drop-shadow-lg  `}
+							className={`w-full px-6 sm:p-10 md:px-12 lg:px-8 xl:px-10 2xl:px-14 text-sc-off-white opacity-80 drop-shadow-lg  `}
 						/>
 					</button>
+				</div>
+				<div className="w-full flex justify-center pt-4 -mt-8">
+					<ul className="flex flex-row w-1/3 h-4 space-x-1 items-center">
+						{Array.from({ length: galleryLength }).map(
+							(_, index) => (
+								<li
+									key={index}
+									className={`${getIndicatorColor(
+										index,
+                    currentImageIndex,
+
+									)}  h-1 w-full rounded-md cursor-pointer`}
+									onClick={() => handleChangeIndex(index)}
+								>
+									&nbsp;
+								</li>
+							)
+						)}
+					</ul>
 				</div>
 			</div>
 		</>

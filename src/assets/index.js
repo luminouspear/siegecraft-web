@@ -1,4 +1,4 @@
-import siegecraftLogo from "./logo_285.png";
+import siegecraftLogo from "./third_dawn_siegecraft_logo_only.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 import heroManaFlare from "./hero_mana_flare.jpg";
@@ -67,6 +67,8 @@ import bg_elements_light from "./bg_elements_light.jpg";
 import bg_elements_shadow from "./bg_elements_shadow.jpg";
 import bg_texture_dark from "./bg_texture_dark.jpg";
 import bg_texture_light from "./bg_texture_light.jpg";
+import how_to_play_decks from "./how_to_play_decks.jpg";
+import how_to_play_playmat from "./how_to_play_playmat.jpg";
 
 export {
 	siegecraftLogo,
@@ -138,4 +140,6 @@ export {
 	IconLight,
 	IconShadow,
 	IconCaret,
+	how_to_play_decks,
+	how_to_play_playmat,
 };

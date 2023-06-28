@@ -1,27 +1,59 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { bg_texture_light, bg_texture_dark } from "../../assets";
 import { Reveal } from "../global/utils/Reveal";
 import { useCycleIndex } from "../global/utils/useCycleIndex";
 import ElementsImageGallery from "./ElementsImageGallery";
 
 export function ElementDetailContentComponent(props) {
-	const { element, cardRef, currentGlobalElementInView } = props;
+	const {
+		element,
+		currentGlobalElementInView,
+		setCurrentElementInView,
+	} = props;
 
 	// const cardImages = Object.values(
 	// 	Object.values(featuredCardImages)[0][element.sectionElement]
 	// );
 
 	const [isElementInView, setIsElementInView] = useState(null);
+	const [hasElementLoaded, setHasElementLoaded] = useState(false)
+
+	const detailRef = useRef(null)
 
 	useEffect(() => {
 		if (
 			currentGlobalElementInView === element.sectionElement.toLowerCase()
 		) {
 			setIsElementInView(true);
+			setHasElementLoaded(true)
 		} else {
 			setIsElementInView(false);
 		}
+
 	}, [currentGlobalElementInView]);
+
+	useEffect(() => {
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+			  setCurrentElementInView(element.sectionElement.toLowerCase())
+		  })
+		}, {
+			root: null,
+			rootMargin: "0px",
+			threshold: 0.75,
+		})
+
+		if (detailRef.current) {
+			observer.observe(detailRef.current)
+		}
+		return () => {
+			observer.disconnect()
+		}
+
+	}, [])
+
+
+
 
 	const isEven = element.id % 2 === 0;
 
@@ -33,6 +65,7 @@ export function ElementDetailContentComponent(props) {
 					isEven ? bg_texture_dark : bg_texture_light
 				})`,
 			}}
+			ref={detailRef}
 		>
 			<div
 				className={`w-full container flex flex-col space-y-4 py-8 lg:my-0 md:grid  md:grid-flow-col  grid-cols-1  md:grid-cols-2 md:grid-rows-1 justify-center lg:items-center align-middle   ${
@@ -65,11 +98,15 @@ export function ElementDetailContentComponent(props) {
 																: "md:order-1"
 														}`}
 				>
-					<ElementsImageGallery
-						element={element}
-						isElementInView={isElementInView}
-						isEven={isEven}
-					/>
+					{
+						<ElementsImageGallery
+							element={element}
+							isElementInView={isElementInView}
+							isEven={isEven}
+							hasElementLoaded={hasElementLoaded}
+							setCurrentElementInView={setCurrentElementInView}
+						/>
+					}
 				</Reveal>
 			</div>
 		</div>

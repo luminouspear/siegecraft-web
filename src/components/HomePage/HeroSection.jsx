@@ -4,6 +4,7 @@ import { heroSection } from "../../constants";
 import { useCycleIndex } from "../global/utils/useCycleIndex";
 import { Reveal } from "../global/utils/Reveal";
 import { Link } from "react-router-dom";
+import { ScaleImage } from "../global/utils/ScaleImage";
 
 const HeroSection = () => {
 	const [currentImage, setCurrentImage] = useState(heroSection[0].src);
@@ -19,9 +20,11 @@ const HeroSection = () => {
 		!userInteraction
 	);
 
-	const imageRef = useRef(null);
+
 
 	useEffect(() => {
+
+
 		setCurrentImage(heroSection[currentImageIndex[0]].src);
 		setCurrentImageAlt(heroSection[currentImageIndex[0]].alt);
 		setCurrentTitle(heroSection[currentImageIndex[0]].title);
@@ -32,11 +35,14 @@ const HeroSection = () => {
 		<div className="inline-block w-full">
 			<div className="inline-block w-full min-h-screen">
 				<div className="h-full flex flex-col">
-					<div
-						className="h-screen bg-no-repeat bg-cover bg-[center_center] w-full col-start-1 col-span-8 grid grid-flow-col grid-cols-12 md:grid-cols-10 grid-rows-8 lg:grid-rows-6 pb-12 md:pb-0 "
+					<ScaleImage
+						className="h-screen bg-no-repeat bg-[center_center]  bg-cover w-full col-start-1 col-span-8 grid grid-flow-col  object-cover grid-cols-12 md:grid-cols-10 grid-rows-8 lg:grid-rows-6 pb-12 md:pb-0 "
 						role="img"
 						aria-label={currentImageAlt}
 						style={{ backgroundImage: `url(${currentImage})` }}
+						userInteraction={userInteraction}
+						currentImageIndex={currentImageIndex}
+
 					>
 						<Reveal
 							className={`row-start-4 md:row-start-3 col-span-10 md:col-span-5 lg:col-span-5 xl:col-span-4 xl:col-start-6 2xl:col-span-3 2xl:col-start-7 lg:row-start-3  col-start-2 md:col-start-5 lg:col-start-5 md:mr-8 lg:mr-0 bg-sc-off-white  min-w-full opacity-80 p-8 shadow-2xl rounded h-fit backdrop-blur-sm`}
@@ -59,7 +65,7 @@ const HeroSection = () => {
 								</button>
 							</div>
 						</Reveal>
-					</div>
+					</ScaleImage>
 				</div>
 			</div>
 		</div>

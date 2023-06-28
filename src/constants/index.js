@@ -60,6 +60,8 @@ import {
 	bg_elements_water,
 	bg_elements_light,
 	bg_elements_shadow,
+	how_to_play_decks,
+	how_to_play_playmat,
 } from "../assets";
 
 const heroSection = [
@@ -246,8 +248,8 @@ const videoSectionContent = [
 const navLinks = [
 	{
 		index: 0,
-		title: "store",
-		url: "/store",
+		title: "how to play",
+		url: "/howtoplay",
 	},
 	{
 		index: 1,
@@ -538,46 +540,50 @@ const elementPageInfo = [
 	{
 		id: 1,
 		sectionElement: "Earth",
-		sectionBg: bg_elements_earth,
+		sectionBg: "/src/assets/bg_elements_earth.jpg",
+		sectionBgSrcSet: "/src/assets/bg_elements_earth.jpg 1024w, /src/assets/bg_elements_earth@2x.jpg 2500w, /src/assets/bg_elements_earth@3x.jpg 4000w",
 		sectionTitle: "Welcome to the Wilderness",
 		sectionSubtitle:
 			"Buried deep within the heart of the Inzaru wilds is the ancient temple of your ancestors - a hallowed sanctum steeped in enigmas and cloaked in lore. It now stands as an impregnable fortress in the maelstrom of conflict.",
 		featuredCardId: ["E008", "E015", "E024", "E022"],
 		featuredSectionHeader: "This Land Belongs to its Protectors",
 		featuredSectionText:
-			"With your deep connection to <strong>Earth</strong> magic, you've tapped into the very essence of the natural world. Drawing from nature's endless resilience, you embody the vitality of the wild, and resonate with the rhythm of life pulsating beneath your feet. You're not just filled with raw energy - you channel the enduring force of the mountains, the forests, the deep-rooted trees.<br/><br/> You are not simply present in the battlefield - you are intertwined with it. The more you claim, the more you can hear the land cry out for renewal. Feel the world echo with your might.",
+			"With your deep connection to <strong>Earth</strong> magic, you've tapped into the very essence of the natural world. Drawing from nature's endless resilience, you embody the vitality of the wild, and resonate with the rhythm of life pulsating beneath your feet. You're not just filled with raw energy - you channel the enduring force of the mountains, the forests, the deep-rooted trees.<br/><br/> You are not simply present in the battlefield - you are intertwined with it. The more you claim, the more you can hear the land cry out for renewal. This world echoes with your might.",
 	},
 	{
 		id: 2,
 		sectionElement: "Air",
-		sectionBg: bg_elements_air,
+		sectionBg: "/src/assets/bg_elements_air.jpg",
+		sectionBgSrcSet: "/src/assets/bg_elements_air.jpg 1024w, /src/assets/bg_elements_air@2x.jpg 2500w , /src/assets/bg_elements_air@3x.jpg 4000w",
 		sectionTitle: "Explore the High Desert",
 		sectionSubtitle:
 			"With each new relic discovered on the cloud plains of Zederi, the influx of northern invaders intensifies. They don't know the storm they are calling down.",
 		featuredCardId: ["A048", "A043", "A056", "A057"],
-		featuredSectionHeader: "You Control the Skies",
+		featuredSectionHeader: "Your Domain Extends to the Horizon",
 		featuredSectionText:
 			"As an <strong>Air</strong> mage, speed is your ally. You are a zephyr on the battlefield, nimbly threading through enemies, and countering plans before they even happen. You command an elusive army blessed with speed, agility and a tempest's fury, and you turn the winds of fortune to your favor. <br /><br />You delight in the tactical game, moving more swiftly than your opponents and securing a quick victory. You strike like lightning, then vanish just as quickly. You embrace a dynamic blend of power and stealth to protect and expand your homeland, knowing the difference between life and death can hinge on the roll of a die at the right time.",
 	},
 	{
 		id: 3,
 		sectionElement: "Fire",
-		sectionBg: bg_elements_fire,
+		sectionBg: "/src/assets/bg_elements_fire.jpg",
+		sectionBgSrcSet: "/src/assets/bg_elements_fire.jpg 1000w , /src/assets/bg_elements_fire@2x.jpg 2500w, /src/assets/bg_elements_fire@3x.jpg 4000w",
 		sectionTitle: "You Rule the Burning Wastelands",
 		sectionSubtitle:
-			"You are the warlord of Kartha, to whom the oracle once proclaimed: In your hands, aggression will become an artform. In your wake, empires will turn to ashes.",
+			'You are the warlord of Kartha, to whom the oracle once proclaimed: "In your hands, aggression will become an artform. In your wake, empires will turn to ashes."',
 		featuredCardId: ["F076", "F073", "F099", "F086"],
 		featuredSectionHeader: "Your Star is Burning Brightly",
 		featuredSectionText:
-			"With the might of <strong>Fire</strong> magic at your command, you embody the spirit of a true conqueror. In the merciless dance of war, the flame that burns the brightest commands respect and fear alike. Let your inner flame roar into a blazing inferno, consuming all obstacles and breaking all who stand in your way. <br /><br />You were forged in the relentless heat of the Karthan wastes. Your soldiers are the embodiment of raw power and unrestrained force. Each spell you cast ignites the  air, your opponents reeling in the face of your onslaught. <br /><br />Take hold of your destiny, and blaze a trail of conquest across the world.",
+			"With the might of <strong>Fire</strong> magic at your command, you embody the spirit of a true conqueror. You know that the flame that burns the brightest commands respect and fear alike. Let your inner flame roar into a blazing inferno, consuming all obstacles and breaking all who stand in your way. <br /><br />You were forged in the relentless heat of the Karthan wastes. Your soldiers are the embodiment of raw power and unrestrained force. Each spell you cast ignites the  air, your opponents reeling in the face of your onslaught. <br /><br />Take hold of your destiny, and blaze a trail of conquest across the world.",
 	},
 	{
 		id: 4,
 		sectionElement: "Water",
-		sectionBg: bg_elements_water,
+		sectionBg: "/src/assets/bg_elements_water.jpg",
+		sectionBgSrcSet: "/src/assets/bg_elements_water.jpg 1000w, /src/assets/bg_elements_water@2x.jpg 2500w, /src/assets/bg_elements_water@3x.jpg 4000w",
 		sectionTitle: "All Rivers Flow Toward You",
 		sectionSubtitle:
-			"From your throne at the strategic harbor of Ferria, the world's knowledge, trade and commerce revolves around you. The Water magic you command ensures no vessel may pass without your  permission.",
+			"From your throne at the strategic harbor of Ferria, the world's knowledge, trade and commerce revolves around you. Under your watchful eye, nothing passes through your borders unseen.",
 		featuredCardId: ["W120", "W132", "W131", "W118"],
 		featuredSectionHeader: "The Key to Control is Within",
 		featuredSectionText:
@@ -586,28 +592,136 @@ const elementPageInfo = [
 	{
 		id: 5,
 		sectionElement: "Light",
-		sectionBg: bg_elements_light,
-		sectionTitle: "They Will Erect Monuments to Your Glory",
+		sectionBg: "/src/assets/bg_elements_light.jpg",
+		sectionBgSrcSet: "/src/assets/bg_elements_light.jpg 1000w, /src/assets/bg_elements_light@2x.jpg 2500w, /src/assets/bg_elements_light@3x.jpg 4000w",
+		sectionTitle: "We Will Erect Monuments to Your Glory",
 		sectionSubtitle:
-			"As the Captain of the Merenthian Guard, you are the last champion who stands for the righteous power of Light against the forces that would push the world into darkness forever. What is your command?",
+			"As the Captain of the Merenthian Guard, you are the last champion who stands for the righteous against the forces that would plunge the world into darkness forever. What is your command?",
 		featuredCardId: ["L147", "L159", "L161", "L141"],
 		featuredSectionHeader: "Only You Can Guide the Way Forward",
 		featuredSectionText:
-			"As a revered practitioner of <strong>Light</strong> magic, your role extends beyond mere conjurations and spells. Your very essence is a beacon of hope, a safe harbor for those beleaguered by illness and weakness. However, your purpose does not lie in merely healing. With each soothing incantation, with each flicker of restorative magic, you are nurturing the seeds of resistance within the vulnerable, transforming those once defenseless into stalwart defenders of their own fate.<br /><br />Light magic is not merely about preservation but progression. It involves the cultivation of an indomitable spirit, turning those who were once preyed upon into potent protectors. It's about raising an army, not of mindless drones, but of individuals strengthened by their trials and emboldened by their victories. Your hands guide the flow of magic, weaving protective enchantments and bolstering your forces against the threats that loom.",
+			"As a revered practitioner of <strong>Light</strong> magic, your role extends beyond mere conjurations and spells. Your very essence is a beacon of hope, a safe harbor for those beleaguered by illness and weakness. However, your purpose does not lie in merely healing. With each soothing incantation, with each flicker of restorative magic, you nurture the seeds of resistance within the vulnerable, transforming the defenseless into masters of their own fate.<br /><br />Light magic is not merely about preservation but progression. It involves the cultivation of an indomitable spirit. It's about raising an army, not of mindless drones, but of individuals strengthened by their trials and emboldened by their victories. ",
 	},
 	{
 		id: 6,
 		sectionElement: "Shadow",
-		sectionBg: bg_elements_shadow,
+		sectionBg: "/src/assets/bg_elements_shadow.jpg",
+		sectionBgSrcSet: "/src/assets/bg_elements_shadow.jpg 1000w, /src/assets/bg_elements_shadow@2x.jpg 2000w, /src/assets/bg_elements_shadow@3x.jpg 4000w",
 		sectionTitle: "There's Some Power Yet in These Old Ruins",
 		sectionSubtitle:
 			"In the darkest corners of the ancient city of Ghis, power accumulates. The power to uplift the forgotten, to revive those who are lost and to avenge lost wars. All it requires is just a small tribute to the demon Ix. Will you join?",
 		featuredCardId: ["S200", "S183", "S201", "S193"],
 		featuredSectionHeader: "What Price Will You Pay for Glory?",
 		featuredSectionText:
-			"You've always heard them, the hushed tales of the forbidden – of demons, of spectral presences, of arcane rituals too profane to mention – these are the tales of the legendary power of <strong>Shadow</strong> magic. But for those who dare to probe deeper, who dare to venture beyond the veil of apprehension, this daunting power presents an opportunity, not a threat - an unlikely ally that holds the potential to alter your fate.<br /><br />Maybe these mysteries are too much for you. Or maybe you have started to like the whispers of amibition that can be heard in the dark. Calling the bold, the daring, the relentless. Are you ready to take the reins of your destiny?",
+			"We've all heard them, the hushed tales of the forbidden – of demons, of spectral presences, of arcane rituals too profane to mention – these are the tales of the legendary power of <strong>Shadow</strong> magic. But you dare to probe deeper, venturing beyond the veil of apprehension. You know this daunting power presents an opportunity, not a threat - an unlikely ally that holds the potential to alter the fate of the world.<br /><br />Maybe these mysteries are too much for you. Or maybe you have started to like the whispers of amibition that can be heard in the dark. Calling the bold, the fearless, the relentless. Are you ready to take the reins of your destiny?",
 	},
 ];
+const sectionElements = [
+	{
+		id: 1,
+		elementLink: "#earth",
+		elementName: "Earth",
+		elementIcon: IconEarth,
+		elementTextColor: "text-sc-element-earth",
+	},
+	{
+		id: 2,
+		elementLink: "#air",
+		elementName: "Air",
+		elementIcon: IconAir,
+		elementTextColor: "text-sc-element-air",
+	},
+	{
+		id: 3,
+		elementLink: "#fire",
+		elementName: "Fire",
+		elementIcon: IconFire,
+		elementTextColor: "text-sc-element-fire",
+	},
+	{
+		id: 4,
+		elementLink: "#water",
+		elementName: "Water",
+		elementIcon: IconWater,
+		elementTextColor: "text-sc-element-water",
+	},
+	{
+		id: 5,
+		elementLink: "#light",
+		elementName: "Light",
+		elementIcon: IconLight,
+		elementTextColor: "text-sc-element-light",
+	},
+	{
+		id: 6,
+		elementLink: "#shadow",
+		elementName: "Shadow",
+		elementIcon: IconShadow,
+		elementTextColor: "text-sc-element-shadow",
+	},
+];
+
+const howToPlayContent = [
+	{
+		id: 0,
+		sectionTitle: "How to Play",
+		sectionText:
+			"<strong><em>Third Dawn: Siegecraft</em></strong> is a two player card game of strategy, tactics and timing, using the elemental forces of Earth, Air, Fire, Water, Light and Shadow to dominate the battlefield.",
+	},
+	{
+		id: 1,
+		tile: true,
+		bgImage: how_to_play_decks,
+		bgImageAlt: "A pair of custom built Third Dawn: Siegecraft decks.",
+		sectionTitle: "Create Your Deck",
+		sectionText:
+			"Choose from pre-constructed decks that come with the game, or mix and match elements and cards to discover your own powerful combinations.",
+	},
+	{
+		id: 2,
+		tile: true,
+		bgImage: how_to_play_playmat,
+		bgImageAlt:
+			"A black Third Dawn: Siegecraft playmat, split into three zones- the Assault, Battalion and Cavalry zones.",
+		sectionTitle: "Set Up Your Battlefield",
+		sectionText:
+			"Your playmat is your battlefield. Invade your opponent's battlefield while developing and defending your own.",
+	},
+	{
+		id: 3,
+		tile: true,
+		bgImage: "",
+		bgImageAlt: "",
+		sectionTitle: "Play Territories to Expand",
+		sectionText:
+			"Build our your battlefield carefully. Summon units to build an invading and defending force.",
+	},
+	{
+		id: 4,
+		tile: true,
+		bgImage: "",
+		bgImageAlt: "",
+		sectionTitle: "Maneuver to Win The Battle",
+		sectionText:
+			"Plan your army's movements carefully. Use small, diversionary units to whittle down strong foes. Cast tactical spells to grip control of the tides of battle.",
+	},
+	{
+		id: 5,
+		tile: true,
+		bgImage: "",
+		bgImageAlt: "",
+		sectionTitle: "Conquer 3 Territories to Win",
+		sectionText:
+			"Lay siege to your opponent's empire, crushing their armies and conquering their territories.",
+	},
+	{
+		id: 6,
+		sectionTitle: "There Are Six Paths to Power",
+		sectionText: "Which would you choose?",
+		sectionIcons: sectionElements,
+	},
+];
+
 
 export {
 	heroSection,
@@ -621,4 +735,6 @@ export {
 	footerContent,
 	elementPageSectionContent,
 	elementPageInfo,
+	howToPlayContent,
+	sectionElements,
 };
