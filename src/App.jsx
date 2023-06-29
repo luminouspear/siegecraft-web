@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/global/NavBar";
 import HomePage from "./components/homepage/HomePage";
 import CardsPage from "./components/cards/CardsPage";
 import ElementsPage from "./components/elements/ElementsPage";
@@ -16,8 +16,8 @@ function App() {
 		<>
 			<CardProvider>
 				<BrowserRouter>
-					{debugWindowSize && showTailwindDebug(debugWindowSize)}
 					<NavBar />
+					{debugWindowSize && showTailwindDebug(debugWindowSize)}
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/cards" element={<CardsPage />} />

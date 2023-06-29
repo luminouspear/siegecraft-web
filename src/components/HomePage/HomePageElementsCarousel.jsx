@@ -8,7 +8,7 @@ import {
 import { useSwipeable } from 'react-swipeable'
 import { iconCaret, cardBack } from "../../assets";
 
-const ElementsCarousel = () => {
+const HomePageElementsCarousel = () => {
 	const [currentTab, setCurrentTab] = useState(0);
 	const [currentSectionTitle, setCurrentSectionTitle] = useState(
 		elementsCarouselContent[0].contentTitle
@@ -170,4 +170,4 @@ const ElementsCarousel = () => {
 	);
 };
 
-export default SectionWrapper(ElementsCarousel, "elements", "bg-sc-dark-black");
+export default SectionWrapper(HomePageElementsCarousel, "elements", "bg-sc-dark-black");

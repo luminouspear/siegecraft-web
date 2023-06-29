@@ -40,7 +40,7 @@ export function ElementDetailContentComponent(props) {
 		}, {
 			root: null,
 			rootMargin: "0px",
-			threshold: 0.75,
+			threshold: 0.,
 		})
 
 		if (detailRef.current) {
@@ -104,6 +104,7 @@ export function ElementDetailContentComponent(props) {
 							isElementInView={isElementInView}
 							isEven={isEven}
 							hasElementLoaded={hasElementLoaded}
+							currentGlobalElementInView={currentGlobalElementInView}
 							setCurrentElementInView={setCurrentElementInView}
 						/>
 					}

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { siegecraftLogo, menu, close } from "../assets";
-import styles from "../styles";
-import { navLinks } from "../constants";
+import { siegecraftLogo, menu, close } from "../../assets";
+import styles from "../../styles";
+import { navLinks } from "../../constants";
 
 const NavBar = () => {
 	const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -11,7 +11,11 @@ const NavBar = () => {
 
 	const links = navLinks.map((link) => (
 		<li key={link.index}>
-			<Link to={link.url} className={`${navLinkStyle}`}>
+			<Link
+				to={link.url}
+				className={`${navLinkStyle}`}
+				onClick={() => setMobileNavOpen(false)}
+			>
 				{link.title}
 			</Link>
 		</li>
@@ -25,10 +29,13 @@ const NavBar = () => {
 					className="cursor-pointer"
 					onClick={() => window.scrollTo(0, 0)}
 				>
-					<img src={siegecraftLogo} className="h-16 object-cover max-w-full" />
+					<img
+						src={siegecraftLogo}
+						className="h-16 object-cover max-w-full"
+					/>
 				</Link>
 				<div className="hidden lg:inline">
-					<ul className="flex flex-row space-x-4 items-center">
+					<ul className="flex flex-row space-x-4 xl:space-x-6 items-center">
 						{links}
 
 						<li

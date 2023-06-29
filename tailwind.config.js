@@ -4,8 +4,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				Cinzel: ["Cinzel", "serif"],
-				Catamaran: ["Catamaran", "sans-serif"],
+				Cinzel: ["cinzelregular", "serif"],
+				Catamaran: ["catamaranthin", "sans-serif"],
 			},
 			aspectRatio: {
 				"5/7": [5, 7],

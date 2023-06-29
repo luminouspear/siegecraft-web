@@ -7,13 +7,13 @@ import { Transition } from "react-transition-group";
 import { useSwipeable } from "react-swipeable";
 import styles from "../../styles";
 import getIndicatorColor from "../global/utils/getIndicatorColor";
-import LazyLoad from "react-lazy-load";
 
 const ElementsImageGallery = ({
 	element,
 	isElementInView,
 	isEven,
 	hasElementLoaded,
+	currentGlobalElementInView,
 	setCurrentElementInView,
 }) => {
 	const [userInteraction, setUserInteraction] = useState(false);
@@ -110,7 +110,9 @@ const ElementsImageGallery = ({
 
 	const handleChangeIndex = (index) => {
 		setUserInteraction(true);
-		setCurrentElementInView(element.sectionElement.toLowerCase())
+		if (currentGlobalElementInView !== element.sectionElement.toLowerCase()) {
+			setCurrentElementInView(element.sectionElement.toLowerCase())
+		}
 		setCurrentImageIndex(index);
 	};
 

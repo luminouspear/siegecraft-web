@@ -27,7 +27,6 @@ const HowToPlayHero = (props) => {
     );
 
     const scaleUpOntoScreen = (delay) => {
-
      return useTransform(
 			scrollYProgress,
 			[
@@ -46,9 +45,9 @@ const HowToPlayHero = (props) => {
 			className="relative h-screen pt-[25%] lg:pt-[10%] text-sc-off-white  bg-sc-dark-black"
 			ref={targetRef}
 		>
-			<motion.div className="flex w-full justify-center flex-col items-center">
+			<motion.div className="flex flex-col items-center justify-center w-full">
 				<motion.h1
-					className="font-Cinzel text-3xl pt-36"
+					className="text-3xl font-Cinzel pt-36"
 					style={{ opacity, scale, position }}
 				>
 					{content.sectionTitle}
@@ -77,9 +76,9 @@ const HowToPlayHero = (props) => {
 							>
 								<Link
 									to={`/elements${element.elementLink}`}
-									className="font-Cinzel text-sm md:text-xl"
+									className="text-sm font-Cinzel md:text-xl"
 								>
-								<ElementIcon className="w-10 h-10 md:w-16 md:h-16 mb-2 md:p-2" style={{scale: scalesWithDelay[index]}} />
+								<ElementIcon className="w-10 h-10 mb-2 md:w-16 md:h-16 md:p-2" style={{scale: scalesWithDelay[index]}} />
 									{element.elementName}
 								</Link>
 							</li>

@@ -671,8 +671,10 @@ const howToPlayContent = [
 	{
 		id: 1,
 		tile: true,
-		bgImage: how_to_play_decks,
-		bgImageAlt: "A pair of custom built Third Dawn: Siegecraft decks.",
+		sectionBg: how_to_play_decks,
+		sectionBgSrcSet:
+			"/src/assets/how_to_play_decks.jpg 1000w, /src/assets/how_to_play_decks@2x.jpg 2000w, /src/assets/how_to_play_decks@3x.jpg 4000w",
+		sectionBgAlt: "A pair of custom built Third Dawn: Siegecraft decks.",
 		sectionTitle: "Create Your Deck",
 		sectionText:
 			"Choose from pre-constructed decks that come with the game, or mix and match elements and cards to discover your own powerful combinations.",
@@ -680,8 +682,10 @@ const howToPlayContent = [
 	{
 		id: 2,
 		tile: true,
-		bgImage: how_to_play_playmat,
-		bgImageAlt:
+		sectionBg: how_to_play_playmat,
+		sectionBgSrcSet:
+			"/src/assets/how_to_play_playmat.jpg 1000w, /src/assets/how_to_play_playmat@2x.jpg 2000w, /src/assets/how_to_play_playmat@3x.jpg 4000w",
+		sectionBgAlt:
 			"A black Third Dawn: Siegecraft playmat, split into three zones- the Assault, Battalion and Cavalry zones.",
 		sectionTitle: "Set Up Your Battlefield",
 		sectionText:
@@ -690,8 +694,8 @@ const howToPlayContent = [
 	{
 		id: 3,
 		tile: true,
-		bgImage: "",
-		bgImageAlt: "",
+		sectionBg: "",
+		sectionBgAlt: "",
 		sectionTitle: "Play Territories to Expand",
 		sectionText:
 			"Build our your battlefield carefully. Summon units to build an invading and defending force.",
@@ -699,7 +703,7 @@ const howToPlayContent = [
 	{
 		id: 4,
 		tile: true,
-		bgImage: "",
+		sectionBg: "",
 		bgImageAlt: "",
 		sectionTitle: "Maneuver to Win The Battle",
 		sectionText:
@@ -708,7 +712,7 @@ const howToPlayContent = [
 	{
 		id: 5,
 		tile: true,
-		bgImage: "",
+		sectionBg: "",
 		bgImageAlt: "",
 		sectionTitle: "Conquer 3 Territories to Win",
 		sectionText:

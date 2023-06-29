@@ -1,7 +1,7 @@
 import React from "react";
 import HeroSection from "./HeroSection";
 import MainPoints from "./MainPoints";
-import ElementsCarousel from "./ElementsCarousel";
+import HomePageElementsCarousel from "./HomePageElementsCarousel";
 import VideoSection from "./VideoSection";
 import StoreCTASection from "./StoreCTASection";
 import GallerySection from "./GallerySection";
@@ -14,7 +14,7 @@ const HomePage = () => {
 		<>
 			<HeroSection />
 			<MainPoints />
-			<ElementsCarousel />
+			<HomePageElementsCarousel />
 			<VideoSection />
 			<StoreCTASection />
 			<GallerySection />

@@ -3,7 +3,7 @@ import React from "react";
 export function showTailwindDebug(showDebug) {
 	if (showDebug) {
 		return (
-			<div className="fixed top-36 right-0 flex items-center justify-center w-12 h-12 font-bold text-center align-middle bg-cyan-400 text-black/90 ">
+			<div className="fixed top-36 right-0 flex items-center justify-center w-12 h-12 font-bold text-center align-middle bg-cyan-400 text-black/90 z-[100]">
 				<span className="sm:hidden">xs</span>
 				<span className="hidden sm:inline md:hidden">sm</span>
 				<span className="hidden md:inline lg:hidden">md</span>
