@@ -47,7 +47,7 @@ const HowToPlayHero = (props) => {
 		>
 			<motion.div className="flex flex-col items-center justify-center w-full">
 				<motion.h1
-					className="text-3xl font-Cinzel pt-36"
+					className="pt-24 text-3xl font-Cinzel sm:pt-36"
 					style={{ opacity, scale, position }}
 				>
 					{content.sectionTitle}
@@ -76,7 +76,7 @@ const HowToPlayHero = (props) => {
 							>
 								<Link
 									to={`/elements${element.elementLink}`}
-									className="text-sm font-Cinzel md:text-xl"
+									className="text-sm text-center font-Cinzel md:text-xl"
 								>
 								<ElementIcon className="w-10 h-10 mb-2 md:w-16 md:h-16 md:p-2" style={{scale: scalesWithDelay[index]}} />
 									{element.elementName}

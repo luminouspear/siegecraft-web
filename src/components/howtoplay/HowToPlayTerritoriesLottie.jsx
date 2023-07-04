@@ -129,7 +129,7 @@ const HowToPlayTerritoriesLottie = (props) => {
 			const targetScroll = 0.6 * scrollHeight;
 			const endingFrame = TOTAL_FRAMES;
 
-			console.log((scrollPosition - offsetTop) / scrollHeight);
+			// console.log((scrollPosition - offsetTop) / scrollHeight);
 
 			const frame =
 				((scrollPosition - offsetTop) / targetScroll) * TOTAL_FRAMES;

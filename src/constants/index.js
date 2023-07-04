@@ -737,7 +737,7 @@ const howToPlayContent = [
 			"(max-width: 600px) 600px,(max-width: 1200px) 1200px,1400px",
 		featuredCardId: "N215",
 		sectionTitle: "Play Territories to Expand",
-		sectionSubtitle: "Then Plan an Empire",
+		sectionSubtitle: "Plan an Empire",
 		sectionText:
 			"Build out your battlefield carefully. Summon units to build an invading and defending force.",
 		mobileAnimationData: strongholdAnimationDataMobile,

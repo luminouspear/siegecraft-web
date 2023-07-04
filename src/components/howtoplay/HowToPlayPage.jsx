@@ -8,6 +8,9 @@ import HowToPlayTerritoriesMoreLottie from "./HowToPlayTerritoriesMoreLottie";
 import HowToPlayUnits from "./HowToPlayUnits";
 import HowToPlayAttack from "./HowToPlayAttack";
 import HowToPlayConquer from "./HowToPlayConquer";
+import HowToPlayClosingCTA from "./HowToPlayClosingCTA";
+import ContactSection from "../global/ContactSection";
+import FooterSection from "../global/FooterSection";
 
 const HowToPlayPage = () => {
 	return (
@@ -23,6 +26,12 @@ const HowToPlayPage = () => {
 			<HowToPlayUnits content={howToPlayContent[5]} />
 			<HowToPlayAttack content={howToPlayContent[6]} />
 			<HowToPlayConquer content={howToPlayContent[7]} />
+			<HowToPlayClosingCTA
+				content={howToPlayContent[8]}
+				elements={sectionElements}
+			/>
+			<ContactSection />
+			<FooterSection />
 		</>
 	);
 };
