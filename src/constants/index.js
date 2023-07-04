@@ -62,6 +62,18 @@ import {
 	bg_elements_shadow,
 	how_to_play_decks,
 	how_to_play_playmat,
+	strongholdAnimationData169,
+	strongholdAnimationDataMobile,
+	playmatAnimationData169,
+	playmatAnimationDataMobile,
+	playTerritoriesAnimationDataMobile,
+	playTerritoriesAnimationData169,
+	summonMoveAnimationData169,
+	summonMoveAnimationDataMobile,
+	attackAnimationDataMobile,
+	attackAnimationData169,
+	conquerAnimationData169,
+	conquerAnimationDataMobile,
 } from "../assets";
 
 const heroSection = [
@@ -541,7 +553,8 @@ const elementPageInfo = [
 		id: 1,
 		sectionElement: "Earth",
 		sectionBg: "/src/assets/bg_elements_earth.jpg",
-		sectionBgSrcSet: "/src/assets/bg_elements_earth.jpg 1024w, /src/assets/bg_elements_earth@2x.jpg 2500w, /src/assets/bg_elements_earth@3x.jpg 4000w",
+		sectionBgSrcSet:
+			"/src/assets/bg_elements_earth.jpg 1024w, /src/assets/bg_elements_earth@2x.jpg 2500w, /src/assets/bg_elements_earth@3x.jpg 4000w",
 		sectionTitle: "Welcome to the Wilderness",
 		sectionSubtitle:
 			"Buried deep within the heart of the Inzaru wilds is the ancient temple of your ancestors - a hallowed sanctum steeped in enigmas and cloaked in lore. It now stands as an impregnable fortress in the maelstrom of conflict.",
@@ -554,7 +567,8 @@ const elementPageInfo = [
 		id: 2,
 		sectionElement: "Air",
 		sectionBg: "/src/assets/bg_elements_air.jpg",
-		sectionBgSrcSet: "/src/assets/bg_elements_air.jpg 1024w, /src/assets/bg_elements_air@2x.jpg 2500w , /src/assets/bg_elements_air@3x.jpg 4000w",
+		sectionBgSrcSet:
+			"/src/assets/bg_elements_air.jpg 1024w, /src/assets/bg_elements_air@2x.jpg 2500w , /src/assets/bg_elements_air@3x.jpg 4000w",
 		sectionTitle: "Explore the High Desert",
 		sectionSubtitle:
 			"With each new relic discovered on the cloud plains of Zederi, the influx of northern invaders intensifies. They don't know the storm they are calling down.",
@@ -567,7 +581,8 @@ const elementPageInfo = [
 		id: 3,
 		sectionElement: "Fire",
 		sectionBg: "/src/assets/bg_elements_fire.jpg",
-		sectionBgSrcSet: "/src/assets/bg_elements_fire.jpg 1000w , /src/assets/bg_elements_fire@2x.jpg 2500w, /src/assets/bg_elements_fire@3x.jpg 4000w",
+		sectionBgSrcSet:
+			"/src/assets/bg_elements_fire.jpg 1000w , /src/assets/bg_elements_fire@2x.jpg 2500w, /src/assets/bg_elements_fire@3x.jpg 4000w",
 		sectionTitle: "You Rule the Burning Wastelands",
 		sectionSubtitle:
 			'You are the warlord of Kartha, to whom the oracle once proclaimed: "In your hands, aggression will become an artform. In your wake, empires will turn to ashes."',
@@ -580,7 +595,8 @@ const elementPageInfo = [
 		id: 4,
 		sectionElement: "Water",
 		sectionBg: "/src/assets/bg_elements_water.jpg",
-		sectionBgSrcSet: "/src/assets/bg_elements_water.jpg 1000w, /src/assets/bg_elements_water@2x.jpg 2500w, /src/assets/bg_elements_water@3x.jpg 4000w",
+		sectionBgSrcSet:
+			"/src/assets/bg_elements_water.jpg 1000w, /src/assets/bg_elements_water@2x.jpg 2500w, /src/assets/bg_elements_water@3x.jpg 4000w",
 		sectionTitle: "All Rivers Flow Toward You",
 		sectionSubtitle:
 			"From your throne at the strategic harbor of Ferria, the world's knowledge, trade and commerce revolves around you. Under your watchful eye, nothing passes through your borders unseen.",
@@ -593,7 +609,8 @@ const elementPageInfo = [
 		id: 5,
 		sectionElement: "Light",
 		sectionBg: "/src/assets/bg_elements_light.jpg",
-		sectionBgSrcSet: "/src/assets/bg_elements_light.jpg 1000w, /src/assets/bg_elements_light@2x.jpg 2500w, /src/assets/bg_elements_light@3x.jpg 4000w",
+		sectionBgSrcSet:
+			"/src/assets/bg_elements_light.jpg 1000w, /src/assets/bg_elements_light@2x.jpg 2500w, /src/assets/bg_elements_light@3x.jpg 4000w",
 		sectionTitle: "We Will Erect Monuments to Your Glory",
 		sectionSubtitle:
 			"As the Captain of the Merenthian Guard, you are the last champion who stands for the righteous against the forces that would plunge the world into darkness forever. What is your command?",
@@ -606,7 +623,8 @@ const elementPageInfo = [
 		id: 6,
 		sectionElement: "Shadow",
 		sectionBg: "/src/assets/bg_elements_shadow.jpg",
-		sectionBgSrcSet: "/src/assets/bg_elements_shadow.jpg 1000w, /src/assets/bg_elements_shadow@2x.jpg 2000w, /src/assets/bg_elements_shadow@3x.jpg 4000w",
+		sectionBgSrcSet:
+			"/src/assets/bg_elements_shadow.jpg 1000w, /src/assets/bg_elements_shadow@2x.jpg 2000w, /src/assets/bg_elements_shadow@3x.jpg 4000w",
 		sectionTitle: "There's Some Power Yet in These Old Ruins",
 		sectionSubtitle:
 			"In the darkest corners of the ancient city of Ghis, power accumulates. The power to uplift the forgotten, to revive those who are lost and to avenge lost wars. All it requires is just a small tribute to the demon Ix. Will you join?",
@@ -682,7 +700,7 @@ const howToPlayContent = [
 	{
 		id: 2,
 		tile: true,
-		sectionBg: how_to_play_playmat,
+		sectionBg: "/src/assets/how_to_play_playmat.jpg",
 		sectionBgSrcSet:
 			"/src/assets/how_to_play_playmat.jpg 1000w, /src/assets/how_to_play_playmat@2x.jpg 2000w, /src/assets/how_to_play_playmat@3x.jpg 4000w",
 		sectionBgAlt:
@@ -690,42 +708,90 @@ const howToPlayContent = [
 		sectionTitle: "Set Up Your Battlefield",
 		sectionText:
 			"Your playmat is your battlefield. Invade your opponent's battlefield while developing and defending your own.",
+		mobileAnimationData: playmatAnimationDataMobile,
+		pcAnimationData: playmatAnimationData169,
 	},
 	{
 		id: 3,
 		tile: true,
-		sectionBg: "",
-		sectionBgAlt: "",
+		sectionBg: "src/assets/how_to_play_stronghold.jpg",
+		sectionBgAlt:
+			"A mountain stronghold with strong walls on a misty morning.",
+		sectionBgSrcSet:
+			"src/assets/how_to_play_stronghold.jpg 600w, src/assets/how_to_play_stronghold@2x.jpg 1200w, src/assets/how_to_play_stronghold@3x.jpg 1400w",
+		sectionBgs: [
+			{
+				id: "1",
+				src: "src/assets/how_to_play_stronghold.jpg",
+				srcSet: "src/assets/how_to_play_stronghold.jpg 600w, src/assets/how_to_play_stronghold@2x.jpg 1200w, src/assets/how_to_play_stronghold@3x.jpg 1400w",
+				alt: "A mountain stronghold with strong walls on a misty morning.",
+			},
+			{
+				id: "2",
+				src: "/src/assets/how_to_play_playmat.jpg",
+				srcSet: "/src/assets/how_to_play_playmat.jpg 1000w, /src/assets/how_to_play_playmat@2x.jpg 2000w, /src/assets/how_to_play_playmat@3x.jpg 4000w",
+				alt: "A black Third Dawn: Siegecraft playmat, split into three zones- the Assault, Battalion and Cavalry zones.",
+			},
+		],
+		sectionSrcSetSizes:
+			"(max-width: 600px) 600px,(max-width: 1200px) 1200px,1400px",
+		featuredCardId: "N215",
 		sectionTitle: "Play Territories to Expand",
+		sectionSubtitle: "Then Plan an Empire",
 		sectionText:
-			"Build our your battlefield carefully. Summon units to build an invading and defending force.",
+			"Build out your battlefield carefully. Summon units to build an invading and defending force.",
+		mobileAnimationData: strongholdAnimationDataMobile,
+		pcAnimationData: strongholdAnimationData169,
 	},
 	{
 		id: 4,
 		tile: true,
 		sectionBg: "",
 		bgImageAlt: "",
-		sectionTitle: "Maneuver to Win The Battle",
+		sectionSubtitle: "Devote Yourself to the Elements",
+		sectionTitle: "Play Elemental Territories",
 		sectionText:
-			"Plan your army's movements carefully. Use small, diversionary units to whittle down strong foes. Cast tactical spells to grip control of the tides of battle.",
+			"Declare your affiiliation to the elements of Third Dawn: Siegecraft and draw from their power.",
+		mobileAnimationData: playTerritoriesAnimationDataMobile,
+		pcAnimationData: playTerritoriesAnimationData169,
 	},
 	{
 		id: 5,
 		tile: true,
 		sectionBg: "",
 		bgImageAlt: "",
-		sectionTitle: "Conquer 3 Territories to Win",
+		sectionSubtitle: "Summon an Army",
+		sectionTitle: "March to Control the Battlefield",
 		sectionText:
-			"Lay siege to your opponent's empire, crushing their armies and conquering their territories.",
+			"Move units during your Strategy phase. Defend your territories and prepare your invasion.",
+		mobileAnimationData: summonMoveAnimationDataMobile,
+		pcAnimationData: summonMoveAnimationData169,
 	},
 	{
 		id: 6,
+		sectionSubtitle: "Bring the fight to your opponent",
+		sectionTitle: "Attack Enemy Units",
+		sectionText:
+			"Charge headlong into your foes. Win your attack rolls to defeat your enemy's defenders.",
+		mobileAnimationData: attackAnimationDataMobile,
+		pcAnimationData: attackAnimationData169,
+	},
+	{
+		id: 7,
+		sectionSubtitle: "Conquer Three Territories to Win",
+		sectionTitle: "Plan your Siege",
+		sectionText:
+			"Attack undefended enemy territories directly with your units to win.",
+		mobileAnimationData: conquerAnimationDataMobile,
+		pcAnimationData: conquerAnimationData169,
+	},
+	{
+		id: 8,
 		sectionTitle: "There Are Six Paths to Power",
 		sectionText: "Which would you choose?",
 		sectionIcons: sectionElements,
 	},
 ];
-
 
 export {
 	heroSection,

@@ -72,7 +72,7 @@ const HowToPlayHero = (props) => {
 						return (
 							<li
 								key={element.id}
-								className={`flex flex-col items-center col-span-1 row-start-1 ${startCol}`}
+								className={`flex flex-col items-center col-span-1 row-start-1 ${startCol} text-center`}
 							>
 								<Link
 									to={`/elements${element.elementLink}`}

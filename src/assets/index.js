@@ -69,6 +69,18 @@ import bg_texture_dark from "./bg_texture_dark.jpg";
 import bg_texture_light from "./bg_texture_light.jpg";
 import how_to_play_decks from "./how_to_play_decks.jpg";
 import how_to_play_playmat from "./how_to_play_playmat.jpg";
+import strongholdAnimationData169 from "./lottie/siegecraft_stronghold_16_9.json";
+import strongholdAnimationDataMobile from "./lottie/siegecraft_stronghold_mobile.json";
+import playmatAnimationData169 from "./lottie/siegecraft_playmat_16_9.json";
+import playmatAnimationDataMobile from "./lottie/siegecraft_playmat_mobile.json";
+import playTerritoriesAnimationData169 from "./lottie/playterritories_siegecraft_16_9.json";
+import playTerritoriesAnimationDataMobile from "./lottie/playterritories_siegecraft_mobile.json";
+import summonMoveAnimationDataMobile from "./lottie/summon_move_siegecraft_mobile.json";
+import summonMoveAnimationData169 from "./lottie/summon_move_siegecraft_16_9.json";
+import attackAnimationDataMobile from "./lottie/attack_siegecraft_mobile.json"
+import attackAnimationData169 from "./lottie/attack_siegecraft_16_9.json"
+import conquerAnimationDataMobile from './lottie/conquer_siegecraft_mobile.json'
+import conquerAnimationData169 from './lottie/conquer_siegecraft_16_9.json'
 
 export {
 	siegecraftLogo,
@@ -142,4 +154,16 @@ export {
 	IconCaret,
 	how_to_play_decks,
 	how_to_play_playmat,
+	strongholdAnimationData169,
+	strongholdAnimationDataMobile,
+	playmatAnimationData169,
+	playmatAnimationDataMobile,
+	playTerritoriesAnimationData169,
+	playTerritoriesAnimationDataMobile,
+	summonMoveAnimationData169,
+	summonMoveAnimationDataMobile,
+	attackAnimationDataMobile,
+	attackAnimationData169,
+	conquerAnimationData169,
+	conquerAnimationDataMobile,
 };
