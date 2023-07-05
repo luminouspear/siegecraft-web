@@ -1,25 +1,26 @@
 import React from "react";
 import SectionWrapper from "../hoc/SectionWrapper";
 import { homePageSectionTitles, videoSectionContent } from "../../constants";
+import { Link } from "react-router-dom";
 
 const VideoSection = () => {
 	return (
 		<>
-			<div className=" pt-24 w-10/12 md:max-w-2xl md:w-full mx-auto ">
+			<div className="w-10/12 pt-24 mx-auto md:max-w-2xl md:w-full">
 				<h2
-					className="text-4xl font-Cinzel font-medium text-center md:w-1/2 mx-auto pb-8 text-sc-off-white"
+					className="pb-8 mx-auto text-4xl font-medium text-center font-Cinzel md:w-1/2 text-sc-off-white"
 					dangerouslySetInnerHTML={{
 						__html: homePageSectionTitles[2].title,
 					}}
 				/>
 				<p
-					className="text-center text-sc-off-white font-Catamaran w-8/12 mx-auto text-2xl"
+					className="w-8/12 mx-auto text-2xl text-center text-sc-off-white font-Catamaran"
 					dangerouslySetInnerHTML={{
 						__html: homePageSectionTitles[2].subTitle,
 					}}
 				></p>
 			</div>
-			<div className="w-full  lg:w-10/12 mx-auto my-8">
+			<div className="w-full mx-auto my-8 lg:w-10/12">
 				{videoSectionContent.map((video) => (
 					<div
 						key={video.index}
@@ -31,7 +32,7 @@ const VideoSection = () => {
 					>
 						<div
 							key={video.index}
-							className="lg:w-1/2 lg:flex-1 lg:p-2 w-full lg:mb-12 mb-4"
+							className="w-full mb-4 lg:w-1/2 lg:flex-1 lg:p-2 lg:mb-12"
 						>
 							<video controls className="lg:rounded-xl">
 								{Object.entries(video.videoUrls[0]).map(
@@ -65,25 +66,25 @@ const VideoSection = () => {
 					</div>
 				))}
 			</div>
-			<div className=" pt-8 w-10/12 md:max-w-2xl md:w-full mx-auto flex flex-col pb-24">
+			<div className="flex flex-col w-10/12 pt-8 pb-24 mx-auto md:max-w-2xl md:w-full">
 				<h2
-					className="text-4xl font-Cinzel font-medium text-center md:w-1/2 mx-auto pb-8 text-sc-off-white"
+					className="pb-8 mx-auto text-4xl font-medium text-center font-Cinzel md:w-1/2 text-sc-off-white"
 					dangerouslySetInnerHTML={{
 						__html: homePageSectionTitles[2].closingTitle,
 					}}
 				/>
 				<p
-					className="text-center text-sc-off-white font-Catamaran w-10/12 mx-auto text-xl"
+					className="w-10/12 mx-auto text-xl text-center text-sc-off-white font-Catamaran"
 					dangerouslySetInnerHTML={{
 						__html: homePageSectionTitles[2].closingSubTitle,
 					}}
 				/>
-				<a
-					href="#"
-					className="font-Cinzel text-lg md:text-2xl font-medium hover:text-sc-gold text-sc-off-white px-8 py-4  mt-8 rounded border-2 hover:border-sc-gold border-sc-off-white text-center mx-auto"
+				<Link
+					to="/howtoplay"
+					className="px-8 py-4 mx-auto mt-8 text-lg font-medium text-center border-2 rounded font-Cinzel md:text-2xl hover:text-sc-gold text-sc-off-white hover:border-sc-gold border-sc-off-white"
 				>
 					{homePageSectionTitles[2].closingCTA}
-				</a>
+				</Link>
 			</div>
 		</>
 	);

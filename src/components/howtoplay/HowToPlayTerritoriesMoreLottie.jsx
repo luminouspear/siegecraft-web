@@ -10,7 +10,7 @@ import {
 
 const HowToPlayTerritoriesMoreLottie = (props) => {
 	const { content } = props;
-	const containerRef = useRef(null);
+	const targetRef = useRef(null);
 	const lottieRef = useRef(null);
 	const [scrollPosition, setScrollPosition] = useState(window.scrollY);
 	const [currentAnimationData, setCurrentAnimationData] = useState(
@@ -18,7 +18,7 @@ const HowToPlayTerritoriesMoreLottie = (props) => {
 	);
 	const TOTAL_FRAMES = 59;
 	const { scrollYProgress } = useScroll({
-		target: containerRef,
+		target: targetRef,
 		offset: ["start end", "end start"],
 	});
 
@@ -53,7 +53,7 @@ const HowToPlayTerritoriesMoreLottie = (props) => {
 
 	const subtitleOpacity = useTransform(
 		scrollYProgress,
-		[0.0, 0.07, 0.1, 0.25],
+		[0.0, 0.18, 0.2, 0.35],
 		[0, 0, 1, 0]
 	);
 
@@ -75,7 +75,7 @@ const HowToPlayTerritoriesMoreLottie = (props) => {
 
 	const animationOpacity = useTransform(
 		scrollYProgress,
-		[0,.22 , 0.75, 0.8],
+		[.30,.35 , 0.75, 0.8],
 		[0,1, 1, 0]
 	);
 
@@ -95,7 +95,9 @@ const HowToPlayTerritoriesMoreLottie = (props) => {
 			title={content.sectionTitle}
 			style={{
 				opacity: titleOpacity,
-				position: holdAtPosition(scrollYProgress, 0.33, 0.83),
+				position: isWindowLg
+					? "relative"
+					: holdAtPosition(scrollYProgress, 0.33, 0.83),
 			}}
 		/>
 	);
@@ -104,7 +106,9 @@ const HowToPlayTerritoriesMoreLottie = (props) => {
 			subheading={content.sectionText}
 			style={{
 				opacity: contentOpacity,
-				position: holdAtPosition(scrollYProgress, 0.35, 0.83),
+				position: isWindowLg
+					? "relative"
+					: holdAtPosition(scrollYProgress, 0.35, 0.83),
 			}}
 		/>
 	);
@@ -124,8 +128,8 @@ const HowToPlayTerritoriesMoreLottie = (props) => {
 	useEffect(() => {
 		const lottie = lottieRef.current;
 
-		if (containerRef.current) {
-			const { offsetTop, scrollHeight } = containerRef.current;
+		if (targetRef.current) {
+			const { offsetTop, scrollHeight } = targetRef.current;
 
 			const targetScroll = 0.6 * scrollHeight;
 			const endingFrame = TOTAL_FRAMES;
@@ -144,49 +148,46 @@ const HowToPlayTerritoriesMoreLottie = (props) => {
 	}, [scrollPosition]);
 
 	return (
-		<div
-			className="bg-black h-[300vh] sm:h-[300vh] grid grid-rows-5 sm:grid-rows-[repeat(10,_minmax(0,1fr))] grid-cols-12 relative z-0"
-			ref={containerRef}
+		<section
+			className="bg-black h-[250vh] grid grid-rows-5  grid-cols-12 relative z-0 lg:grid-rows-3 lg:grid-cols-8"
+			ref={targetRef}
 		>
 			<motion.h2
-				className={`text-2xl text-sc-off-white font-Cinzel mx-auto col-span-12 col-start-1 row-span-1 row-start-1 sticky top-[45%] self-start text-center`}
+				className={`text-2xl text-sc-off-white font-Cinzel mx-auto col-span-12 col-start-1 row-span-1 row-start-1 sticky top-[45%] self-start`}
 				style={{ opacity: subtitleOpacity }}
 			>
 				{content.sectionSubtitle}
 			</motion.h2>
 			<motion.div
-				className="sticky col-span-12 col-start-1 row-span-1 row-start-2 bg-sc-dark-black top-[75vh] z-[1] lg:hidden grid grid-flow-row grid-cols-8 grid-rows-1 "
+				className="sticky col-span-12 col-start-1 row-span-1 row-start-2 bg-sc-dark-black top-[75vh] h-[25vh] z-[1] lg:hidden grid grid-flow-row grid-cols-8 grid-rows-1 justify-center items-center"
 				style={{ opacity: blockerOpacity }}
 			>
-				<div className="sticky col-span-3 col-start-1 row-start-1 flex align-top top-[75vh]  self-start h-fit lg:hidden p-4 z-[2] ">
+				<div className="col-span-3 md:col-span-4 col-start-1 row-start-1 flex h-fit lg:hidden z-[1] ">
 					{sectionTitle}
 				</div>
-				<div className="sticky flex items-start col-span-5 col-start-4 row-span-1 row-start-1  lg:hidden sm:mx-6 md:mx-16 z-[2] ">
+				<div className="flex items-start col-span-full col-start-4 md:col-start-5 row-span-1 row-start-1  lg:hidden sm:mx-6 md:mx-16 z-[2] ">
 					{sectionSubheading}
 				</div>
 			</motion.div>
 			<motion.div
-				className="sticky self-start w-full col-span-12 col-start-1 row-span-1 row-start-1 sm:row-span-2 sm:row-start-1 h-fit top-32 lg:top-24 "
+				className="sticky grid items-start w-full h-full grid-cols-12 col-span-12 col-start-1 grid-rows-3 row-span-2 row-start-1 lg:h-screen lg:items-start lg:row-start-1 lg:grid-rows-5 lg:grid-cols-12 sm:row-span-1 lg:row-span-3 lg:col-start-1 lg:col-span-8 sm:row-start-1 top-32 lg:top-24 "
 				style={{ opacity: animationOpacity }}
 			>
 				{/* {Animation} */}
 				<Lottie
 					animationData={currentAnimationData}
 					lottieRef={lottieRef}
+					className="col-span-12 col-start-1 row-span-3 row-start-1 lg:row-start-1 lg:col-start-1 lg:col-span-12 lg:row-span-5"
 				/>
+				<HowToPlayMotionContainer
+					style={{ opacity: contentContainerOpacity }}
+					align="left"
+				>
+					{sectionTitle}
+					{sectionSubheading}
+				</HowToPlayMotionContainer>
 			</motion.div>
-			<HowToPlayMotionContainer
-				style={{
-					opacity: contentContainerOpacity,
-					y: contentContainerY,
-				}}
-				align={"left"}
-			>
-				{/* Large+ Container */}
-				{sectionTitle}
-				{sectionSubheading}
-			</HowToPlayMotionContainer>
-		</div>
+		</section>
 	);
 };
 

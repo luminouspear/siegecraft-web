@@ -1,6 +1,10 @@
 import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
-import { HowToPlayMotionContainer, HowToPlaySectionSubheading, HowToPlaySectionTitle } from "./HowToPlaySectionTitles";
+import {
+	HowToPlayMotionContainer,
+	HowToPlaySectionSubheading,
+	HowToPlaySectionTitle,
+} from "./HowToPlaySectionTitles";
 
 const HowToPlayDecks = (props) => {
 	const targetRef = useRef(null);
@@ -74,6 +78,13 @@ const HowToPlayDecks = (props) => {
 		[0.1, 0.15, 0.22, 0.68, 0.76],
 		[0, 0.2, 1, 1, 0]
 	);
+
+	const blockerOpacity = useTransform(
+		scrollYProgress,
+		[0, 0.35, 0.37, 0.68, 0.7],
+		[0, 0, 1, 1, 0]
+	);
+
 	const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.6]);
 	const holdAtPosition = (fixedHeight, releaseHeight = 1, loud = false) => {
 		const hold = useTransform(scrollYProgress, (pos) => {
@@ -104,7 +115,9 @@ const HowToPlayDecks = (props) => {
 			title={content.sectionTitle}
 			style={{
 				opacity: titleOpacity,
-				position: holdAtPosition(0.35, 0.83, false),
+				position: isWindowLg
+					? "relative"
+					: holdAtPosition(0.35, 0.83, false),
 			}}
 		/>
 	);
@@ -114,49 +127,46 @@ const HowToPlayDecks = (props) => {
 			subheading={content.sectionText}
 			style={{
 				opacity: contentOpacity,
-				position: holdAtPosition(0.35, 0.83, false),
+				position: isWindowLg
+					? "relative"
+					: holdAtPosition(0.35, 0.83, false),
 			}}
 		/>
 	);
 
 	return (
 		<section
-			className="relative lg:h-[220vh] h-[240vh]  lg:pb-0
-			 min-w-full bg-black grid grid-flow-col
-			grid-rows-[repeat(12,_minmax(0,1fr))]
-			grid-cols-12 gap-x-8  lg:grid-rows-4 lg:grid-cols-8 "
+			className="bg-black h-[250vh] grid grid-rows-5  grid-cols-12 relative z-0 lg:grid-rows-3 lg:grid-cols-8"
 			ref={targetRef}
 		>
-			<div
-				className=" sticky top-32 lg:top-0   col-span-12  col-start-1 row-span-3 row-start-1
-			 bg-black lg:row-span-2 lg:row-start-1 lg:col-start-1 lg:h-full lg:col-span-8  lg:z-[1]  grid grid-rows-1 grid-cols-1 "
+			<motion.div
+				className="sticky col-span-12 col-start-1 row-span-1 row-start-2 bg-sc-dark-black top-[75vh] h-[25vh] z-[1] lg:hidden grid grid-flow-row grid-cols-8 grid-rows-1 justify-center items-center"
+				style={{ opacity: blockerOpacity }}
 			>
+				<div className="col-span-3 md:col-span-4 col-start-1 row-start-1 flex h-fit lg:hidden z-[1] ">
+					{sectionTitle}
+				</div>
+				<div className="flex items-start col-span-full col-start-4 md:col-start-5 row-span-1 row-start-1  lg:hidden sm:mx-6 md:mx-16 z-[2] ">
+					{sectionSubheading}
+				</div>
+			</motion.div>
+			<div className="sticky grid items-start w-full h-full grid-cols-12 col-span-12 col-start-1 grid-rows-3 row-span-2 row-start-1 lg:h-screen lg:items-start lg:row-start-1 lg:grid-rows-5 lg:grid-cols-12 sm:row-span-2 lg:row-span-3 lg:col-start-1 lg:col-span-8 sm:row-start-1 top-32 lg:top-24 ">
+				{/* {Animation} */}
 				<motion.img
 					style={{ opacity: imageOpacity }}
-					className="bg-cover object-cover  w-screen h-full lg:top-24   bg-[center_center] col-span-1 col-start-1 row-span-1 row-start-1"
+					className="bg-cover object-cover  w-screen h-full lg:top-24   bg-[center_center] col-span-12 col-start-1 row-span-3 row-start-1 lg:row-start-1 lg:col-start-1 lg:col-span-12 lg:row-span-5"
 					src={content.sectionBg}
 					srcSet={content.sectionBgSrcSet}
 					alt={content.sectionBgAlt}
 					loading="lazy"
 				/>
-			</div>
-			<HowToPlayMotionContainer
-			style={{
-				opacity: contentContainerOpacity,
-				y: contentContainerY,
-			}}>
-				{/* Large+ Container */}
-				{sectionTitle}
-				{sectionSubheading}
-			</HowToPlayMotionContainer>
-			<div className="flex items-start col-span-4 col-start-1 row-span-1 row-start-4 ml-4 align-top lg:hidden sm:mx-6 md:mx-16 ">
-				{sectionTitle}
-			</div>
-			<div
-				className="flex items-start  row-start-4 row-span-1 col-start-5 col-span-8 lg:hidden
-			sticky   mr-4  sm:mx-6 md:mx-16 pb-[0rem] "
-			>
-				{sectionSubheading}
+				<HowToPlayMotionContainer
+					style={{ opacity: contentContainerOpacity }}
+					align="top-right"
+				>
+					{sectionTitle}
+					{sectionSubheading}
+				</HowToPlayMotionContainer>
 			</div>
 		</section>
 	);

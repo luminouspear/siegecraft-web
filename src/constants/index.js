@@ -123,8 +123,8 @@ const homePageSectionTitles = [
 			"Summon powerful units. Cast powerful spells. Defend your territories.",
 		closingTitle: "Take Your Shot",
 		closingSubTitle:
-			"Your road to mastery begins in as little as 15 minutes. Check out our easy-play guide and take your first turn today.",
-		closingCTA: "Learn to Play",
+			"Your road to mastery begins in as little as 15 minutes. Learn the mechanics of <em><strong>Third Dawn: Siegecraft</strong></em> today.",
+		closingCTA: "How to Play",
 	},
 	{
 		title: "Get <strong><em>Third Dawn: Siegecraft</em></strong> Prime",
@@ -259,6 +259,11 @@ const videoSectionContent = [
 
 const navLinks = [
 	{
+		index: 5,
+		title: "home",
+		url: "/",
+	},
+	{
 		index: 0,
 		title: "how to play",
 		url: "/howtoplay",
@@ -268,16 +273,16 @@ const navLinks = [
 		title: "elements",
 		url: "/elements",
 	},
-	{
-		index: 2,
-		title: "cards",
-		url: "/cards",
-	},
-	{
-		index: 3,
-		title: "blog",
-		url: "/blog",
-	},
+	// {
+	// 	index: 2,
+	// 	title: "cards",
+	// 	url: "/cards",
+	// },
+	// {
+	// 	index: 3,
+	// 	title: "blog",
+	// 	url: "/blog",
+	// },
 ];
 
 const elementsCarouselContent = [
@@ -397,33 +402,45 @@ const homePageGallery = [
 ];
 
 const footerContent = [
+	// {
+	// 	index: 0,
+	// 	sectionTitle: "Store",
+	// 	sectionLinks: [
+	// 		{
+	// 			locationName: "Subscribe",
+	// 			locationUrl: "/",
+	// 			index: 0,
+	// 		},
+	// 		{
+	// 			locationName: "Buy Now",
+	// 			locationUrl: "/",
+	// 			index: 1,
+	// 		},
+	// 		{
+	// 			locationName: "Specials",
+	// 			locationUrl: "/",
+	// 			index: 2,
+	// 		},
+	// 		{
+	// 			locationName: "Last Chance",
+	// 			locationUrl: "/",
+	// 			index: 3,
+	// 		},
+	// 	],
+	// },
 	{
 		index: 0,
-		sectionTitle: "Store",
+		sectionTitle: "How to Play",
 		sectionLinks: [
 			{
-				locationName: "Subscribe",
-				locationUrl: "/",
+				locationName: "How to Play",
+				locationUrl: "/howtoplay",
 				index: 0,
-			},
-			{
-				locationName: "Buy Now",
-				locationUrl: "/",
-				index: 1,
-			},
-			{
-				locationName: "Specials",
-				locationUrl: "/",
-				index: 2,
-			},
-			{
-				locationName: "Last Chance",
-				locationUrl: "/",
-				index: 3,
-			},
-		],
-	},
+			},]
+		},
+
 	{
+
 		index: 1,
 		sectionTitle: "Elements",
 		sectionLinks: [
@@ -465,43 +482,43 @@ const footerContent = [
 			},
 		],
 	},
-	{
-		index: 2,
-		sectionTitle: "Cards",
-		sectionLinks: [
-			{
-				locationName: "Prime",
-				locationUrl: "/cards",
-				index: 0,
-			},
-			{
-				locationName: "Future Sets",
-				index: 1,
-				locationUrl: "/",
-			},
-			{
-				locationName: "Learn More",
-				locationUrl: "/",
-				index: 2,
-			},
-		],
-	},
-	{
-		index: 3,
-		sectionTitle: "Blog",
-		sectionLinks: [
-			{
-				locationName: "Featured Articles",
-				locationUrl: "/blog/featured",
-				index: 0,
-			},
-			{
-				locationName: "All Articles",
-				locationUrl: "/blog",
-				index: 1,
-			},
-		],
-	},
+	// {
+	// 	index: 2,
+	// 	sectionTitle: "Cards",
+	// 	sectionLinks: [
+	// 		{
+	// 			locationName: "Prime",
+	// 			locationUrl: "/cards",
+	// 			index: 0,
+	// 		},
+	// 		{
+	// 			locationName: "Future Sets",
+	// 			index: 1,
+	// 			locationUrl: "/",
+	// 		},
+	// 		{
+	// 			locationName: "Learn More",
+	// 			locationUrl: "/",
+	// 			index: 2,
+	// 		},
+	// 	],
+	// },
+	// {
+	// 	index: 3,
+	// 	sectionTitle: "Blog",
+	// 	sectionLinks: [
+	// 		{
+	// 			locationName: "Featured Articles",
+	// 			locationUrl: "/blog/featured",
+	// 			index: 0,
+	// 		},
+	// 		{
+	// 			locationName: "All Articles",
+	// 			locationUrl: "/blog",
+	// 			index: 1,
+	// 		},
+	// 	],
+	// },
 ];
 
 const elementPageSectionContent = {
@@ -770,7 +787,7 @@ const howToPlayContent = [
 	{
 		id: 6,
 		sectionSubtitle: "Bring the fight to your opponent",
-		sectionTitle: "Attack Enemy Units",
+		sectionTitle: "Challenge Your Opponent's Forces",
 		sectionText:
 			"Charge headlong into your foes. Win your attack rolls to defeat your enemy's defenders.",
 		mobileAnimationData: attackAnimationDataMobile,
@@ -779,7 +796,7 @@ const howToPlayContent = [
 	{
 		id: 7,
 		sectionSubtitle: "Conquer Three Territories to Win",
-		sectionTitle: "Plan your Siege",
+		sectionTitle: "Lay Siege to Your Enemies",
 		sectionText:
 			"Attack undefended enemy territories directly with your units to win.",
 		mobileAnimationData: conquerAnimationDataMobile,
@@ -788,7 +805,7 @@ const howToPlayContent = [
 	{
 		id: 8,
 		sectionTitle: "There Are Six Paths to Power",
-		sectionText: "Which would you choose?",
+		sectionText: "Which will you choose?",
 		sectionIcons: sectionElements,
 	},
 ];

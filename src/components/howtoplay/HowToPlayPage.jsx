@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { howToPlayContent, sectionElements } from "../../constants";
 import HowToPlayHero from "./HowToPlayHero";
 import HowToPlayDecks from "./HowToPlayDecks";
@@ -13,8 +13,16 @@ import ContactSection from "../global/ContactSection";
 import FooterSection from "../global/FooterSection";
 
 const HowToPlayPage = () => {
+
+
+	useEffect(() => {
+
+		window.scrollTo(0, 0);
+
+	}, []);
+
 	return (
-		<>
+		<div className="bg-black">
 			<HowToPlayHero
 				content={howToPlayContent[0]}
 				elements={sectionElements}
@@ -32,7 +40,7 @@ const HowToPlayPage = () => {
 			/>
 			<ContactSection />
 			<FooterSection />
-		</>
+		</div>
 	);
 };
 

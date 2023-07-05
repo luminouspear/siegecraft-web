@@ -25,9 +25,11 @@ const HowToPlayClosingCTA = (props) => {
 			[0, 0.2 + (delay * 5), 0.3 + (delay * 5)],
 			[0, 0,1 ]
 		);
-        console.log(0.3+ (delay*7))
 		return elementOpacity;
-	};
+    };
+
+    const subtitleOpacity = useTransform(scrollYProgress,[0,0.64, 0.68],[0,0,1]
+    )
 
 	return (
 		<section
@@ -41,9 +43,10 @@ const HowToPlayClosingCTA = (props) => {
 					{content.sectionTitle}
 					<br />
 					<br className={``} />
-					<span className="text-lg font-bold font-Catamaran">
+                    <motion.span className="text-lg font-bold font-Catamaran"
+                    style={{opacity:subtitleOpacity}}>
 						{content.sectionText}
-					</span>
+					</motion.span>
 				</h2>
 
 				{elements.map((element, index) => {
@@ -56,7 +59,8 @@ const HowToPlayClosingCTA = (props) => {
 							}}
 						>
 							<Link
-								to={`/elements${element.elementLink}`}
+                                to={{pathname: "/elements", hash: `${element.elementLink}`}}
+
 								className={`flex flex-col items-center justify-center group `}
 							>
 								<element.elementIcon
