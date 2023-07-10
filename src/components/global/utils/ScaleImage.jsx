@@ -5,7 +5,9 @@ export const ScaleImage = (props) => {
 	const {
 		children,
 		className,
-		id,
+        id,
+        src,
+        alt,
 		width = "fit-content",
 		style,
 		currentImageIndex,
@@ -64,20 +66,26 @@ export const ScaleImage = (props) => {
 	}, [currentImageIndex]);
 
 	return (
-		<motion.div
-			variants={{
-				start: { backgroundSize: animationBackgroundSize.start },
-				end: { backgroundSize: animationBackgroundSize.end },
-			}}
-			initial="start"
-			animate={mainControls}
-			transition={{ duration: 15, delay: 0, ease: "easeInOut" }}
-			className={className}
+		<div
 			id={id}
+			className={className}
 			ref={animationRef}
-			style={{ ...style, transformOrigin: "50% 100%" }}
+			style={{ ...style }}
 		>
+			<motion.img
+				src={src}
+				className={` col-start-1 col-span-4 row-span-4 row-start-1 object-cover object-center h-full w-full`}
+				alt={alt}
+				variants={{
+					start: { scale: 1 },
+					end: { scale: 1.1 },
+				}}
+				initial="start"
+				animate={mainControls}
+				transition={{ duration: 15, delay: 0, ease: "easeInOut" }}
+				style={{ transformOrigin: "50% 100%" }}
+			/>
 			{children}
-		</motion.div>
+		</div>
 	);
 };

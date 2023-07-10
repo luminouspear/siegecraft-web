@@ -11,7 +11,7 @@ import { CardProvider } from "./context/CardContext";
 
 
 function App() {
-	const debugWindowSize = process.env.NODE_ENV === 'production' ? false : true;
+	const debugWindowSize = false;
 
 	return (
 		<>
