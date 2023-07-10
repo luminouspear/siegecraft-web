@@ -6,16 +6,14 @@ import {
 	HowToPlaySectionTitle,
 	HowToPlaySectionSubheading,
 	HowToPlayMotionContainer,
-} from "./HowToPlaySectionTitles";
+} from "./HowToPlaySectionComponents";
 
 const HowToPlayAttack = (props) => {
 	const { content } = props;
 	const targetRef = useRef(null);
 	const lottieRef = useRef(null);
 	const [scrollPosition, setScrollPosition] = useState(window.scrollY);
-	const [currentAnimationData, setCurrentAnimationData] = useState(
-		content.mobileAnimationData
-	);
+	const [currentAnimationData, setCurrentAnimationData] = useState(null);
 	const TOTAL_FRAMES = 258;
 	const { scrollYProgress } = useScroll({
 		target: targetRef,
@@ -28,9 +26,13 @@ const HowToPlayAttack = (props) => {
 
 	useEffect(() => {
 		if (isWindowLg()) {
-			setCurrentAnimationData(content.pcAnimationData);
+			content.pcAnimationData().then((module) => {
+				setCurrentAnimationData(module.default);
+			});
 		} else {
-			setCurrentAnimationData(content.mobileAnimationData);
+			content.mobileAnimationData().then((module) => {
+				setCurrentAnimationData(module.default);
+			});
 		}
 	}, []);
 
@@ -38,9 +40,13 @@ const HowToPlayAttack = (props) => {
 	useEffect(() => {
 		const handleResize = () => {
 			if (isWindowLg()) {
-				setCurrentAnimationData(animationData169);
+				content.pcAnimationData().then((module) => {
+					setCurrentAnimationData(module.default);
+				});
 			} else {
-				setCurrentAnimationData(animationDataMobile);
+				content.mobileAnimationData().then((module) => {
+					setCurrentAnimationData(module.default);
+				});
 			}
 		};
 
@@ -152,7 +158,7 @@ const HowToPlayAttack = (props) => {
 			ref={targetRef}
 		>
 			<motion.h2
-				className={`text-2xl text-sc-off-white font-Cinzel mx-auto col-span-12 col-start-1 row-span-1 row-start-1 sticky top-[45%] self-start`}
+				className={`text-2xl text-sc-off-white font-Cinzel mx-auto col-span-12 col-start-1 row-span-1 row-start-1 sticky top-[45%] self-start text-center`}
 				style={{ opacity: subtitleOpacity }}
 			>
 				{content.sectionSubtitle}

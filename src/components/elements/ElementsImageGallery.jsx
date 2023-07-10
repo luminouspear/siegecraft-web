@@ -38,6 +38,7 @@ const ElementsImageGallery = ({
 
 	const transitionStyles = styles.transitionStyles;
 
+
 	useEffect(() => {
 		const fetchFeaturedCards = async () => {
 			setIsLoading(true);
@@ -80,7 +81,7 @@ const ElementsImageGallery = ({
 	}, [isElementInView, userInteraction]);
 
 	useEffect(() => {
-		if (cardImages) {
+		if (cardImages && cardImages[currentImageIndex]) {
 			setCurrentImage(cardImages[currentImageIndex].imageUrl);
 			setCurrentImageAlt(cardImages[currentImageIndex].imageAlt);
 			setCurrentImageSrcset(cardImages[currentImageIndex].srcSet);
@@ -125,7 +126,7 @@ const ElementsImageGallery = ({
 
 	return (
 		<div {...handlers} className="flex flex-col ">
-			<div className=" flex flex-row items-center align-middle space-x-6">
+			<div className="flex flex-row items-center space-x-6 align-middle ">
 				<button onClick={showPrevImage} className="w-1/12 h-auto">
 					<IconCaret
 						className={`w-full p-2 scale-90 rotate-180 lg:scale-60 xl:scale-50 lg:hover:scale-80 xl:hover:scale-70 ${
@@ -139,7 +140,7 @@ const ElementsImageGallery = ({
 						<Transition in timeout={500}>
 							{(state) => (
 								<img
-									className="rounded-lg w-full h-full object-cover z-1 relative"
+									className="relative object-cover w-full h-full rounded-lg z-1"
 									src={currentImage}
 									srcSet={currentImageSrcset}
 									alt={currentImageAlt}
@@ -154,7 +155,7 @@ const ElementsImageGallery = ({
 					) : (
 						<img
 							src={cardBack}
-							className="rounded-lg w-full h-full object-cover z-1 relative"
+							className="relative object-cover w-full h-full rounded-lg z-1"
 							loading="lazy"
 						/>
 					)}
@@ -168,8 +169,8 @@ const ElementsImageGallery = ({
 					/>
 				</button>
 			</div>
-			<div className="w-full flex justify-center pt-4">
-				<ul className="flex flex-row w-1/3 space-x-1 items-center">
+			<div className="flex justify-center w-full pt-4">
+				<ul className="flex flex-row items-center w-1/3 space-x-1">
 					{Array.from({ length: galleryLength }).map((_, index) => (
 						<li
 							key={index}

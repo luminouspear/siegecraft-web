@@ -1,13 +1,14 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import HeroSection from "./HeroSection";
 import MainPoints from "./MainPoints";
 import HomePageElementsCarousel from "./HomePageElementsCarousel";
-import VideoSection from "./VideoSection";
+const VideoSection = lazy(() => import("./VideoSection"));
+
+// import VideoSection from "./VideoSection";
 import StoreCTASection from "./StoreCTASection";
-import GallerySection from "./GallerySection";
+const GallerySection = lazy(() => import("./GallerySection"));
 import ContactSection from "../global/ContactSection";
 import FooterSection from "../global/FooterSection";
-
 
 const HomePage = () => {
 	return (
@@ -15,9 +16,13 @@ const HomePage = () => {
 			<HeroSection />
 			<MainPoints />
 			<HomePageElementsCarousel />
-			<VideoSection />
+			<Suspense fallback={<div>Loading...</div>}>
+				<VideoSection />
+			</Suspense>
 			<StoreCTASection />
-			<GallerySection />
+			<Suspense fallback={<div>Loading</div>}>
+				<GallerySection />
+			</Suspense>
 			<ContactSection />
 			<FooterSection />
 		</>

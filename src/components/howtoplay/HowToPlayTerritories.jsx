@@ -6,17 +6,15 @@ import {
 	HowToPlaySectionTitle,
 	HowToPlaySectionSubheading,
 	HowToPlayMotionContainer,
-} from "./HowToPlaySectionTitles";
+} from "./HowToPlaySectionComponents";
 
-const HowToPlayTerritoriesMoreLottie = (props) => {
+const HowToPlayTerritories = (props) => {
 	const { content } = props;
 	const targetRef = useRef(null);
 	const lottieRef = useRef(null);
 	const [scrollPosition, setScrollPosition] = useState(window.scrollY);
-	const [currentAnimationData, setCurrentAnimationData] = useState(
-		content.mobileAnimationData
-	);
-	const TOTAL_FRAMES = 59;
+	const [currentAnimationData, setCurrentAnimationData] = useState(null);
+	const TOTAL_FRAMES = 155;
 	const { scrollYProgress } = useScroll({
 		target: targetRef,
 		offset: ["start end", "end start"],
@@ -28,9 +26,13 @@ const HowToPlayTerritoriesMoreLottie = (props) => {
 
 	useEffect(() => {
 		if (isWindowLg()) {
-			setCurrentAnimationData(content.pcAnimationData);
+			content.pcAnimationData().then((module) => {
+				setCurrentAnimationData(module.default);
+			});
 		} else {
-			setCurrentAnimationData(content.mobileAnimationData);
+			content.mobileAnimationData().then((module) => {
+				setCurrentAnimationData(module.default);
+			});
 		}
 	}, []);
 
@@ -38,9 +40,13 @@ const HowToPlayTerritoriesMoreLottie = (props) => {
 	useEffect(() => {
 		const handleResize = () => {
 			if (isWindowLg()) {
-				setCurrentAnimationData(animationData169);
+				content.pcAnimationData().then((module) => {
+					setCurrentAnimationData(module.default);
+				});
 			} else {
-				setCurrentAnimationData(animationDataMobile);
+				content.mobileAnimationData().then((module) => {
+					setCurrentAnimationData(module.default);
+				});
 			}
 		};
 
@@ -53,35 +59,36 @@ const HowToPlayTerritoriesMoreLottie = (props) => {
 
 	const subtitleOpacity = useTransform(
 		scrollYProgress,
-		[0.0, 0.18, 0.2, 0.35],
+		[0.0, 0.18, 0.2, 0.55],
 		[0, 0, 1, 0]
 	);
 
 	const titleOpacity = useTransform(
 		scrollYProgress,
-		[0.22, 0.30, 0.73, 0.74],
+		[0.38, 0.42, 0.67, 0.69],
 		[0, 1, 1, 0]
 	);
 	const contentOpacity = useTransform(
 		scrollYProgress,
-		[0.35, 0.35, 0.71, 0.72],
+		[0.4, 0.44, 0.65, 0.68],
 		[0, 1, 1, 0]
 	);
+
 	const blockerOpacity = useTransform(
 		scrollYProgress,
-		[0, 0.28, 0.33, 0.68, 0.7],
+		[0, 0.35, 0.37, 0.68, 0.7],
 		[0, 0, 1, 1, 0]
 	);
 
 	const animationOpacity = useTransform(
 		scrollYProgress,
-		[.30,.35 , 0.75, 0.8],
-		[0,1, 1, 0]
+		[0, 0.73, 0.76],
+		[1, 1, 0]
 	);
 
 	const contentContainerOpacity = useTransform(
 		scrollYProgress,
-		[0.33, 0.37, 0.65, 0.7],
+		[0.33, 0.37, 0.68, 0.7],
 		[0, 0.8, 0.8, 0]
 	);
 	const contentContainerY = useTransform(
@@ -97,10 +104,11 @@ const HowToPlayTerritoriesMoreLottie = (props) => {
 				opacity: titleOpacity,
 				position: isWindowLg
 					? "relative"
-					: holdAtPosition(scrollYProgress, 0.33, 0.83),
+					: holdAtPosition(scrollYProgress, 0.39, 0.83),
 			}}
 		/>
 	);
+
 	const sectionSubheading = (
 		<HowToPlaySectionSubheading
 			subheading={content.sectionText}
@@ -108,7 +116,7 @@ const HowToPlayTerritoriesMoreLottie = (props) => {
 				opacity: contentOpacity,
 				position: isWindowLg
 					? "relative"
-					: holdAtPosition(scrollYProgress, 0.35, 0.83),
+					: holdAtPosition(scrollYProgress, 0.41, 0.83),
 			}}
 		/>
 	);
@@ -153,7 +161,7 @@ const HowToPlayTerritoriesMoreLottie = (props) => {
 			ref={targetRef}
 		>
 			<motion.h2
-				className={`text-2xl text-sc-off-white font-Cinzel mx-auto col-span-12 col-start-1 row-span-1 row-start-1 sticky top-[45%] self-start`}
+				className={`text-2xl text-sc-off-white font-Cinzel mx-auto col-span-12 col-start-1 row-span-1 row-start-1 sticky top-[45%] self-start text-center`}
 				style={{ opacity: subtitleOpacity }}
 			>
 				{content.sectionSubtitle}
@@ -191,4 +199,4 @@ const HowToPlayTerritoriesMoreLottie = (props) => {
 	);
 };
 
-export default HowToPlayTerritoriesMoreLottie;
+export default HowToPlayTerritories;

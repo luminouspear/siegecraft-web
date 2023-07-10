@@ -4,11 +4,12 @@ import {
 	HowToPlayMotionContainer,
 	HowToPlaySectionSubheading,
 	HowToPlaySectionTitle,
-} from "./HowToPlaySectionTitles";
+} from "./HowToPlaySectionComponents";
 
 const HowToPlayDecks = (props) => {
 	const targetRef = useRef(null);
 	const imageRef = useRef(null);
+	const [bgImage, setBgImage] = useState(null);
 	const [imageSize, setImageSize] = useState(null);
 	const { scrollYProgress } = useScroll({
 		target: targetRef,
@@ -17,6 +18,12 @@ const HowToPlayDecks = (props) => {
 	const { content } = props;
 
 	const [paddingTop, setPaddingTop] = useState("8rem");
+
+	useEffect(() => {
+		content.sectionBg().then((module) => {
+			setBgImage(module.default);
+		});
+	}, []);
 
 	const getRulesForLayout = (lgClassList, defaultClassList) => {
 		const windowWidth = window.innerWidth;
@@ -155,14 +162,14 @@ const HowToPlayDecks = (props) => {
 				<motion.img
 					style={{ opacity: imageOpacity }}
 					className="bg-cover object-cover  w-screen h-full lg:top-24   bg-[center_center] col-span-12 col-start-1 row-span-3 row-start-1 lg:row-start-1 lg:col-start-1 lg:col-span-12 lg:row-span-5"
-					src={content.sectionBg}
-					srcSet={content.sectionBgSrcSet}
+					src={bgImage}
+					// srcSet={content.sectionBgSrcSet}
 					alt={content.sectionBgAlt}
 					loading="lazy"
 				/>
 				<HowToPlayMotionContainer
 					style={{ opacity: contentContainerOpacity }}
-					align="top-right"
+					align="top-middle"
 				>
 					{sectionTitle}
 					{sectionSubheading}

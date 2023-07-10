@@ -9,6 +9,7 @@ export function ElementHeroBackgroundComponent({
 	const elementName = element.sectionElement.toLowerCase();
 	const sectionId = elementName + "-section";
 	const backgroundImageRef = useRef(null);
+	const [bgImage, setBgImage] = useState(null)
 
 	const [isInView, setIsInView] = useState(false);
 	const [hasElementLoaded, setHasElementLoaded] = useState(false);
@@ -18,7 +19,7 @@ export function ElementHeroBackgroundComponent({
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
-					console.log("intersection ratio: ", entry.intersectionRatio)
+					// console.log("intersection ratio: ", entry.intersectionRatio)
 					if (entry.intersectionRatio >= 0.6) {
 						setCurrentElementInView(elementName);
 					} else if (entry.intersectionRatio > 0) {
@@ -43,6 +44,12 @@ export function ElementHeroBackgroundComponent({
 	}, []);
 
 	useEffect(() => {
+		element.sectionBg().then((module) => {
+			setBgImage(module.default)
+		})
+	},[])
+
+	useEffect(() => {
 		if (
 			currentGlobalElementInView === element.sectionElement.toLowerCase()
 		) {
@@ -65,10 +72,10 @@ export function ElementHeroBackgroundComponent({
 					id={elementName}
 					ref={backgroundImageRef}
 				>
-					{hasElementLoaded && (
+					{hasElementLoaded && element.sectionBg && (
 						<img
-							src={element.sectionBg}
-							srcSet={element.sectionBgSrcSet}
+							src={bgImage}
+							// srcSet={element.sectionBgSrcSet}
 							// sizes="(max-width: 768px) 500px,(max-width: 1023px) 667px,1000px"
 							className="object-cover w-full min-h-full col-span-1 col-start-1 row-span-1 row-start-1 "
 							loading="lazy"

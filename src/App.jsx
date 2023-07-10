@@ -9,8 +9,9 @@ import HowToPlayPage from "./components/howtoplay/HowToPlayPage";
 import { showTailwindDebug } from "./showTailwindDebug";
 import { CardProvider } from "./context/CardContext";
 
+
 function App() {
-	const debugWindowSize = true;
+	const debugWindowSize = process.env.NODE_ENV === 'production' ? false : true;
 
 	return (
 		<>

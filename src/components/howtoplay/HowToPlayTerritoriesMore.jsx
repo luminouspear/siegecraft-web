@@ -6,17 +6,15 @@ import {
 	HowToPlaySectionTitle,
 	HowToPlaySectionSubheading,
 	HowToPlayMotionContainer,
-} from "./HowToPlaySectionTitles";
+} from "./HowToPlaySectionComponents";
 
-const HowToPlayPlaymatLottie = (props) => {
+const HowToPlayTerritoriesMore = (props) => {
 	const { content } = props;
 	const targetRef = useRef(null);
 	const lottieRef = useRef(null);
 	const [scrollPosition, setScrollPosition] = useState(window.scrollY);
-	const [currentAnimationData, setCurrentAnimationData] = useState(
-		content.mobileAnimationData
-	);
-	const TOTAL_FRAMES = 79;
+	const [currentAnimationData, setCurrentAnimationData] = useState(null);
+	const TOTAL_FRAMES = 59;
 	const { scrollYProgress } = useScroll({
 		target: targetRef,
 		offset: ["start end", "end start"],
@@ -28,9 +26,13 @@ const HowToPlayPlaymatLottie = (props) => {
 
 	useEffect(() => {
 		if (isWindowLg()) {
-			setCurrentAnimationData(content.pcAnimationData);
+			content.pcAnimationData().then((module) => {
+				setCurrentAnimationData(module.default);
+			});
 		} else {
-			setCurrentAnimationData(content.mobileAnimationData);
+			content.mobileAnimationData().then((module) => {
+				setCurrentAnimationData(module.default);
+			});
 		}
 	}, []);
 
@@ -38,9 +40,13 @@ const HowToPlayPlaymatLottie = (props) => {
 	useEffect(() => {
 		const handleResize = () => {
 			if (isWindowLg()) {
-				setCurrentAnimationData(animationData169);
+				content.pcAnimationData().then((module) => {
+					setCurrentAnimationData(module.default);
+				});
 			} else {
-				setCurrentAnimationData(animationDataMobile);
+				content.mobileAnimationData().then((module) => {
+					setCurrentAnimationData(module.default);
+				});
 			}
 		};
 
@@ -53,35 +59,35 @@ const HowToPlayPlaymatLottie = (props) => {
 
 	const subtitleOpacity = useTransform(
 		scrollYProgress,
-		[0.18, 0.2, 0.65, 0.69],
-		[0, 1, 1, 0]
+		[0.0, 0.18, 0.2, 0.35],
+		[0, 0, 1, 0]
 	);
 
 	const titleOpacity = useTransform(
 		scrollYProgress,
-		[0.36, 0.44, 0.69, 0.74],
+		[0.22, 0.3, 0.73, 0.74],
 		[0, 1, 1, 0]
 	);
 	const contentOpacity = useTransform(
 		scrollYProgress,
-		[0.5, 0.55, 0.65, 0.72],
+		[0.35, 0.35, 0.71, 0.72],
 		[0, 1, 1, 0]
 	);
 	const blockerOpacity = useTransform(
 		scrollYProgress,
-		[0, 0.35, 0.37, 0.64, 0.69],
+		[0, 0.28, 0.33, 0.68, 0.7],
 		[0, 0, 1, 1, 0]
 	);
 
 	const animationOpacity = useTransform(
 		scrollYProgress,
-		[0, 0.75, 0.8],
-		[1, 1, 0]
+		[0.3, 0.35, 0.75, 0.8],
+		[0, 1, 1, 0]
 	);
 
 	const contentContainerOpacity = useTransform(
 		scrollYProgress,
-		[0.4, 0.43, 0.65, 0.69],
+		[0.33, 0.37, 0.65, 0.7],
 		[0, 0.8, 0.8, 0]
 	);
 	const contentContainerY = useTransform(
@@ -97,7 +103,7 @@ const HowToPlayPlaymatLottie = (props) => {
 				opacity: titleOpacity,
 				position: isWindowLg
 					? "relative"
-					: holdAtPosition(scrollYProgress, 0.39, 0.83),
+					: holdAtPosition(scrollYProgress, 0.33, 0.83),
 			}}
 		/>
 	);
@@ -108,7 +114,7 @@ const HowToPlayPlaymatLottie = (props) => {
 				opacity: contentOpacity,
 				position: isWindowLg
 					? "relative"
-					: holdAtPosition(scrollYProgress, 0.41, 0.83),
+					: holdAtPosition(scrollYProgress, 0.35, 0.83),
 			}}
 		/>
 	);
@@ -134,6 +140,8 @@ const HowToPlayPlaymatLottie = (props) => {
 			const targetScroll = 0.6 * scrollHeight;
 			const endingFrame = TOTAL_FRAMES;
 
+			// console.log((scrollPosition - offsetTop) / scrollHeight);
+
 			const frame =
 				((scrollPosition - offsetTop) / targetScroll) * TOTAL_FRAMES;
 			if (lottie) {
@@ -151,7 +159,7 @@ const HowToPlayPlaymatLottie = (props) => {
 			ref={targetRef}
 		>
 			<motion.h2
-				className={`text-2xl text-sc-off-white font-Cinzel mx-auto col-span-12 col-start-1 row-span-1 row-start-1 sticky top-[45%] self-start`}
+				className={`text-2xl text-sc-off-white font-Cinzel mx-auto col-span-12 col-start-1 row-span-1 row-start-1 sticky top-[45%] self-start text-center`}
 				style={{ opacity: subtitleOpacity }}
 			>
 				{content.sectionSubtitle}
@@ -179,7 +187,7 @@ const HowToPlayPlaymatLottie = (props) => {
 				/>
 				<HowToPlayMotionContainer
 					style={{ opacity: contentContainerOpacity }}
-					align="right"
+					align="left"
 				>
 					{sectionTitle}
 					{sectionSubheading}
@@ -189,4 +197,4 @@ const HowToPlayPlaymatLottie = (props) => {
 	);
 };
 
-export default HowToPlayPlaymatLottie;
+export default HowToPlayTerritoriesMore;

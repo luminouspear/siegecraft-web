@@ -6,16 +6,14 @@ import {
 	HowToPlaySectionTitle,
 	HowToPlaySectionSubheading,
 	HowToPlayMotionContainer,
-} from "./HowToPlaySectionTitles";
+} from "./HowToPlaySectionComponents";
 
 const HowToPlayUnits = (props) => {
 	const { content } = props;
 	const targetRef = useRef(null);
 	const lottieRef = useRef(null);
 	const [scrollPosition, setScrollPosition] = useState(window.scrollY);
-	const [currentAnimationData, setCurrentAnimationData] = useState(
-		content.mobileAnimationData
-	);
+	const [currentAnimationData, setCurrentAnimationData] = useState(null);
 	const TOTAL_FRAMES = 39;
 	const { scrollYProgress } = useScroll({
 		target: targetRef,
@@ -28,9 +26,13 @@ const HowToPlayUnits = (props) => {
 
 	useEffect(() => {
 		if (isWindowLg()) {
-			setCurrentAnimationData(content.pcAnimationData);
+			content.pcAnimationData().then((module) => {
+				setCurrentAnimationData(module.default);
+			});
 		} else {
-			setCurrentAnimationData(content.mobileAnimationData);
+			content.mobileAnimationData().then((module) => {
+				setCurrentAnimationData(module.default);
+			});
 		}
 	}, []);
 
@@ -38,9 +40,13 @@ const HowToPlayUnits = (props) => {
 	useEffect(() => {
 		const handleResize = () => {
 			if (isWindowLg()) {
-				setCurrentAnimationData(animationData169);
+				content.pcAnimationData().then((module) => {
+					setCurrentAnimationData(module.default);
+				});
 			} else {
-				setCurrentAnimationData(animationDataMobile);
+				content.mobileAnimationData().then((module) => {
+					setCurrentAnimationData(module.default);
+				});
 			}
 		};
 
@@ -69,19 +75,19 @@ const HowToPlayUnits = (props) => {
 	);
 	const blockerOpacity = useTransform(
 		scrollYProgress,
-		[0, 0.22, 0.28, 0.68, 0.70],
+		[0, 0.22, 0.28, 0.68, 0.7],
 		[0, 0, 1, 1, 0]
 	);
 
 	const animationOpacity = useTransform(
 		scrollYProgress,
-		[0.3,0.35, 0.75, 0.8],
+		[0.3, 0.35, 0.75, 0.8],
 		[0, 1, 1, 0]
 	);
 
 	const contentContainerOpacity = useTransform(
 		scrollYProgress,
-		[0.37, 0.42, 0.70, 0.75],
+		[0.37, 0.42, 0.7, 0.75],
 		[0, 0.8, 0.8, 0]
 	);
 	const contentContainerY = useTransform(

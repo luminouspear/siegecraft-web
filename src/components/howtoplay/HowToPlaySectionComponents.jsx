@@ -36,6 +36,8 @@ export const HowToPlayMotionContainer = ({
 			? " lg:row-start-2 xl:row-start-3 2xl:row-start-4 lg:col-start-8 lg:col-span-4 lg:row-span-1 "
 			: align === "top-right"
 			? " lg:row-start-1 xl:row-start-1 2xl:row-start-2 lg:col-start-8 lg:col-span-4 lg:row-span-1 "
+			: align === "top-middle"
+			? " lg:row-start-2 xl:row-start-2 2xl:row-start-2 lg:col-start-8 lg:col-span-4 lg:row-span-1 "
 			: align === "bottom-left"
 			? "  lg:row-start-2 lg:mt-24 xl:row-start-3 xl:mt-8 2xl:mt-24 2xl:row-start-3 lg:col-start-1 lg:col-span-4 lg:row-span-1 xl:col-start-1 xl:col-span-4 xl:row-start-3 xl:row-span-1 "
 			: " ";

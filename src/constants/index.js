@@ -8,12 +8,6 @@ import {
 	iconPlayTime,
 	iconNumberOfPlayers,
 	iconAgesFor,
-	iconEarth,
-	iconAir,
-	iconFire,
-	iconWater,
-	iconLight,
-	iconShadow,
 	IconEarth,
 	IconAir,
 	IconFire,
@@ -436,11 +430,11 @@ const footerContent = [
 				locationName: "How to Play",
 				locationUrl: "/howtoplay",
 				index: 0,
-			},]
-		},
+			},
+		],
+	},
 
 	{
-
 		index: 1,
 		sectionTitle: "Elements",
 		sectionLinks: [
@@ -569,9 +563,9 @@ const elementPageInfo = [
 	{
 		id: 1,
 		sectionElement: "Earth",
-		sectionBg: "/src/assets/bg_elements_earth.jpg",
+		sectionBg: bg_elements_earth,
 		sectionBgSrcSet:
-			"/src/assets/bg_elements_earth.jpg 1024w, /src/assets/bg_elements_earth@2x.jpg 2500w, /src/assets/bg_elements_earth@3x.jpg 4000w",
+			"/assets/images/bg_elements_earth.jpg 1024w, /assets/images/bg_elements_earth@2x.jpg 2500w, /assets/images/bg_elements_earth@3x.jpg 4000w",
 		sectionTitle: "Welcome to the Wilderness",
 		sectionSubtitle:
 			"Buried deep within the heart of the Inzaru wilds is the ancient temple of your ancestors - a hallowed sanctum steeped in enigmas and cloaked in lore. It now stands as an impregnable fortress in the maelstrom of conflict.",
@@ -583,9 +577,9 @@ const elementPageInfo = [
 	{
 		id: 2,
 		sectionElement: "Air",
-		sectionBg: "/src/assets/bg_elements_air.jpg",
+		sectionBg: bg_elements_air,
 		sectionBgSrcSet:
-			"/src/assets/bg_elements_air.jpg 1024w, /src/assets/bg_elements_air@2x.jpg 2500w , /src/assets/bg_elements_air@3x.jpg 4000w",
+			"/assets/images/bg_elements_air.jpg 1024w, /assets/images/bg_elements_air@2x.jpg 2500w , /assets/images/bg_elements_air@3x.jpg 4000w",
 		sectionTitle: "Explore the High Desert",
 		sectionSubtitle:
 			"With each new relic discovered on the cloud plains of Zederi, the influx of northern invaders intensifies. They don't know the storm they are calling down.",
@@ -597,9 +591,9 @@ const elementPageInfo = [
 	{
 		id: 3,
 		sectionElement: "Fire",
-		sectionBg: "/src/assets/bg_elements_fire.jpg",
+		sectionBg: bg_elements_fire,
 		sectionBgSrcSet:
-			"/src/assets/bg_elements_fire.jpg 1000w , /src/assets/bg_elements_fire@2x.jpg 2500w, /src/assets/bg_elements_fire@3x.jpg 4000w",
+			"/assets/images/bg_elements_fire.jpg 1000w , /assets/images/bg_elements_fire@2x.jpg 2500w, /assets/images/bg_elements_fire@3x.jpg 4000w",
 		sectionTitle: "You Rule the Burning Wastelands",
 		sectionSubtitle:
 			'You are the warlord of Kartha, to whom the oracle once proclaimed: "In your hands, aggression will become an artform. In your wake, empires will turn to ashes."',
@@ -611,9 +605,9 @@ const elementPageInfo = [
 	{
 		id: 4,
 		sectionElement: "Water",
-		sectionBg: "/src/assets/bg_elements_water.jpg",
+		sectionBg: bg_elements_water,
 		sectionBgSrcSet:
-			"/src/assets/bg_elements_water.jpg 1000w, /src/assets/bg_elements_water@2x.jpg 2500w, /src/assets/bg_elements_water@3x.jpg 4000w",
+			"/assets/images/bg_elements_water.jpg 1000w, /assets/images/bg_elements_water@2x.jpg 2500w, /assets/images/bg_elements_water@3x.jpg 4000w",
 		sectionTitle: "All Rivers Flow Toward You",
 		sectionSubtitle:
 			"From your throne at the strategic harbor of Ferria, the world's knowledge, trade and commerce revolves around you. Under your watchful eye, nothing passes through your borders unseen.",
@@ -625,9 +619,9 @@ const elementPageInfo = [
 	{
 		id: 5,
 		sectionElement: "Light",
-		sectionBg: "/src/assets/bg_elements_light.jpg",
+		sectionBg: bg_elements_light,
 		sectionBgSrcSet:
-			"/src/assets/bg_elements_light.jpg 1000w, /src/assets/bg_elements_light@2x.jpg 2500w, /src/assets/bg_elements_light@3x.jpg 4000w",
+			"/assets/images/bg_elements_light.jpg 1000w, /assets/images/bg_elements_light@2x.jpg 2500w, /assets/images/bg_elements_light@3x.jpg 4000w",
 		sectionTitle: "We Will Erect Monuments to Your Glory",
 		sectionSubtitle:
 			"As the Captain of the Merenthian Guard, you are the last champion who stands for the righteous against the forces that would plunge the world into darkness forever. What is your command?",
@@ -639,9 +633,9 @@ const elementPageInfo = [
 	{
 		id: 6,
 		sectionElement: "Shadow",
-		sectionBg: "/src/assets/bg_elements_shadow.jpg",
+		sectionBg: bg_elements_shadow,
 		sectionBgSrcSet:
-			"/src/assets/bg_elements_shadow.jpg 1000w, /src/assets/bg_elements_shadow@2x.jpg 2000w, /src/assets/bg_elements_shadow@3x.jpg 4000w",
+			"/assets/images/bg_elements_shadow.jpg 1000w, /assets/images/bg_elements_shadow@2x.jpg 2000w, /assets/images/bg_elements_shadow@3x.jpg 4000w",
 		sectionTitle: "There's Some Power Yet in These Old Ruins",
 		sectionSubtitle:
 			"In the darkest corners of the ancient city of Ghis, power accumulates. The power to uplift the forgotten, to revive those who are lost and to avenge lost wars. All it requires is just a small tribute to the demon Ix. Will you join?",

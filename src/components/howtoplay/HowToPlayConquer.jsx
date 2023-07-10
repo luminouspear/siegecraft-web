@@ -6,16 +6,14 @@ import {
 	HowToPlaySectionTitle,
 	HowToPlaySectionSubheading,
 	HowToPlayMotionContainer,
-} from "./HowToPlaySectionTitles";
+} from "./HowToPlaySectionComponents";
 
 const HowToPlayConquer = (props) => {
 	const { content } = props;
 	const targetRef = useRef(null);
 	const lottieRef = useRef(null);
 	const [scrollPosition, setScrollPosition] = useState(window.scrollY);
-	const [currentAnimationData, setCurrentAnimationData] = useState(
-		content.mobileAnimationData
-	);
+	const [currentAnimationData, setCurrentAnimationData] = useState(null);
 	const TOTAL_FRAMES = 283;
 	const { scrollYProgress } = useScroll({
 		target: targetRef,
@@ -28,9 +26,13 @@ const HowToPlayConquer = (props) => {
 
 	useEffect(() => {
 		if (isWindowLg()) {
-			setCurrentAnimationData(content.pcAnimationData);
+			content.pcAnimationData().then((module) => {
+				setCurrentAnimationData(module.default);
+			});
 		} else {
-			setCurrentAnimationData(content.mobileAnimationData);
+			content.mobileAnimationData().then((module) => {
+				setCurrentAnimationData(module.default);
+			});
 		}
 	}, []);
 
@@ -38,9 +40,13 @@ const HowToPlayConquer = (props) => {
 	useEffect(() => {
 		const handleResize = () => {
 			if (isWindowLg()) {
-				setCurrentAnimationData(animationData169);
+				content.pcAnimationData().then((module) => {
+					setCurrentAnimationData(module.default);
+				});
 			} else {
-				setCurrentAnimationData(animationDataMobile);
+				content.mobileAnimationData().then((module) => {
+					setCurrentAnimationData(module.default);
+				});
 			}
 		};
 
@@ -64,24 +70,24 @@ const HowToPlayConquer = (props) => {
 	);
 	const contentOpacity = useTransform(
 		scrollYProgress,
-		[0.40, 0.44, 0.71, 0.72],
+		[0.4, 0.44, 0.71, 0.72],
 		[0, 1, 1, 0]
 	);
 	const blockerOpacity = useTransform(
 		scrollYProgress,
-		[0, 0.35, 0.37, 0.60, 0.65],
+		[0, 0.35, 0.37, 0.6, 0.65],
 		[0, 0, 1, 1, 0]
 	);
 
 	const animationOpacity = useTransform(
 		scrollYProgress,
-		[ 0.25,0.3, 0.75, 0.8],
+		[0.25, 0.3, 0.75, 0.8],
 		[0, 1, 1, 0]
 	);
 
 	const contentContainerOpacity = useTransform(
 		scrollYProgress,
-		[0.33, 0.37, 0.60, 0.7],
+		[0.33, 0.37, 0.6, 0.7],
 		[0, 0.8, 0.8, 0]
 	);
 	const contentContainerY = useTransform(
@@ -134,7 +140,6 @@ const HowToPlayConquer = (props) => {
 			const targetScroll = 0.6 * scrollHeight;
 			const endingFrame = TOTAL_FRAMES;
 
-
 			const frame =
 				((scrollPosition - offsetTop) / targetScroll) * TOTAL_FRAMES;
 			if (lottie) {
@@ -152,7 +157,7 @@ const HowToPlayConquer = (props) => {
 			ref={targetRef}
 		>
 			<motion.h2
-				className={`text-2xl text-sc-off-white font-Cinzel mx-auto col-span-12 col-start-1 row-span-1 row-start-1 sticky top-[45%] self-start`}
+				className={`text-2xl text-sc-off-white font-Cinzel mx-auto col-span-12 col-start-1 row-span-1 row-start-1 sticky top-[45%] self-start text-center`}
 				style={{ opacity: subtitleOpacity }}
 			>
 				{content.sectionSubtitle}

@@ -28,22 +28,32 @@ const GallerySection = () => {
 
 
 	useEffect(() => {
-		setCurrentImage(gallery[currentImageIndex].original);
+		gallery[currentImageIndex].original().then((module) => {
+			setCurrentImage(module.default)
+		})
 		setCurrentImageAlt(gallery[currentImageIndex].originalAlt);
 
 		const nextImageIndex = (currentImageIndex + 1) % galleryLength;
-		const imgNext = new Image();
-		imgNext.src = gallery[nextImageIndex].original;
-		imgNext.alt = gallery[nextImageIndex].alt;
+		gallery[nextImageIndex].original().then((module) => {
+			const imgNext = new Image();
+			imgNext.src = module.default;
+			imgNext.alt = gallery[nextImageIndex].alt;
+			imgNext.onload = () => setNextImage(imgNext.src);
+		})
 
 		const previousImageIndex =
 			(currentImageIndex - 1 + galleryLength) % galleryLength;
-		const imgPrev = new Image();
-		imgPrev.src = gallery[previousImageIndex].original;
-		imgPrev.alt = gallery[previousImageIndex].alt;
 
-		imgNext.onload = () => setNextImage(imgNext.src);
-		imgPrev.onload = () => setPrevImage(imgPrev.src);
+		gallery[previousImageIndex].original().then((module) => {
+			const imgPrev = new Image();
+			imgPrev.src = module.default;
+			imgPrev.alt = gallery[previousImageIndex].alt;
+			imgPrev.onload = () => setPrevImage(imgPrev.src);
+
+		})
+
+
+
   }, [currentImageIndex]);
 
   useEffect(() => {
@@ -75,9 +85,9 @@ const GallerySection = () => {
 	return (
 		<>
 			<div {...handlers} className="flex flex-col ">
-				<div className="grid grid-cols-12 grid-rows-1 align-middle items-center">
+				<div className="grid items-center grid-cols-12 grid-rows-1 align-middle">
 					<button
-						className="w-full col-start-1 row-start-1 col-span-2 lg:col-span-1 lg:col-start-1 h-full "
+						className="w-full h-full col-span-2 col-start-1 row-start-1 lg:col-span-1 lg:col-start-1 "
 						onClick={showPrevImage}
 					>
 						<IconCaret
@@ -85,7 +95,7 @@ const GallerySection = () => {
              drop-shadow-lg `}
 						/>
 					</button>
-					<div className="w-full col-start-1 row-start-1 col-span-12">
+					<div className="w-full col-span-12 col-start-1 row-start-1">
 						<Transition in timeout={500}>
 							{(state) => (
 								<img
@@ -101,7 +111,7 @@ const GallerySection = () => {
 						</Transition>
 					</div>
 					<button
-						className="w-full col-start-11 col-span-2 lg:col-start-12 lg:col-span-1 row-start-1 h-full "
+						className="w-full h-full col-span-2 col-start-11 row-start-1 lg:col-start-12 lg:col-span-1 "
 						onClick={showNextImage}
 					>
 						<IconCaret
@@ -109,8 +119,8 @@ const GallerySection = () => {
 						/>
 					</button>
 				</div>
-				<div className="w-full flex justify-center pt-4 -mt-8">
-					<ul className="flex flex-row w-1/3 h-4 space-x-1 items-center">
+				<div className="flex justify-center w-full pt-4 -mt-8">
+					<ul className="flex flex-row items-center w-1/3 h-4 space-x-1">
 						{Array.from({ length: galleryLength }).map(
 							(_, index) => (
 								<li

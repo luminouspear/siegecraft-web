@@ -119,13 +119,13 @@ const ElementsPage = () => {
 					}`}
 				>
 					<h1
-						className="text-center text-2xl md:text-4xl font-Cinzel text-sc-off-white"
+						className="text-2xl text-center md:text-4xl font-Cinzel text-sc-off-white"
 						dangerouslySetInnerHTML={{
 							__html: elementPageSectionContent.title,
 						}}
 					/>
 					<p
-						className="text-center font-Catamaran px-12 text-lg md:text-2xl text-sc-off-white pt-6 w-full lg:w-5/6 xl:w-1/2 2xl:w-5/12"
+						className="w-full px-12 pt-6 text-lg text-center font-Catamaran md:text-2xl text-sc-off-white lg:w-5/6 xl:w-1/2 2xl:w-5/12"
 						dangerouslySetInnerHTML={{
 							__html: elementPageSectionContent.subTitle,
 						}}

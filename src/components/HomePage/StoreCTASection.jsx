@@ -1,28 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SectionWrapper from '../hoc/SectionWrapper'
 import { homePageSectionTitles } from '../../constants'
 
 const StoreCTASection = () => {
+
+	const [sectionImage, setSectionImage] = useState(null)
+
+
+	useEffect(() => {
+		homePageSectionTitles[3].image().then((module) => {
+			setSectionImage(module.default)
+		})
+	}, [])
+
   return (
-		<div className=" py-24 w-full md:w-full mx-auto flex flex-col items-center">
+		<div className="flex flex-col items-center w-full py-24 mx-auto md:w-full">
 			<h2
-				className="text-4xl font-Cinzel text-center lg:w-1/2 mx-auto pb-8"
+				className="pb-8 mx-auto text-4xl text-center font-Cinzel lg:w-1/2"
 				dangerouslySetInnerHTML={{
 					__html: homePageSectionTitles[3].title,
 				}}
 			/>
 			<img
-				src={homePageSectionTitles[3].image}
+				src={sectionImage}
 				alt={homePageSectionTitles[3].alt}
-				className="lg:w-10/12 mx-auto lg:rounded-xl pb-8 object-cover"
+				className="object-cover pb-8 mx-auto lg:w-10/12 lg:rounded-xl"
 			/>
 			<p
-				className="lg:w-1/2 mx-auto  text-xl px-6"
+				className="px-6 mx-auto text-xl lg:w-1/2"
 				dangerouslySetInnerHTML={{
 					__html: homePageSectionTitles[3].subTitle,
 				}}
           />
-          <a className='bg-sc-red hover:bg-sc-red-dark text-sc-off-white hover:text-sc-gold font-Cinzel font-bold text-2xl w-11/12 mt-8 rounded text-center lg:w-auto lg:px-12 py-4 cursor-pointer' >{homePageSectionTitles[3].CTA }</a>
+          {/* <button className='w-11/12 py-4 mt-8 text-2xl font-bold text-center rounded cursor-pointer bg-sc-red hover:bg-sc-red-dark text-sc-off-white hover:text-sc-gold font-Cinzel lg:w-auto lg:px-12' >{homePageSectionTitles[3].CTA }</button> */}
 		</div>
   );
 }

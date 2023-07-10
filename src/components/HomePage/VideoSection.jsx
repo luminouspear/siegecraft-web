@@ -1,9 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SectionWrapper from "../hoc/SectionWrapper";
 import { homePageSectionTitles, videoSectionContent } from "../../constants";
 import { Link } from "react-router-dom";
 
 const VideoSection = () => {
+	const [videoUrls, setVideoUrls] = useState([]);
+
+	useEffect(() => {
+		Promise.all(
+			videoSectionContent.map((video) =>
+				Promise.all(
+					Object.entries(video.videoUrls[0]).map(([key, value]) =>
+						value[0].url().then((module) => ({
+							...value[0],
+							url: module.default,
+						}))
+					)
+				).then((urls) => ({
+					...video,
+					videoUrls: [
+						{
+							...video.videoUrls[0],
+							...Object.fromEntries(
+								urls.map((url, i) => [
+									Object.keys(video.videoUrls[0])[i],
+									url,
+								])
+							),
+						},
+					],
+				}))
+			)
+		).then(setVideoUrls);
+	}, []);
+
 	return (
 		<>
 			<div className="w-10/12 pt-24 mx-auto md:max-w-2xl md:w-full">
@@ -21,7 +51,7 @@ const VideoSection = () => {
 				></p>
 			</div>
 			<div className="w-full mx-auto my-8 lg:w-10/12">
-				{videoSectionContent.map((video) => (
+				{videoUrls.map((video) => (
 					<div
 						key={video.index}
 						className={`flex flex-col lg:space-y-8 space-y-4 lg:px-8 mb-8 lg:mb-4 ${
@@ -39,8 +69,8 @@ const VideoSection = () => {
 									([key, value]) => (
 										<source
 											key={key}
-											src={value[0].url}
-											type={value[0].type}
+											src={value.url}
+											type={value.type}
 										/>
 									)
 								)}
