@@ -9,28 +9,37 @@ const NavBar = () => {
 
 	const { navLinkStyle, navButtonStyle } = styles;
 
+	const closeNav = () => setMobileNavOpen(false);
+
 	const links = navLinks.map((link) => (
-		<li key={link.index} className="flex justify-center w-full mx-auto text-center lg:block lg:w-auto">
+		<li
+			key={link.index}
+			className="flex justify-center w-full mx-auto text-center lg:block lg:w-auto"
+		>
 			<Link
 				to={link.url}
 				className={`${navLinkStyle}`}
-				onClick={() => setMobileNavOpen(false)}
+				onClick={closeNav}
 			>
 				{link.title}
 			</Link>
 		</li>
 	));
 
+	const scrollToTopAndCloseNav = () => {
+		window.scrollTo(0, 0);
+		setMobileNavOpen(false);
+	};
+
+	const toggleNav = () => setMobileNavOpen(!mobileNavOpen);
+	
 	return (
 		<nav className="container sticky top-0 z-[100] min-w-full py-0 bg-sc-dark-black font-Catamaran">
 			<div className="flex items-center justify-between px-8 py-8 lg:py-4">
 				<Link
 					to="/"
 					className="cursor-pointer"
-					onClick={() => {
-						window.scrollTo(0, 0)
-						setMobileNavOpen(false)
-					}}
+					onClick={scrollToTopAndCloseNav}
 				>
 					<img
 						src={siegecraftLogo}
@@ -41,7 +50,7 @@ const NavBar = () => {
 				<div className="hidden lg:inline">
 					<ul className="flex flex-row items-center space-x-4 xl:space-x-6">
 						{links}
-{/*
+						{/*
 						<li
 							className={`text-sc-off-white bg-sc-red hover:bg-sc-red-dark hover:text-sc-gold text-center text-xl py-4 px-6 rounded font-Cinzel font-bold cursor-pointer`}
 						>
@@ -51,7 +60,7 @@ const NavBar = () => {
 				</div>
 				<button
 					className="lg:hidden"
-					onClick={() => setMobileNavOpen(!mobileNavOpen)}
+					onClick={toggleNav}
 					taborder="0"
 					aria-controls="primary-navigation"
 					aria-expanded={mobileNavOpen}

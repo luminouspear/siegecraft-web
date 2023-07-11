@@ -4,6 +4,8 @@ import { footerContent } from "../../constants";
 import { Link } from "react-router-dom";
 import { siegecraftLogo } from "../../assets";
 
+const scrollToTop = () => window.scrollTo(0, 0);
+
 const FooterSection = () => {
 	function getFooterSection(section) {
 		const sectionTitle = section.sectionTitle;
@@ -24,7 +26,7 @@ const FooterSection = () => {
 										value.hash ? value.hash : undefined
 									}`,
 								}}
-								onClick={() => window.scrollTo(0, 0)}
+								onClick={scrollToTop}
 							>
 								{value.locationName}
 							</Link>
@@ -45,9 +47,7 @@ const FooterSection = () => {
 				<Link
 					to="/"
 					className="mt-12 cursor-pointer lg:mt-0 lg:pl-32 "
-					onClick={() => {
-						window.scrollTo(0, 0);
-					}}
+					onClick={scrollToTop}
 				>
 					<img
 						src={siegecraftLogo}

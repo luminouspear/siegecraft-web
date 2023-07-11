@@ -124,6 +124,8 @@ const ElementsImageGallery = ({
 		trackMouse: true,
 	});
 
+	const changeCard = () => handleChangeIndex(index);
+	
 	return (
 		<div {...handlers} className="flex flex-col ">
 			<div className="flex flex-row items-center space-x-6 align-middle ">
@@ -179,7 +181,7 @@ const ElementsImageGallery = ({
 								currentImageIndex,
 								isEven
 							)}  h-1 w-full rounded-md cursor-pointer`}
-							onClick={() => handleChangeIndex(index)}
+							onClick={changeCard}
 						>
 							&nbsp;
 						</li>

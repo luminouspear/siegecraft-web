@@ -135,6 +135,7 @@ export default function CardList() {
 
 	const processCardText = processRawText;
 
+	const openModalAtIndex = () => openModal(index);
 	//Checkbox code adapted from https://stackoverflow.com/questions/55968689/how-can-i-use-checkbox-form-in-react
 
 	return (
@@ -160,7 +161,7 @@ export default function CardList() {
 				)
 			)}
 			<div className="flex flex-col items-center justify-center">
-				<div className="w-full h-fit mb-12">
+				<div className="w-full mb-12 h-fit">
 					<CardFilter
 						cards={cards}
 						filteredCards={filteredCards}
@@ -171,16 +172,16 @@ export default function CardList() {
 						showTextDetails={showTextDetails}
 					/>
 				</div>
-				<div className="grid grid-cols-1 gap-4 md:gap-8 mx-auto sm:grid-cols-2 lg:grid-cols-3">
+				<div className="grid grid-cols-1 gap-4 mx-auto md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
 					{filteredCards.map((card, index) => (
 						<div key={index} className="m-8">
-							<div className=" pb-4/3 bg-black cursor-pointer rounded-lg shadow-xl">
+							<div className="bg-black rounded-lg shadow-xl cursor-pointer pb-4/3">
 								<LazyLoad>
 									<img
 										src={`/${card.imageUrl}`}
-										className=" inset-0 w-full h-full object-cover object-center mb-4 rounded-xl"
+										className="inset-0 object-cover object-center w-full h-full mb-4 rounded-xl"
 										alt={card.cardName}
-										onClick={() => openModal(index)}
+										onClick={openModalAtIndex}
 										onError={(e) => {
 											setShowDefaultText(true);
 											e.target.src =
@@ -190,7 +191,7 @@ export default function CardList() {
 								</LazyLoad>
 							</div>
 							{showTextDetails ? (
-								<div className="w-full  p-4 bg-white/95 rounded">
+								<div className="w-full p-4 rounded bg-white/95">
 									<div className="text-black">
 										{/* Card Name (Card Cost / Card Affiliation) */}
 										<span className="font-bold text-center">

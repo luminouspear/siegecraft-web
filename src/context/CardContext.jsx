@@ -8,6 +8,7 @@ export const CardProvider = (props) => {
 	const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
 	const accessToken = import.meta.env.VITE_REACT_APP_ACCESS_TOKEN;
+	
 
 	const getCardById = async (cardId) => {
 		try {
