@@ -1,65 +1,92 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import SectionWrapper from "../hoc/SectionWrapper";
 import {
 	homePageSectionTitles,
 	elementsCarouselContent,
 } from "../../constants";
-import { useSwipeable } from "react-swipeable";
+import { CardContext } from "../../context/CardContext";
+
 import { iconCaret, cardBack } from "../../assets";
+import { wrap } from "@popmotion/popcorn";
+import GalleryCard from "../global/utils/GalleryCard";
 
 const HomePageElementsCarousel = () => {
+
+	const [isLoading, setIsLoading] = useState(false);
+	const { getCardById } = useContext(CardContext);
+	const [cardImages, setCardImages] = useState(null);
+
+	const [[page, direction], setPage] = useState([0, 0]);
+
+	const imageIndex = wrap(0, elementsCarouselContent.length, page);
+
+	const paginate = (newDirection) => {
+		setPage([page + newDirection, newDirection]);
+	};
+
 	const [currentSectionTitle, setCurrentSectionTitle] = useState(
-		elementsCarouselContent[0].contentTitle
+		elementsCarouselContent[imageIndex].contentTitle
 	);
 	const [currentSectionSubTitle, setCurrentSectionSubTitle] = useState(
-		elementsCarouselContent[0].contentSubtitle
+		elementsCarouselContent[imageIndex].contentSubtitle
 	);
-	const [currentSectionImage, setCurrentSectionImage] = useState(null);
-	const [currentSectionImageAlt, setCurrentSectionImageAlt] = useState(
-		elementsCarouselContent[0].imageAlt
-	);
-	const [currentTab, setCurrentTab] = useState(0);
+
 	const [currentElement, setCurrentElement] = useState(
-		elementsCarouselContent[0].name.toLowerCase()
+		elementsCarouselContent[imageIndex].name.toLowerCase()
 	);
 
 	useEffect(() => {
-		elementsCarouselContent[currentTab].image().then((module) => {
-			setCurrentSectionImage(module.default);
+		const featuredCards = elementsCarouselContent.map((element) => {
+			return element.imageId[0];
 		});
+		const fetchFeaturedCards = async () => {
+			setIsLoading(true);
+
+			let newFeaturedCardImages = {};
+
+			if (Array.isArray(featuredCards)) {
+				for (const cardId of featuredCards) {
+					const card = await getCardById(cardId);
+
+					if (card && card.imageUrl) {
+						newFeaturedCardImages[cardId] = {
+							imageUrl: card.imageUrl,
+							imageAlt: card.imageAlt,
+							srcSet: card.srcSet,
+						};
+					}
+				}
+			} else {
+				const card = await getCardById(featuredCards);
+
+				if (card && card.imageUrl) {
+					newFeaturedCardImages[featuredCards] = {
+						imageUrl: card.imageUrl,
+						imageAlt: card.imageAlt,
+						srcSet: card.srcSet,
+					};
+				}
+			}
+
+			setCardImages(Object.values(newFeaturedCardImages));
+			setIsLoading(false);
+		};
+		fetchFeaturedCards();
+	}, [getCardById]);
+
+	useEffect(() => {
+
 		setCurrentSectionTitle(
-			elementsCarouselContent[currentTab].contentTitle
+			elementsCarouselContent[imageIndex].contentTitle
 		);
 		setCurrentSectionSubTitle(
-			elementsCarouselContent[currentTab].contentSubtitle
+			elementsCarouselContent[imageIndex].contentSubtitle
 		);
-		setCurrentSectionImageAlt(elementsCarouselContent[currentTab].imageAlt);
 		setCurrentElement(
-			elementsCarouselContent[currentTab].name.toLowerCase()
+			elementsCarouselContent[imageIndex].name.toLowerCase()
 		);
-	}, [currentTab]);
-
-	const handleSwipe = (direction) => {
-		switch (direction) {
-			case "back":
-				setCurrentTab((currentTab - 1 + 6) % 6);
-				return;
-			case "forward":
-				setCurrentTab((currentTab + 1) % 6);
-				return;
-			default:
-				setCurrentTab(direction);
-				return;
-		}
-	};
-
-	const swipeHandlers = useSwipeable({
-		onSwipedLeft: () => handleSwipe("back"),
-		onSwipedRight: () => handleSwipe("forward"),
-		preventDefaultTouchmoveEvent: true,
-		trackMouse: true,
-	});
+	}, [page]);
 
 	return (
 		<>
@@ -83,11 +110,11 @@ const HomePageElementsCarousel = () => {
 					<div
 						key={content.index}
 						className={`p-6 col-span-2  md:w-full mx-auto  w-full rounded-lg cursor-pointer  ${
-							currentTab === content.index
+							page === content.index
 								? "bg-sc-off-white-50"
 								: "hover:bg-sc-off-white/10"
 						}`}
-						onClick={() => handleSwipe(content.index)}
+						onClick={() => setPage([content.index, 0])}
 					>
 						<div className="flex flex-col items-center justify-center space-y-2 lg:space-y-4">
 							<img
@@ -109,37 +136,44 @@ const HomePageElementsCarousel = () => {
 				<div className="grid grid-flow-col grid-cols-12 grid-rows-1 md:col-start-1 md:row-start-1 md:col-span-3 md:h-full ">
 					<div
 						className="flex justify-end w-full h-full col-span-1 col-start-1 row-start-1 p-2 cursor-pointer md: lg:p-3 xl:p-4"
-						onClick={() => handleSwipe("back")}
+						onClick={() => paginate(-1)}
 					>
 						<img
 							src={iconCaret}
 							className={` rotate-180 ${
-								currentTab === 0 ? "opacity-40" : "opacity-100"
+								imageIndex === 0 ? "opacity-40" : "opacity-100"
 							} `}
 						/>
 					</div>
-					<div className="flex flex-col w-10/12 col-span-12 col-start-1 row-start-1 mx-auto md:flex-row">
-						<div className="relative w-full p-6 lg:mb-12 rounded-xl isolate">
-							<img
-								src={cardBack}
-								className="w-full h-auto rounded-lg -rotate-3"
+					<div className="relative grid w-full grid-cols-2 col-span-10 col-start-2 grid-rows-2 row-start-1 p-2 sm:p-6 ">
+						<img
+							src={cardBack}
+							className="w-full h-auto col-span-2 col-start-1 row-span-2 row-start-1 rounded-lg -rotate-3"
+						/>
+						{cardImages && !isLoading ? (
+							<GalleryCard
+								direction={direction}
+								className={
+									"absolute -top-3 scale-90 -left-4 w-full m-6  translate-y-4 rounded-xl rotate-1 md:-translate-y-8 md:-translate-x-32 md:scale-95 col-span-2 col-start-1 row-span-2 row-start-1"
+								}
+								page={page}
+								src={cardImages[imageIndex].imageUrl}
+								srcSet={cardImages[imageIndex].srcSet}
+								alt={cardImages[imageIndex].imageAlt}
 							/>
-
-							<img
-								src={currentSectionImage}
-								className="absolute top-0 w-full m-6 -translate-x-12 -translate-y-4 rounded-xl rotate-1 md:-translate-y-10 md:scale-95"
-								{...swipeHandlers}
-							/>
-						</div>
+						) : (
+							<div>Loading...</div>
+						)}
 					</div>
+
 					<div
 						className="flex justify-end w-full h-full col-span-1 col-start-12 row-start-1 p-2 cursor-pointer lg:p-3 xl:p-4"
-						onClick={() => handleSwipe("forward")}
+						onClick={() => paginate(1)}
 					>
 						<img
 							src={iconCaret}
 							className={` text-sc-off-white  ${
-								currentTab === 5 ? "opacity-40" : "opacity-100"
+								imageIndex === 5 ? "opacity-40" : "opacity-100"
 							}`}
 						/>
 					</div>

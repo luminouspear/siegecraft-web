@@ -9,7 +9,6 @@ import HowToPlayPage from "./components/howtoplay/HowToPlayPage";
 import { showTailwindDebug } from "./showTailwindDebug";
 import { CardProvider } from "./context/CardContext";
 
-
 function App() {
 	const debugWindowSize = false;
 
@@ -23,7 +22,10 @@ function App() {
 						<Route path="/" element={<HomePage />} />
 						<Route path="/cards" element={<CardsPage />} />
 						<Route path="/elements" element={<ElementsPage />} />
-						<Route path="/howtoplay" element={<HowToPlayPage />}></Route>
+						<Route
+							path="/howtoplay"
+							element={<HowToPlayPage />}
+						></Route>
 					</Routes>
 				</BrowserRouter>
 			</CardProvider>

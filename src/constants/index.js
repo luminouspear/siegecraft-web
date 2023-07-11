@@ -289,6 +289,7 @@ const elementsCarouselContent = [
 		contentSubtitle:
 			"As magic returns to the world, the Wilderness awakens. Spirits dance freely in the woods even during daylight hours, calling eager explorers to delve in, unsure of what they may find.<br />Earth mages utilize the power of rock, stone, blood, and bone to subdue their enemies and restore the natural balance.",
 		image: prime_earth_sample,
+		imageId: ["E001"],
 		imageAlt: "A beautiful translucent earth spirit floating in a forest.",
 	},
 	{
@@ -300,6 +301,7 @@ const elementsCarouselContent = [
 		contentSubtitle:
 			"It's death coming from above. Striking in an instant, like a mirage that suddenly becomes real.<br />Air mages specialize in the art of surprise, striking when their enemies least suspect.",
 		image: prime_air_sample,
+		imageId: ["A065"],
 		imageAlt:
 			"A wizard casts a lightning spell that splits into three, hitting three different locations in the far distance.",
 	},
@@ -312,6 +314,7 @@ const elementsCarouselContent = [
 		contentSubtitle:
 			"Rampage. Pillage. Lay siege to your enemies and leave no prisoners. As long as an ember can turn into a flame, Fire is never gone.",
 		image: prime_fire_sample,
+		imageId: ["F084"],
 		imageAlt: "A giant serpent made of lava springs up in a fire dungeon.",
 	},
 	{
@@ -323,6 +326,7 @@ const elementsCarouselContent = [
 		contentSubtitle:
 			"Experience an all new dimension of control. Using the power of Water, the battlefield is yours to command.<br />Withstand your opponent's early onslaughts with your superior defense, and control the flow of the battle and the game with powerful magic.",
 		image: prime_water_sample,
+		imageId: ["W116"],
 		imageAlt:
 			"A Capra (goat woman) mage wielding a pair of staves protects a bridge.",
 	},
@@ -335,6 +339,7 @@ const elementsCarouselContent = [
 		contentSubtitle:
 			"The world is dangerous, but Light magic offers shelter from the storm. Through devotion and planning, coordination and brilliance, your fury will be tempered by faith.",
 		image: prime_light_sample,
+		imageId: ["L159"],
 		imageAlt:
 			"A female mage receives a blessing in the form of a prayer that wraps around her in magical, holy energy.",
 	},
@@ -347,6 +352,7 @@ const elementsCarouselContent = [
 		contentSubtitle:
 			"Delve into the secret world of Shadow, where nothing stays buried for long. Extend your reach into your opponent's battlefield as your search for power corrupts everyone around you.",
 		image: prime_shadow_sample,
+		imageId: ["S178"],
 		imageAlt: "A mortician examines a corpse in a fantasy morgue.",
 	},
 ];

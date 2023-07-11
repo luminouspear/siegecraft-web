@@ -3,10 +3,9 @@ import { useCycleIndex } from "../global/utils/useCycleIndex";
 import { CardContext } from "../../context/CardContext";
 import IconCaret from "../global/svgs/IconCaret";
 import { cardBack } from "../../assets";
-import { Transition } from "react-transition-group";
-import { useSwipeable } from "react-swipeable";
-import styles from "../../styles";
+import { wrap } from "@popmotion/popcorn";
 import getIndicatorColor from "../global/utils/getIndicatorColor";
+import GalleryCard from "../global/utils/GalleryCard";
 
 const ElementsImageGallery = ({
 	element,
@@ -28,15 +27,19 @@ const ElementsImageGallery = ({
 	);
 	const [isLoading, setIsLoading] = useState(true);
 	const [cardImages, setCardImages] = useState(null);
-	const [currentImage, setCurrentImage] = useState(null);
-	const [currentImageAlt, setCurrentImageAlt] = useState(null);
-	const [currentImageSrcset, setCurrentImageSrcset] = useState(null);
-	const [nextImage, setNextImage] = useState(null);
-	const [prevImage, setPrevImage] = useState(null);
 
-	const defaultStyle = styles.defaultStyle;
 
-	const transitionStyles = styles.transitionStyles;
+	const [[page, direction], setPage] = useState([0, 0]);
+
+	const imageIndex = wrap(0, galleryLength, page);
+
+	const paginate = (newDirection) => {
+		setPage([page + newDirection, newDirection]);
+	};
+
+	useEffect(() => {
+		handleChangeIndex(direction);
+	}, [direction]);
 
 
 	useEffect(() => {
@@ -80,56 +83,22 @@ const ElementsImageGallery = ({
 		setShouldCycle(isElementInView && !userInteraction);
 	}, [isElementInView, userInteraction]);
 
-	useEffect(() => {
-		if (cardImages && cardImages[currentImageIndex]) {
-			setCurrentImage(cardImages[currentImageIndex].imageUrl);
-			setCurrentImageAlt(cardImages[currentImageIndex].imageAlt);
-			setCurrentImageSrcset(cardImages[currentImageIndex].srcSet);
-
-			const nextImageIndex = (currentImageIndex + 1) % galleryLength;
-			const imgNext = new Image();
-			imgNext.src = cardImages[nextImageIndex].imageUrl;
-			imgNext.onload = () => setNextImage(imgNext.src);
-
-			const previousImageIndex =
-				(currentImageIndex - 1 + galleryLength) % galleryLength;
-			const imgPrev = new Image();
-			imgPrev.src = cardImages[previousImageIndex].imageUrl;
-			imgPrev.onload = () => setPrevImage(imgPrev.src);
-		}
-	}, [cardImages, currentImageIndex, galleryLength, isElementInView]);
-
-	const showNextImage = () => {
-		handleChangeIndex((prevIndex) => (prevIndex + 1) % galleryLength);
-	};
-
-	const showPrevImage = () => {
-		handleChangeIndex((prevIndex) =>
-			prevIndex === 0 ? galleryLength - 1 : prevIndex - 1
-		);
-	};
 
 	const handleChangeIndex = (index) => {
 		setUserInteraction(true);
-		if (currentGlobalElementInView !== element.sectionElement.toLowerCase()) {
-			setCurrentElementInView(element.sectionElement.toLowerCase())
+		if (
+			currentGlobalElementInView !== element.sectionElement.toLowerCase()
+		) {
+			setCurrentElementInView(element.sectionElement.toLowerCase());
 		}
 		setCurrentImageIndex(index);
 	};
 
-	const handlers = useSwipeable({
-		onSwipedLeft: () => showNextImage(),
-		onSwipedRight: () => showPrevImage(),
-		preventDefaultTouchmoveEvent: true,
-		trackMouse: true,
-	});
 
-	const changeCard = () => handleChangeIndex(index);
-	
 	return (
-		<div {...handlers} className="flex flex-col ">
+		<div className="flex flex-col ">
 			<div className="flex flex-row items-center space-x-6 align-middle ">
-				<button onClick={showPrevImage} className="w-1/12 h-auto">
+				<button onClick={() => paginate(-1)} className="w-1/12 h-auto">
 					<IconCaret
 						className={`w-full p-2 scale-90 rotate-180 lg:scale-60 xl:scale-50 lg:hover:scale-80 xl:hover:scale-70 ${
 							isEven ? "text-sc-off-white" : "text-sc-dark-blue"
@@ -137,33 +106,31 @@ const ElementsImageGallery = ({
 					/>
 				</button>
 
-				<div className="w-9/12 h-full rounded-lg shadow-xl relative aspect-[5/7] overflow-hidden">
-					{currentImage && hasElementLoaded ? (
-						<Transition in timeout={500}>
-							{(state) => (
-								<img
-									className="relative object-cover w-full h-full rounded-lg z-1"
-									src={currentImage}
-									srcSet={currentImageSrcset}
-									alt={currentImageAlt}
-									loading="lazy"
-									style={{
-										...styles.defaultStyle,
-										...styles.transitionStyles[state],
-									}}
-								/>
-							)}
-						</Transition>
-					) : (
+				<div className="w-9/12 h-full rounded-lg shadow-xl relative aspect-[5/7] overflow-visible">
+					<div
+						className={`relative w-full h-full overflow-clip`}
+					>
 						<img
 							src={cardBack}
-							className="relative object-cover w-full h-full rounded-lg z-1"
+							className="relative z-0 object-cover w-full h-full rounded-lg "
 							loading="lazy"
 						/>
-					)}
+						{cardImages && hasElementLoaded ? (
+							<>
+								<GalleryCard
+									direction={direction}
+									className={`absolute top-0 w-full z-1 rounded-lg`}
+									page={page}
+									src={cardImages[imageIndex].imageUrl}
+									srcSet={cardImages[imageIndex].srcSet}
+									alt={cardImages[imageIndex].imageAlt}
+								/>
+							</>
+						) : null}
+					</div>
 				</div>
 
-				<button onClick={showNextImage} className="w-1/12 h-auto">
+				<button onClick={() => paginate(1)} className="w-1/12 h-auto">
 					<IconCaret
 						className={`w-full p-2 scale-90 lg:scale-60 xl:scale-50 ${
 							isEven ? "text-sc-off-white" : "text-sc-dark-blue"
@@ -178,10 +145,10 @@ const ElementsImageGallery = ({
 							key={index}
 							className={`${getIndicatorColor(
 								index,
-								currentImageIndex,
+								imageIndex,
 								isEven
 							)}  h-1 w-full rounded-md cursor-pointer`}
-							onClick={changeCard}
+							onClick={ () => setPage([index, index < page ? '-1' : '1'])}
 						>
 							&nbsp;
 						</li>

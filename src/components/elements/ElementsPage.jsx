@@ -134,8 +134,8 @@ const ElementsPage = () => {
 				<div
 					ref={elementsBannerRef}
 					className={`${
-						isScrolled ? "fixed top-24" : "block"
-					} z-[1] w-full bg-sc-dark-black isolate flex justify-center pb-4`}
+						isScrolled ? "fixed top-28  lg:top-20 xl:top-24" : "block"
+					} z-[1] w-full  bg-sc-dark-black isolate flex justify-center pb-4`}
 				>
 					<div
 						className={`${
