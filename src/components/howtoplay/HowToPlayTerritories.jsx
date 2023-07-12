@@ -14,7 +14,7 @@ const HowToPlayTerritories = (props) => {
 	const lottieRef = useRef(null);
 	const [scrollPosition, setScrollPosition] = useState(window.scrollY);
 	const [currentAnimationData, setCurrentAnimationData] = useState(null);
-	const TOTAL_FRAMES = 155;
+	const TOTAL_FRAMES = 223;
 	const { scrollYProgress } = useScroll({
 		target: targetRef,
 		offset: ["start end", "end start"],

@@ -143,7 +143,7 @@ const HowToPlayDecks = (props) => {
 
 	return (
 		<section
-			className="bg-black h-[250vh] grid grid-rows-5  grid-cols-12 relative z-0 lg:grid-rows-3 lg:grid-cols-8"
+			className="bg-black h-[200vh] grid grid-rows-5  grid-cols-12 relative z-0 lg:grid-rows-3 lg:grid-cols-8 "
 			ref={targetRef}
 		>
 			<motion.div

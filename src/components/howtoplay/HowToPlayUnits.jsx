@@ -14,7 +14,7 @@ const HowToPlayUnits = (props) => {
 	const lottieRef = useRef(null);
 	const [scrollPosition, setScrollPosition] = useState(window.scrollY);
 	const [currentAnimationData, setCurrentAnimationData] = useState(null);
-	const TOTAL_FRAMES = 39;
+	const TOTAL_FRAMES = 140;
 	const { scrollYProgress } = useScroll({
 		target: targetRef,
 		offset: ["start end", "end start"],
@@ -81,7 +81,7 @@ const HowToPlayUnits = (props) => {
 
 	const animationOpacity = useTransform(
 		scrollYProgress,
-		[0.3, 0.35, 0.75, 0.8],
+		[0.3, 0.35, 0.8, 0.86],
 		[0, 1, 1, 0]
 	);
 

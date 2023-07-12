@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const GalleryCard = (props) => {
 
-    const { direction, className, page, src, srcSet, alt, ANIMATION_TIMING=250 } = props;
+    const { direction, className, page, src, srcSet, alt, ANIMATION_TIMING=250, loading="lazy" } = props;
 
 	return (
 		<AnimatePresence initial={false} custom={direction}>
@@ -13,7 +13,7 @@ const GalleryCard = (props) => {
 				src={src}
 				srcSet={srcSet}
 				alt={alt}
-				loading="lazy"
+                loading={loading}
 				drag="x"
 				// custom={direction}
 				initial={{

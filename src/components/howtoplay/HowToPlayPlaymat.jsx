@@ -14,7 +14,7 @@ const HowToPlayPlaymat = (props) => {
 	const lottieRef = useRef(null);
 	const [scrollPosition, setScrollPosition] = useState(window.scrollY);
 	const [currentAnimationData, setCurrentAnimationData] = useState(null);
-	const TOTAL_FRAMES = 79;
+	const TOTAL_FRAMES = 153;
 	const { scrollYProgress } = useScroll({
 		target: targetRef,
 		offset: ["start end", "end start"],

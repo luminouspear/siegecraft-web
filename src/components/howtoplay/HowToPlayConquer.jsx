@@ -14,7 +14,7 @@ const HowToPlayConquer = (props) => {
 	const lottieRef = useRef(null);
 	const [scrollPosition, setScrollPosition] = useState(window.scrollY);
 	const [currentAnimationData, setCurrentAnimationData] = useState(null);
-	const TOTAL_FRAMES = 283;
+	const TOTAL_FRAMES = 349;
 	const { scrollYProgress } = useScroll({
 		target: targetRef,
 		offset: ["start end", "end start"],
@@ -59,7 +59,7 @@ const HowToPlayConquer = (props) => {
 
 	const subtitleOpacity = useTransform(
 		scrollYProgress,
-		[0.0, 0.18, 0.2, 0.35],
+		[0.0, 0.18, 0.2, 0.28],
 		[0, 0, 1, 0]
 	);
 

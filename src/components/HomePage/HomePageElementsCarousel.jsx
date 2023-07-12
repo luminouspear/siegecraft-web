@@ -12,7 +12,6 @@ import { wrap } from "@popmotion/popcorn";
 import GalleryCard from "../global/utils/GalleryCard";
 
 const HomePageElementsCarousel = () => {
-
 	const [isLoading, setIsLoading] = useState(false);
 	const { getCardById } = useContext(CardContext);
 	const [cardImages, setCardImages] = useState(null);
@@ -76,7 +75,6 @@ const HomePageElementsCarousel = () => {
 	}, [getCardById]);
 
 	useEffect(() => {
-
 		setCurrentSectionTitle(
 			elementsCarouselContent[imageIndex].contentTitle
 		);
@@ -160,6 +158,7 @@ const HomePageElementsCarousel = () => {
 								src={cardImages[imageIndex].imageUrl}
 								srcSet={cardImages[imageIndex].srcSet}
 								alt={cardImages[imageIndex].imageAlt}
+								loading={"eager"}
 							/>
 						) : (
 							<div>Loading...</div>

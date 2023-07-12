@@ -14,7 +14,7 @@ const HowToPlayAttack = (props) => {
 	const lottieRef = useRef(null);
 	const [scrollPosition, setScrollPosition] = useState(window.scrollY);
 	const [currentAnimationData, setCurrentAnimationData] = useState(null);
-	const TOTAL_FRAMES = 258;
+	const TOTAL_FRAMES = 349;
 	const { scrollYProgress } = useScroll({
 		target: targetRef,
 		offset: ["start end", "end start"],
@@ -59,7 +59,7 @@ const HowToPlayAttack = (props) => {
 
 	const subtitleOpacity = useTransform(
 		scrollYProgress,
-		[0.0, 0.18, 0.2, 0.35],
+		[0.0, 0.18, 0.2, 0.25],
 		[0, 0, 1, 0]
 	);
 	const titleOpacity = useTransform(
@@ -80,7 +80,7 @@ const HowToPlayAttack = (props) => {
 
 	const animationOpacity = useTransform(
 		scrollYProgress,
-		[0.15, 0.25, 0.75, 0.8],
+		[0.15, 0.27, 0.75, 0.85],
 		[0, 1, 1, 0]
 	);
 
