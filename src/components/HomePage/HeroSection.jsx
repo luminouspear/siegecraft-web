@@ -45,7 +45,7 @@ const HeroSection = () => {
 	return (
 		<div className="inline-block w-full">
 			<div className="inline-block w-full min-h-screen">
-				<div className="grid h-screen grid-rows-[repeat(8,minmax(0,1fr))] grid-cols-12 grid-flow-col ">
+				<div className="grid h-screen grid-rows-[repeat(8,minmax(0,1fr))] grid-cols-12 grid-flow-col overflow-hidden ">
 					<ScaleImage
 						src={currentImage}
 						alt={currentImageAlt}

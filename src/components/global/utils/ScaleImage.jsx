@@ -18,39 +18,15 @@ export const ScaleImage = (props) => {
 	const isInView = useInView(animationRef, { once: true });
 	const mainControls = useAnimation();
 
-	const getRulesForLayout = (lgClassList, defaultClassList) => {
-		const windowWidth = window.innerWidth;
+	const getRandomValue = () => {
 
-		if (windowWidth >= 1024) {
-			return lgClassList;
-		} else {
-			return defaultClassList;
+		const values = [-20, 0, 20]
+		const randomIndex = Math.floor(Math.random() * values.length)
+		return values[randomIndex]
 		}
-	};
 
-	const [animationBackgroundSize, setAnimationBackgroundSize] = useState({
-		start: getRulesForLayout("101%", "301%"),
-		end: getRulesForLayout("100%", "300%"),
-	});
 
-	const handleResize = () => {
-		if (animationRef.current) {
-			setAnimationBackgroundSize({
-				start: getRulesForLayout("110%", "305%"),
-				end: getRulesForLayout("100%", "300%"),
-			});
-		}
-	};
 
-	useEffect(() => {
-		handleResize();
-
-		window.addEventListener("resize", handleResize);
-
-		return () => {
-			window.removeEventListener("resize", handleResize);
-		};
-	}, []);
 
 	useEffect(() => {
 		if (isInView) {
@@ -77,8 +53,8 @@ export const ScaleImage = (props) => {
 				className={` col-start-1 col-span-4 row-span-4 row-start-1 object-cover object-center h-full w-full`}
 				alt={alt}
 				variants={{
-					start: { scale: 1 },
-					end: { scale: 1.1 },
+					start: { scale: 1.14, x:getRandomValue(), y:getRandomValue(), delay:3 },
+					end: { scale: 1.20, x:getRandomValue(), y:getRandomValue() },
 				}}
 				initial="start"
 				animate={mainControls}

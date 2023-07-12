@@ -15,6 +15,10 @@ const ContactSection = () => {
 
 	const [loading, setLoading] = useState(false);
 	const [formSubmitted, setFormSubmitted] = useState(false);
+	const serviceId = import.meta.env.VITE_REACT_APP_MSG_SERVICE_ID
+	const templateId = import.meta.env.VITE_REACT_APP_MSG_TEMPLATE_ID
+	const templateKey = import.meta.env.VITE_REACT_APP_MSG_TEMPLATE_KEY
+
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setForm({ ...form, [name]: value });
@@ -27,16 +31,15 @@ const ContactSection = () => {
 
 		emailjs
 			.send(
-				"service_f4iid1f",
-				"template_e0sbp9k",
+				serviceId,
+				templateId,
 				{
 					from_name: form.name,
 					to_name: "Arcane Arts (siegecraftgame.com)",
 					from_email: form.email,
-					to_email: "bard07_chances@icloud.com",
-					message: form.message,
+
 				},
-				"uzmyvnrM-EtM2dzaO"
+				templateKey
 			)
 			.then(
 				() => {
@@ -58,9 +61,9 @@ const ContactSection = () => {
 	};
 
 	return (
-		<div className="">
-			<div className=" 2xl:mt-0 mt-0 flex  flex-col-reverse lg:flex-row justify-center items-center w-full  lg:min-h-fit">
-				<div className="lg:w-1/2 w-full p-8 ">
+		<section className="">
+			<div className="flex flex-col-reverse items-center justify-center w-full mt-0 2xl:mt-0 lg:flex-row lg:min-h-fit">
+				<div className="w-full p-8 lg:w-1/2 ">
 					<h2
 						className={`text-sc-off-white font-Cinzel text-3xl text-center pb-4`}
 					>
@@ -74,18 +77,18 @@ const ContactSection = () => {
 					/>
 
 					{formSubmitted ? (
-						<p className="text-sc-off-white font-bold text-xl pt-8">
+						<p className="pt-8 text-xl font-bold text-sc-off-white">
 							Thanks for your email! We can't wait for you to play!
 						</p>
 					) : (
 						<form
 							ref={formRef}
 							onSubmit={handleSubmit}
-							className="mt-12 grid grid-flow-col grid-cols-12 space-x-2 md:space-x-4"
+							className="grid grid-flow-col grid-cols-12 mt-12 space-x-2 md:space-x-4"
 						>
 							<input
 								type="email"
-								className="bg-sc-off-white py-3 md:py-4 col-start-1 col-span-7 lg:col-span-8 pl-2 md:pl-4 placeholder:text-sc-dark-black/60 rounded outline-none border-none font-medium font-Catamaran text-xl"
+								className="col-span-7 col-start-1 py-3 pl-2 text-xl font-medium border-none rounded outline-none bg-sc-off-white md:py-4 lg:col-span-8 md:pl-4 placeholder:text-sc-dark-black/60 font-Catamaran"
 								name="email"
 								placeholder="Your email address"
 								value={form.email}
@@ -94,7 +97,7 @@ const ContactSection = () => {
 
 							<button
 								type="submit"
-								className="bg-sc-red hover:bg-sc-red-dark text-sc-off-white hover:text-sc-gold col-start-8 lg:col-start-9 col-span-5 lg:col-span-4 font-Cinzel py-3 md:py-4 px-6 rounded font-bold text-xl md:text-2xl text-center"
+								className="col-span-5 col-start-8 px-6 py-3 text-xl font-bold text-center rounded bg-sc-red hover:bg-sc-red-dark text-sc-off-white hover:text-sc-gold lg:col-start-9 lg:col-span-4 font-Cinzel md:py-4 md:text-2xl"
 							>
 								{loading ? "Sending..." : "Submit"}
 							</button>
@@ -102,7 +105,7 @@ const ContactSection = () => {
 					)}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

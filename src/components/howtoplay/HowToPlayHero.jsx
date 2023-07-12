@@ -27,7 +27,7 @@ const HowToPlayHero = (props) => {
 		[1, 0]
 	);
 	const caretScale = useTransform(scrollYProgress, [0.24, 0.61], [1, 0]);
-	const caretFade = useTransform(scrollYProgress, [0.55, 0.75], [.8, 0]);
+	const caretFade = useTransform(scrollYProgress, [0.55, 0.75], [0.8, 0]);
 
 	const scaleUpOntoScreen = (delay) => {
 		return useTransform(
@@ -47,7 +47,7 @@ const HowToPlayHero = (props) => {
 
 	return (
 		<section
-			className="relative h-[90vh] lg:h-screen  lg:pt-[10%] text-sc-off-white  bg-sc-dark-black"
+			className="relative h-[85vh]   lg:pt-[10%] text-sc-off-white  bg-sc-dark-black"
 			ref={targetRef}
 		>
 			<div className="relative grid items-center justify-center w-full h-full grid-flow-row grid-cols-12 ">
@@ -97,8 +97,16 @@ const HowToPlayHero = (props) => {
 				<motion.div
 					className="flex items-center justify-center w-full col-span-12 row-start-4 opacity-80"
 					style={{ opacity: caretFade, scale: caretScale }}
+					animate={{ translateY: -7, opacity:.1 }}
+					transition={{
+						duration: 2.3,
+						repeat: Infinity,
+						repeatType: "loop",
+						delay: 9,
+						ease: "easeIn",
+					}}
 				>
-					<IconCaret className={"rotate-90 w-6 "} />
+					<IconCaret className={"-rotate-90 w-4 "} />
 				</motion.div>
 			</div>
 		</section>

@@ -314,7 +314,7 @@ const elementsCarouselContent = [
 		contentSubtitle:
 			"Rampage. Pillage. Lay siege to your enemies and leave no prisoners. As long as an ember can turn into a flame, Fire is never gone.",
 		image: prime_fire_sample,
-		imageId: ["F084"],
+		imageId: ["F081"],
 		imageAlt: "A giant serpent made of lava springs up in a fire dungeon.",
 	},
 	{
@@ -352,7 +352,7 @@ const elementsCarouselContent = [
 		contentSubtitle:
 			"Delve into the secret world of Shadow, where nothing stays buried for long. Extend your reach into your opponent's battlefield as your search for power corrupts everyone around you.",
 		image: prime_shadow_sample,
-		imageId: ["S178"],
+		imageId: ["S179"],
 		imageAlt: "A mortician examines a corpse in a fantasy morgue.",
 	},
 ];
