@@ -59,8 +59,8 @@ const HowToPlayAttack = (props) => {
 
 	const subtitleOpacity = useTransform(
 		scrollYProgress,
-		[0.0, 0.18, 0.2, 0.25],
-		[0, 0, 1, 0]
+		[0.0,  0.2, 0.25],
+		[0.1,  1, 0]
 	);
 	const titleOpacity = useTransform(
 		scrollYProgress,

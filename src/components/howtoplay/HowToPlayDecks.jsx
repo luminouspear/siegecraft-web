@@ -82,8 +82,8 @@ const HowToPlayDecks = (props) => {
 
 	const imageOpacity = useTransform(
 		scrollYProgress,
-		[0.1, 0.15, 0.22, 0.68, 0.76],
-		[0, 0.2, 1, 1, 0]
+		[0.05, 0.15, 0.22, 0.68, 0.76],
+		[0.1, 0.2, 1, 1, 0]
 	);
 
 	const blockerOpacity = useTransform(

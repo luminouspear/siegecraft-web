@@ -717,6 +717,7 @@ const howToPlayContent = [
 	{
 		id: 2,
 		tile: true,
+		sectionSubtitle: "Prepare to Play",
 		sectionBg: "/src/assets/how_to_play_playmat.jpg",
 		sectionBgSrcSet:
 			"/src/assets/how_to_play_playmat.jpg 1000w, /src/assets/how_to_play_playmat@2x.jpg 2000w, /src/assets/how_to_play_playmat@3x.jpg 4000w",
