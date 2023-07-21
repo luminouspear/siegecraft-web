@@ -9,35 +9,52 @@
 	border: 4px solid cyan;
 }
 
-@font-face {
-    font-family: 'cinzelregular';
-    src: url('../src/assets/cinzel-variablefont_wght-webfont.woff2') format('woff2'),
-         url('../src/assets/cinzel-variablefont_wght-webfont.woff') format('woff');
+.testgrid {
+	position: relative;
+}
 
-    font-style: normal;
-
+.testgrid::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: calc(100% - 1px);
+	height: 100%;
+	width: 1px;
+	background-color: lightgray;
 }
 
 @font-face {
-    font-family: 'catamaranthin';
-    src: url('../src/assets/catamaran-variablefont_wght-webfont.woff2') format('woff2'),
-         url('../src/assets/catamaran-variablefont_wght-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: "cinzelregular";
+	src: url("../src/assets/cinzel-variablefont_wght-webfont.woff2")
+			format("woff2"),
+		url("../src/assets/cinzel-variablefont_wght-webfont.woff")
+			format("woff");
 
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "catamaranthin";
+	src: url("../src/assets/catamaran-variablefont_wght-webfont.woff2")
+			format("woff2"),
+		url("../src/assets/catamaran-variablefont_wght-webfont.woff")
+			format("woff");
+	font-weight: normal;
+	font-style: normal;
 }
 
 @keyframes scale-in {
-  0% {
-    background-size: 120%;
-  }
-  100% {
-    background-size: 100%;
-  }
+	0% {
+		background-size: 120%;
+	}
+	100% {
+		background-size: 100%;
+	}
 }
 
-.fade-enter, .fade-exit {
-	@apply absolute w-full
+.fade-enter,
+.fade-exit {
+	@apply absolute w-full;
 }
 .fade-enter {
 	@apply opacity-0;

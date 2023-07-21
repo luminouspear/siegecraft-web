@@ -47,7 +47,7 @@ const HowToPlayHero = (props) => {
 
 	return (
 		<section
-			className="relative h-[85vh]   lg:pt-[10%] text-sc-off-white  bg-sc-dark-black"
+			className="relative h-[85vh]   lg:pt-[10%] text-sc-off-white  bg-sc-dark-black  mt-[-1px]"
 			ref={targetRef}
 		>
 			<div className="relative grid items-center justify-center w-full h-full grid-flow-row grid-cols-12 ">
@@ -97,7 +97,7 @@ const HowToPlayHero = (props) => {
 				<motion.div
 					className="flex items-center justify-center w-full col-span-12 row-start-4 opacity-80"
 					style={{ opacity: caretFade, scale: caretScale }}
-					animate={{ translateY: -7, opacity:.1 }}
+					animate={{ translateY: -7, opacity: 0.1 }}
 					transition={{
 						duration: 2.3,
 						repeat: Infinity,

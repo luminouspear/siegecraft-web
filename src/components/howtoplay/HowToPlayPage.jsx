@@ -1,24 +1,42 @@
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { howToPlayContent, sectionElements } from "../../constants";
 import HowToPlayHero from "./HowToPlayHero";
 import HowToPlayDecks from "./HowToPlayDecks";
-const HowToPlayPlaymat = lazy(() => import("./HowToPlayPlaymat"));
-const HowToPlayTerritories = lazy(() => import("./HowToPlayTerritories"));
-const HowToPlayTerritoriesMore = lazy(() =>
-	import("./HowToPlayTerritoriesMore")
-);
-const HowToPlayUnits = lazy(() => import("./HowToPlayUnits"));
-const HowToPlayAttack = lazy(() => import("./HowToPlayAttack"));
-const HowToPlayConquer = lazy(() => import("./HowToPlayConquer"));
+const HowToPlayContentBlock = lazy(() => import("./HowToPlayContentBlock"));
 import HowToPlayClosingCTA from "./HowToPlayClosingCTA";
 import ContactSection from "../global/ContactSection";
 import FooterSection from "../global/FooterSection";
 
-
 const HowToPlayPage = () => {
+
+	const [windowSize, setWindowSize] = useState(false)
+
 	useEffect(() => {
 		window.scrollTo(0, 0);
+		isWindowLg()
+		console.log(windowSize)
 	}, []);
+	useEffect(() => {
+		console.log(windowSize)
+	}, [windowSize]);
+
+	const lottieContent = howToPlayContent.filter(
+		(item) => item.id > 1 && item.id < 8
+	);
+	const isWindowLg = () => {
+		setWindowSize(window.innerWidth >= 1024);
+	};
+
+
+		useEffect(() => {
+
+
+			// Attach the event listener
+			window.addEventListener("resize", isWindowLg);
+
+			// Clean up the event listener on unmount
+			return () => window.removeEventListener("resize", isWindowLg);
+		}, []);
 
 	return (
 		<div className="bg-black">
@@ -26,25 +44,15 @@ const HowToPlayPage = () => {
 				content={howToPlayContent[0]}
 				elements={sectionElements}
 			/>
-			<HowToPlayDecks content={howToPlayContent[1]} />
-			<Suspense fallback={<div>Loading</div>}>
-				<HowToPlayPlaymat content={howToPlayContent[2]} />
-			</Suspense>
-			<Suspense fallback={<div>Loading</div>}>
-				<HowToPlayTerritories content={howToPlayContent[3]} />
-			</Suspense>
-			 <Suspense fallback={<div>Loading</div>}>
-				<HowToPlayTerritoriesMore content={howToPlayContent[4]} />
-			</Suspense>
-			<Suspense fallback={<div>Loading</div>}>
-				<HowToPlayUnits content={howToPlayContent[5]} />
-			</Suspense>
-			<Suspense fallback={<div>Loading</div>}>
-				<HowToPlayAttack content={howToPlayContent[6]} />
-			</Suspense>
-			<Suspense fallback={<div>Loading</div>}>
-				<HowToPlayConquer content={howToPlayContent[7]} />
-			</Suspense>
+			<HowToPlayDecks windowSize={windowSize} content={howToPlayContent[1]} />
+			{lottieContent.map((content) => {
+				return (
+				<Suspense fallback={<div>Loading...</div>} key={content.id}>
+						<HowToPlayContentBlock windowSize={windowSize}  content={content} />
+				</Suspense>
+				)
+			}
+			)}
 			<HowToPlayClosingCTA
 				content={howToPlayContent[8]}
 				elements={sectionElements}

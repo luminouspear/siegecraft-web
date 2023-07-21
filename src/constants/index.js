@@ -571,7 +571,7 @@ const elementPageInfo = [
 		sectionElement: "Earth",
 		sectionBg: bg_elements_earth,
 		sectionBgSrcSet:
-			"/assets/images/bg_elements_earth.jpg 1024w, /assets/images/bg_elements_earth@2x.jpg 2500w, /assets/images/bg_elements_earth@3x.jpg 4000w",
+			"/assets/images/bg_elements_earth.jpg , /assets/images/bg_elements_earth@2x.jpg 1.5x, /assets/images/bg_elements_earth@3x.jpg 2x",
 		sectionTitle: "Welcome to the Wilderness",
 		sectionSubtitle:
 			"Buried deep within the heart of the Inzaru wilds is the ancient temple of your ancestors - a hallowed sanctum steeped in enigmas and cloaked in lore. It now stands as an impregnable fortress in the maelstrom of conflict.",
@@ -585,7 +585,7 @@ const elementPageInfo = [
 		sectionElement: "Air",
 		sectionBg: bg_elements_air,
 		sectionBgSrcSet:
-			"/assets/images/bg_elements_air.jpg 1024w, /assets/images/bg_elements_air@2x.jpg 2500w , /assets/images/bg_elements_air@3x.jpg 4000w",
+			"/assets/images/bg_elements_air.jpg , /assets/images/bg_elements_air@2x.jpg 1.5x , /assets/images/bg_elements_air@3x.jpg 2x",
 		sectionTitle: "Explore the High Desert",
 		sectionSubtitle:
 			"With each new relic discovered on the cloud plains of Zederi, the influx of northern invaders intensifies. They don't know the storm they are calling down.",
@@ -599,7 +599,7 @@ const elementPageInfo = [
 		sectionElement: "Fire",
 		sectionBg: bg_elements_fire,
 		sectionBgSrcSet:
-			"/assets/images/bg_elements_fire.jpg 1000w , /assets/images/bg_elements_fire@2x.jpg 2500w, /assets/images/bg_elements_fire@3x.jpg 4000w",
+			"/assets/images/bg_elements_fire.jpg  , /assets/images/bg_elements_fire@2x.jpg 1.5x, /assets/images/bg_elements_fire@3x.jpg 2x",
 		sectionTitle: "You Rule the Burning Wastelands",
 		sectionSubtitle:
 			'You are the warlord of Kartha, to whom the oracle once proclaimed: "In your hands, aggression will become an artform. In your wake, empires will turn to ashes."',
@@ -613,7 +613,7 @@ const elementPageInfo = [
 		sectionElement: "Water",
 		sectionBg: bg_elements_water,
 		sectionBgSrcSet:
-			"/assets/images/bg_elements_water.jpg 1000w, /assets/images/bg_elements_water@2x.jpg 2500w, /assets/images/bg_elements_water@3x.jpg 4000w",
+			"/assets/images/bg_elements_water.jpg , /assets/images/bg_elements_water@2x.jpg 1.5x, /assets/images/bg_elements_water@3x.jpg 2x",
 		sectionTitle: "All Rivers Flow Toward You",
 		sectionSubtitle:
 			"From your throne at the strategic harbor of Ferria, the world's knowledge, trade and commerce revolves around you. Under your watchful eye, nothing passes through your borders unseen.",
@@ -627,7 +627,7 @@ const elementPageInfo = [
 		sectionElement: "Light",
 		sectionBg: bg_elements_light,
 		sectionBgSrcSet:
-			"/assets/images/bg_elements_light.jpg 1000w, /assets/images/bg_elements_light@2x.jpg 2500w, /assets/images/bg_elements_light@3x.jpg 4000w",
+			"/assets/images/bg_elements_light.jpg , /assets/images/bg_elements_light@2x.jpg 1.5x, /assets/images/bg_elements_light@3x.jpg 2x",
 		sectionTitle: "We Will Erect Monuments to Your Glory",
 		sectionSubtitle:
 			"As the Captain of the Merenthian Guard, you are the last champion who stands for the righteous against the forces that would plunge the world into darkness forever. What is your command?",
@@ -641,7 +641,7 @@ const elementPageInfo = [
 		sectionElement: "Shadow",
 		sectionBg: bg_elements_shadow,
 		sectionBgSrcSet:
-			"/assets/images/bg_elements_shadow.jpg 1000w, /assets/images/bg_elements_shadow@2x.jpg 2000w, /assets/images/bg_elements_shadow@3x.jpg 4000w",
+			"/assets/images/bg_elements_shadow.jpg , /assets/images/bg_elements_shadow@2x.jpg 1.5x, /assets/images/bg_elements_shadow@3x.jpg 2x",
 		sectionTitle: "There's Some Power Yet in These Old Ruins",
 		sectionSubtitle:
 			"In the darkest corners of the ancient city of Ghis, power accumulates. The power to uplift the forgotten, to revive those who are lost and to avenge lost wars. All it requires is just a small tribute to the demon Ix. Will you join?",
@@ -706,9 +706,39 @@ const howToPlayContent = [
 	{
 		id: 1,
 		tile: true,
+		offset: ["start end", "end start"],
+		TOTAL_FRAMES: 0,
+		headingOpacity: {
+			inputRange: [0.36, 0.38, 0.69, 0.74],
+			outputRange: [0, 1, 1, 0],
+		},
+		sectionTitleOpacity: {
+			inputRange: [0.35, 0.37, 0.5, 0.51],
+			outputRange: [0, 1, 1, 0],
+		},
+		subheadingOpacity: {
+			inputRange: [0.5, 0.55, 0.67, 0.72],
+			outputRange: [0, 1, 1, 0],
+		},
+		blockerOpacity: {
+			inputRange: [0, 0.35, 0.37, 0.68, 0.7],
+			outputRange: [0, 0, 1, 1, 0],
+		},
+		imageOpacity: {
+			inputRange: [0.05, 0.15, 0.22, 0.68, 0.76],
+			outputRange: [0.15, 0.2, 1, 1, 0],
+		},
+		contentContainerOpacity: {
+			inputRange: [0.33, 0.37, 0.65, 0.7],
+			outputRange: [0, 0.9, 0.9, 0],
+		},
+		contentContainerY: {
+			inputRange: [0.33, 0.37, 0.38, 0.67, 0.78, 0.83],
+			outputRange: [120, 20, 20, -20, -20, -120],
+		},
 		sectionBg: how_to_play_decks,
 		sectionBgSrcSet:
-			"/src/assets/how_to_play_decks.jpg 1000w, /src/assets/how_to_play_decks@2x.jpg 2000w, /src/assets/how_to_play_decks@3x.jpg 4000w",
+			"/src/assets/how_to_play_decks.jpg , /src/assets/how_to_play_decks@2x.jpg 1.5x, /src/assets/how_to_play_decks@3x.jpg 2x",
 		sectionBgAlt: "A pair of custom built Third Dawn: Siegecraft decks.",
 		sectionTitle: "Create Your Deck",
 		sectionText:
@@ -717,10 +747,41 @@ const howToPlayContent = [
 	{
 		id: 2,
 		tile: true,
-		sectionSubtitle: "Prepare to Play",
+		TOTAL_FRAMES: 153,
+		offset: ["start end", "end start"],
+		sectionTitleOpacity: {
+			inputRange: [0.05, 0.2, 0.25, 0.3],
+			outputRange: [0, 1, 1, 0],
+		},
+		headingOpacity: {
+			inputRange: [0.29, 0.31, 0.78, 0.8],
+			outputRange: [0, 1, 1, 0],
+		},
+		subheadingOpacity: {
+			inputRange: [0.34, 0.37, 0.81, 0.83],
+			outputRange: [0, 1, 1, 0],
+		},
+		blockerOpacity: {
+			inputRange: [0, 0.35, 0.37, 0.64, 0.69],
+			outputRange: [0, 0, 1, 1, 0],
+		},
+		animationOpacity: {
+			inputRange: [0, 0.75, 0.82],
+			outputRange: [1, 1, 0],
+		},
+		contentContainerOpacity: {
+			inputRange: [0.27, 0.29, 0.68, 0.7],
+			outputRange: [0, 0.9, 0.9, 0],
+		},
+		contentContainerY: {
+			inputRange: [0.33, 0.37, 0.38, 0.67, 0.78, 0.83],
+			outputRange: [120, 20, 20, -20, -20, -120],
+		},
+		align: "left",
+		sectionSubtitle: "Prepare for Battle",
 		sectionBg: "/src/assets/how_to_play_playmat.jpg",
 		sectionBgSrcSet:
-			"/src/assets/how_to_play_playmat.jpg 1000w, /src/assets/how_to_play_playmat@2x.jpg 2000w, /src/assets/how_to_play_playmat@3x.jpg 4000w",
+			"/src/assets/how_to_play_playmat.jpg , /src/assets/how_to_play_playmat@2x.jpg 1.5x, /src/assets/how_to_play_playmat@3x.jpg 2x",
 		sectionBgAlt:
 			"A black Third Dawn: Siegecraft playmat, split into three zones- the Assault, Battalion and Cavalry zones.",
 		sectionTitle: "Set Up Your Battlefield",
@@ -732,6 +793,37 @@ const howToPlayContent = [
 	{
 		id: 3,
 		tile: true,
+		TOTAL_FRAMES: 223,
+		offset: ["start end", "end start"],
+		headingOpacity: {
+			inputRange: [0.38, 0.42, 0.67, 0.69],
+			outputRange: [0, 1, 1, 0],
+		},
+		sectionTitleOpacity: {
+			inputRange: [0.0, 0.2, 0.55],
+			outputRange: [0.1, 1, 0],
+		},
+		subheadingOpacity: {
+			inputRange: [0.4, 0.44, 0.65, 0.68],
+			outputRange: [0, 1, 1, 0],
+		},
+		blockerOpacity: {
+			inputRange: [0, 0.35, 0.37, 0.68, 0.7],
+			outputRange: [0, 0, 1, 1, 0],
+		},
+		animationOpacity: {
+			inputRange: [0, 0.73, 0.76],
+			outputRange: [1, 1, 0],
+		},
+		contentContainerOpacity: {
+			inputRange: [0.33, 0.37, 0.68, 0.7],
+			outputRange: [0, 0.9, 0.9, 0],
+		},
+		contentContainerY: {
+			inputRange: [0.33, 0.37, 0.38, 0.67, 0.78, 0.83],
+			outputRange: [120, 20, 20, -20, -20, -120],
+		},
+		align: "bottom-right",
 		sectionBg: "src/assets/how_to_play_stronghold.jpg",
 		sectionBgAlt:
 			"A mountain stronghold with strong walls on a misty morning.",
@@ -747,7 +839,7 @@ const howToPlayContent = [
 			{
 				id: "2",
 				src: "/src/assets/how_to_play_playmat.jpg",
-				srcSet: "/src/assets/how_to_play_playmat.jpg 1000w, /src/assets/how_to_play_playmat@2x.jpg 2000w, /src/assets/how_to_play_playmat@3x.jpg 4000w",
+				srcSet: "/src/assets/how_to_play_playmat.jpg , /src/assets/how_to_play_playmat@2x.jpg 1.5x, /src/assets/how_to_play_playmat@3x.jpg 2x",
 				alt: "A black Third Dawn: Siegecraft playmat, split into three zones- the Assault, Battalion and Cavalry zones.",
 			},
 		],
@@ -764,6 +856,37 @@ const howToPlayContent = [
 	{
 		id: 4,
 		tile: true,
+		offset: ["start end", "end start"],
+		TOTAL_FRAMES: 126,
+		headingOpacity: {
+			inputRange: [0.22, 0.3, 0.73, 0.74],
+			outputRange: [0, 1, 1, 0],
+		},
+		sectionTitleOpacity: {
+			inputRange: [0.0, 0.2, 0.35],
+			outputRange: [0.1, 1, 0],
+		},
+		subheadingOpacity: {
+			inputRange: [0.35, 0.35, 0.71, 0.72],
+			outputRange: [0, 1, 1, 0],
+		},
+		blockerOpacity: {
+			inputRange: [0, 0.28, 0.33, 0.68, 0.7],
+			outputRange: [0, 0, 1, 1, 0],
+		},
+		animationOpacity: {
+			inputRange: [0.3, 0.35, 0.75, 0.78],
+			outputRange: [0, 1, 1, 0],
+		},
+		contentContainerOpacity: {
+			inputRange: [0.33, 0.37, 0.65, 0.7],
+			outputRange: [0, 0.9, 0.9, 0],
+		},
+		contentContainerY: {
+			inputRange: [0.33, 0.37, 0.38, 0.67, 0.78, 0.83],
+			outputRange: [120, 20, 20, -20, -20, -120],
+		},
+		align: "bottom-left",
 		sectionBg: "",
 		bgImageAlt: "",
 		sectionSubtitle: "Devote Yourself to the Elements",
@@ -776,6 +899,37 @@ const howToPlayContent = [
 	{
 		id: 5,
 		tile: true,
+		offset: ["start end", "end start"],
+		TOTAL_FRAMES: 140,
+		headingOpacity: {
+			inputRange: [0.22, 0.26, 0.73, 0.74],
+			outputRange: [0, 1, 1, 0],
+		},
+		sectionTitleOpacity: {
+			inputRange: [0.0, 0.2, 0.55],
+			outputRange: [0.1, 1, 0],
+		},
+		subheadingOpacity: {
+			inputRange: [0.35, 0.35, 0.71, 0.72],
+			outputRange: [0, 1, 1, 0],
+		},
+		blockerOpacity: {
+			inputRange: [0, 0.22, 0.28, 0.68, 0.7],
+			outputRange: [0, 0, 1, 1, 0],
+		},
+		animationOpacity: {
+			inputRange: [0.3, 0.35, 0.75, 0.78],
+			outputRange: [0, 1, 1, 0],
+		},
+		contentContainerOpacity: {
+			inputRange: [0.33, 0.37, 0.65, 0.7],
+			outputRange: [0, 0.9, 0.9, 0],
+		},
+		contentContainerY: {
+			inputRange: [0.33, 0.37, 0.38, 0.67, 0.78, 0.83],
+			outputRange: [120, 20, 20, -20, -20, -120],
+		},
+		align: "top-right",
 		sectionBg: "",
 		bgImageAlt: "",
 		sectionSubtitle: "Summon an Army",
@@ -787,6 +941,37 @@ const howToPlayContent = [
 	},
 	{
 		id: 6,
+		offset: ["start end", "end start"],
+		TOTAL_FRAMES: 349,
+		headingOpacity: {
+			inputRange: [0.22, 0.26, 0.6, 0.64],
+			outputRange: [0, 1, 1, 0],
+		},
+		sectionTitleOpacity: {
+			inputRange: [0.0, 0.2, 0.25],
+			outputRange: [0.1, 1, 0],
+		},
+		subheadingOpacity: {
+			inputRange: [0.35, 0.35, 0.58, 0.63],
+			outputRange: [0, 1, 1, 0],
+		},
+		blockerOpacity: {
+			inputRange: [0, 0.22, 0.28, 0.8, 0.82],
+			outputRange: [0, 0, 1, 1, 0],
+		},
+		animationOpacity: {
+			inputRange: [0.3, 0.35, 0.75, 0.78],
+			outputRange: [0, 1, 1, 0],
+		},
+		contentContainerOpacity: {
+			inputRange: [0.33, 0.37, 0.65, 0.7],
+			outputRange: [0, 0.9, 0.9, 0],
+		},
+		contentContainerY: {
+			inputRange: [0.33, 0.37, 0.38, 0.67, 0.78, 0.83],
+			outputRange: [120, 20, 20, -20, -20, -120],
+		},
+		align: "bottom-middle",
 		sectionSubtitle: "Bring the fight to your opponent",
 		sectionTitle: "Challenge Your Opponent's Forces",
 		sectionText:
@@ -796,6 +981,37 @@ const howToPlayContent = [
 	},
 	{
 		id: 7,
+		offset: ["start end", "end start"],
+		TOTAL_FRAMES: 349,
+		headingOpacity: {
+			inputRange: [0.38, 0.42, 0.73, 0.74],
+			outputRange: [0, 1, 1, 0],
+		},
+		sectionTitleOpacity: {
+			inputRange: [0.0, 0.2, 0.28],
+			outputRange: [0.1, 1, 0],
+		},
+		subheadingOpacity: {
+			inputRange: [0.4, 0.44, 0.71, 0.72],
+			outputRange: [0, 1, 1, 0],
+		},
+		blockerOpacity: {
+			inputRange: [0, 0.35, 0.37, 0.6, 0.65],
+			outputRange: [0, 0, 1, 1, 0],
+		},
+		animationOpacity: {
+			inputRange: [0.25, 0.3, 0.7, 0.73],
+			outputRange: [0, 1, 1, 0],
+		},
+		contentContainerOpacity: {
+			inputRange: [0.33, 0.37, 0.6, 0.7],
+			outputRange: [0, 0.9, 0.9, 0],
+		},
+		contentContainerY: {
+			inputRange: [0.33, 0.37, 0.38, 0.67, 0.78, 0.83],
+			outputRange: [120, 20, 20, -20, -20, -120],
+		},
+		align: "top-left",
 		sectionSubtitle: "Conquer Three Territories to Win",
 		sectionTitle: "Lay Siege to Your Enemies",
 		sectionText:

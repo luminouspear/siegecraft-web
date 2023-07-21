@@ -36,7 +36,7 @@ const HowToPlayClosingCTA = (props) => {
 
 	return (
 		<section
-			className="relative h-[300vh] bg-sc-dark-black grid grid-rows-3 grid-cols-1"
+			className="relative h-[300vh] bg-sc-dark-black grid grid-rows-3 grid-cols-1  mt-[-1px]"
 			ref={targetRef}
 		>
 			<div className="sticky grid grid-cols-5 col-span-1 col-start-1 grid-rows-5 row-span-1 row-start-1 pt-24 mx-auto pb-36 top-32 lg:top-24 lg:w-3/4 xl:w-1/2 h-3/4 lg:h-7/12 lg:mt-24">
