@@ -8,6 +8,7 @@ import ElementsPage from "./components/elements/ElementsPage";
 import HowToPlayPage from "./components/howtoplay/HowToPlayPage";
 import { showTailwindDebug } from "./showTailwindDebug";
 import { CardProvider } from "./context/CardContext";
+import NotFoundPage from "./components/global/NotFoundPage";
 
 function App() {
 	const debugWindowSize = false;
@@ -25,7 +26,8 @@ function App() {
 						<Route
 							path="/howtoplay"
 							element={<HowToPlayPage />}
-						></Route>
+						/>
+						<Route path="*" element={<NotFoundPage />} />
 					</Routes>
 				</BrowserRouter>
 			</CardProvider>

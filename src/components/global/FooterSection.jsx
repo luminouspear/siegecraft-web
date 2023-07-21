@@ -60,13 +60,13 @@ const FooterSection = () => {
 				</div>
 			</div>
 			<div className="w-full py-4 bg-black">
-				<p className="text-sm text-center text-sc-off-white font-Catamaran">
+				<p className="px-8 text-sm text-center text-sc-off-white font-Catamaran">
 					© {currentYear} Arcane Arts •{" "}
 					<span className="italic font-medium ">
 						Third Dawn: Siegecraft
 					</span>{" "}
 					designed by Dan McCollum & Ben Doeckel • Card art generated
-					with Stable Diffusion • All Rights Reserved
+					with Midjourney & Stable Diffusion • All Rights Reserved
 				</p>
 			</div>
 		</div>

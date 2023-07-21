@@ -73,7 +73,7 @@ const HowToPlayDecks = (props) => {
 					style={{ opacity: imageOpacity }}
 					className="bg-cover object-cover  w-screen h-full lg:top-24   bg-[center_center] col-span-12 col-start-1 row-span-3 row-start-1 lg:row-start-1 lg:col-start-1 lg:col-span-12 lg:row-span-5"
 					src={bgImage}
-					srcSet={content.sectionBgSrcSet}
+					// srcSet={content.sectionBgSrcSet}
 					alt={content.sectionBgAlt}
 					loading="lazy"
 				/>
